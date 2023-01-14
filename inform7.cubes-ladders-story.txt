@@ -1,0 +1,2354 @@
+The story title is "Cubes and Ladders".
+The story author is "Pete Rail".
+The story headline is "An Office Adventure: Think Outside the Cubicle".
+The story genre is "Fiction".
+The release number is 6.
+The story description is "Explore the office, solve puzzles, and save Minimax Inc. from bankruptcy  without getting fired or going insane."
+The story creation year is 2022.
+
+Include Vorple by Juhana Leinonen.
+Include Vorple Multimedia by Juhana Leinonen.
+Include Vorple Notifications by Juhana Leinonen.
+Include Vorple Screen Effects by Juhana Leinonen.
+Include Vorple Status Line by Juhana Leinonen.
+
+Include Postures by Emily Short.
+Include Approaches by Emily Short.
+
+Release along with the "Vorple" interpreter.
+
+Use scoring.
+[the maximum score is ???.]
+
+[player cannot undo commands]
+Use undo prevention.
+
+A room can be scored or unscored.
+Carry out going to an unvisited scored room:
+	increment the score.
+	
+[prevent messages every time my score goes up]	
+[debugging leave it on]
+[The notify score changes rule does nothing.]
+	
+The Easy_Score_Bonus is a number variable. The Easy_Score_Bonus is 20.
+The Medium_Score_Bonus is a number variable. The Medium_Score_Bonus is 40.
+The Hard_Score_Bonus is a number variable. The Hard_Score_Bonus is 80.
+	
+The display banner rule is listed before the when play begins stage rule in the startup rules.
+Use American dialect and the serial comma.
+The display banner rule is not listed in the startup rulebook.
+
+
+
+Part 1 - Hints
+
+Understand "help [text]" or "help about [text]" as getting help about. Understand the commands "instructions" or "hint" or "hints" or "menu" or "info" or "about" as "help".
+
+Getting help about is an action applying to one topic.
+
+Carry out getting help about:
+	if the topic understood matches the regular expression "(?i)\bBOSS\b":
+		say "Your boss is an experienced project leader who is focused on getting ready for an executive meeting today. You can ask her about feedback, vacation, evaluation, company, or presentations.[line break]";
+	otherwise if the topic understood matches the regular expression "(?i)\bGUARD\b":
+		say "The in-house security guard is in charge of keeping order around the Minimax office. You can ask the guard about Minimax, cubes, intruders, security, protection or building.[line break]";
+	otherwise if the topic understood matches the regular expression "(?i)\bRAY\b":
+		say "Ray is the technical support lead at Minimax. You can ask Ray about Minimax, the helpdesk, donuts, copiers, family, or technical topics.[line break]";
+	otherwise if the topic understood matches the regular expression "(?i)\bMAX\b|(?i)\bchairman":
+		say "Max Jr. is the chairman of Minimax. You can ask him about Minimax, his father, presentations, business, death, success, or the newspaper.";
+	otherwise if the topic understood matches the regular expression "(?i)\bRICH":
+		say "Rich is a top salesman at Minimax. You can ask him about copiers, company, rumors, layoffs, golf, marketing, donuts, women, cars, office, health.[line break]";
+	otherwise if the topic understood matches the regular expression "(?i)\bcommands":
+		say "You can find the commands used in this adventure below.";
+		say "Review this list if you get stuck."; 
+		say "[line break]advance time to 12:00 PM";
+		say "[line break]ask ___ about ___";
+		say "[line break]attach ___ to ___";
+		say "[line break]climb ___";  
+		say "[line break]close ___";
+		say "[line break]connect __ to __";
+		say "[line break]disconnect ___ from ___";
+		say "[line break]drop ___";
+		say "[line break]eat ___";
+		say "[line break]enter ___";
+		say "[line break]examine ___";
+		say "[line break]exit";
+		say "[line break]get up";
+		say "[line break]give ___ to ___";
+		say "[line break]go ___";
+		say "[line break]hint ___";
+		say "[line break]insert";
+		say "[line break]jump up";
+		say "[line break]jump over ___";
+		say "[line break]kick ___";
+		say "[line break]kiss ___";
+		say "[line break]knock";
+		say "[line break]lock";
+		say "[line break]look";
+		say "[line break]move";
+		say "[line break]open";
+		say "[line break]peel ___";
+		say "[line break]push ___";
+		say "[line break]put ___ on ___";
+		say "[line break]read ___";
+		say "[line break]sit on ___";
+		say "[line break]sleep";
+		say "[line break]smell ___";
+		say "[line break]stand on ___";
+		say "[line break]stand up";								
+		say "[line break]switch off   ___";
+		say "[line break]switch on  ___";
+		say "[line break]take ___";
+		say "[line break]taste ___";
+		say "[line break]type ___ on ___";
+		say "[line break]unlock";
+	otherwise:
+		say "No hints are available for [the topic understood]."
+
+Part 2 - Begin
+
+[prevent saving or restoring]
+Check saving the game:
+	say "I don't understand that verb.";
+	stop the action.
+	
+Check restoring the game:
+	say "I don't understand that verb.";
+	stop the action.
+
+The left hand Vorple status line is "[the player's surroundings] / Score: [score]".
+The right hand Vorple status line is "[time of day]".
+	
+When play begins:
+	construct the Vorple status line with 2 columns;
+	place an image "img/corp-headquarters-2.jpg" with the description "Minimax Inc.";
+	display a notification reading "Welcome to Cubes and Ladders!";
+	say "[Bold type]Welcome to Minimax Inc., a Fortune 1000 Company[paragraph break][roman type]For the past three months, you've been working as a humble tech support agent, helping clients by resolving issues with Minimax products. [paragraph break]But today will be different. Starting at 9:00 AM, you'll explore the office for clues, mingle with coworkers, and solve a series of puzzles to keep your job while saving the business from impending bankruptcy.";		
+	say "[line break]But first, let's learn about the company's history and how you can help it survive.";
+	pause the game;
+	say "[Bold type]A Brief History of Minimax Inc.[paragraph break][roman type]Founded in 1968 by visionary scientist Max Prophet, Minimax Inc. has been a household name in electronics manufacturing for decades. By 1975, practically every modern office had a Minimax copy machine. The company grew in size and power, dominating the market and becoming a true American success story.[paragraph break]But times changed, and by the mid-1990s, Minimax Inc. had lost its way. The company became less relevant as it struggled to keep up in the highly-competitive and ever-changing electronics industry. As its influence faded, it became a weak copy of what it once was.";
+	pause the game;
+	say "[Bold type]Changes in Leadership - Max Prophet Jr. Takes Charge[paragraph break][roman type]By the time Max Prophet Sr. turned over the business to his son in 2010, Minimax Inc. was no longer a market leader.[paragraph break]With investor confidence in the company falling along with the stock price, Max Jr. made the bold decision to move away from selling copiers and into selling financial services. This was a radical departure from the company's traditional business of selling office machines, but the strategy paid off fairly well, and the company has been able to stay afloat ever since.[paragraph break]However, Minimax's former dominance has yet to return, and the company is losing money as it struggles to retain customers.";
+	pause the game;
+	place an image "img/corp-headquarters.jpg" with the description "Minimax Inc.";
+	say "[Bold type]Your Aim is To Save Your Job and To Save Minimax Inc.[paragraph break][roman type]The company is no longer regarded as innovative, and with its customer base shrinking and profits falling, the threat of job cuts is looming. This puts your job in jeopardy.[paragraph break]Some may argue that an entry-level job like yours has little influence over the fate of the company, but today is your last chance to shape the future of Minimax Inc. If you succeed, it will be the most significant day in your brief career.[paragraph break]Will you be able to restore the company's reputation for innovation and return it to profitability?[paragraph break]If you fail, it's time for you to look for greener pastures. Good luck.";
+	say "[line break]On the next page, you'll begin the challenge.";
+	pause the game;
+	place an image "img/hallway-2.jpg" with the description "Long Hallway", aligned left.
+				
+Every turn:
+	If the current action is taking inventory or the current action is looking:
+		now the time of day is 1 minute before the time of day.
+
+A weight is a kind of value. 
+10gm specifies a weight. 
+Everything has a weight.
+The verb to weigh means the weight property. 
+A thing usually weighs 1000gm.
+Definition: A thing is light if its weight is 10gm or less.
+Definition: A thing is heavy if its weight is 1000gm or more.
+
+A presentation is a kind of enterable supporter.
+Every presentation allows seated and standing. 
+A presentation is usually standing.
+A presentation is either simple or complicated. 
+A presentation is usually simple.
+The year-end report is a presentation. 
+The year-end report is simple. 
+The year-end report weighs 1000gm.
+The boss carries the year-end report.
+The description of the year-end report is "A modest, five-page presentation you prepared describing the accomplishments of Minimax Inc. for the previous year."
+Understand "draft" as the year-end report.
+
+The complex report is a presentation. 
+The complex report is complicated. 
+The complex report weighs 3000gm.
+The complex report is nowhere. 
+The description of the complex report is "The report is overflowing with buzzwords,  colorful graphs, and projections. It's a voluminous presentation explaining the year-end performance of Minimax Inc. It's substantially thicker than the original. Perfect for impressing upper management or adding inches to your height."
+Understand "revised report" as the complex report.
+Understand "improved report" as the complex report.
+
+Report entering a presentation (this is the report standing on a presentation rule):
+	say "You step up onto the report.";
+	rule succeeds.
+The report standing on a presentation rule is listed first in the report entering rulebook.
+
+[If the player needs help finding the storage room, here are directions]
+The map is nowhere.
+The map weighs 2gm.
+The description of the map is "From the breakroom, head south to CF-2, then south to CF-4, then south to CF-6, finally, east to CF-7. You should see the storage door there. Behind it, you'll find what you need to revise your presentation."
+Understand "directions" as map.
+
+[when the player gets his work done he is laid off anyway]
+The layoff memo is nowhere.
+The layoff memo weighs 2gm.
+The description of the layoff memo is "[italic type][line break]Dear Employee,[paragraph break]I regret to inform you that due to shrinking market share and increasing manufacturing costs, it has become necessary for the company to reduce its workforce. You will be separated from Minimax Inc. effective tomorrow. You will receive a generous severance package as well as job placement assistance.[paragraph break]Thank you for your contributions to the company.[paragraph break]Sincerely, Max Prophet Jr., Chairman.[roman type]"
+
+Part 3 - Global Rules
+
+Definition: a container is empty rather than non-empty if the first thing held by it is nothing.
+
+[we want to be less than obvious that a closed openable container is a container at all]
+[getting rid of the (closed) text that shows up on the donut box for example]
+[from https://intfiction.org/t/suppressing-open-and-closed-in-container-names/969/4]
+Rule for printing room description details of a closed container: stop.
+
+Rule for printing the name of a closed container (called C) while taking inventory:
+	say "[printed name of C]";
+	omit contents in listing.
+	
+[We will report devices switching on/off on our own because the default messages are weak.]
+The standard report switching off rule is not listed in any rulebook.
+The standard report switching on rule is not listed in any rulebook. 
+
+Understand "girl" or "female" as a woman.
+Understand "guy" or "chap" or "lad" or "male" as a man.
+
+Asking someone about something is speech.
+Telling someone about something is speech.
+Answering someone that something is speech.
+Asking someone for something is speech.
+Understand "talk to [someone]" as a mistake ("To start a conversation, try to ASK [the noun] ABOUT something or TELL [the noun] ABOUT something.").
+
+Instead of asking yourself about something:
+	say "You've got to stop talking to yourself."
+	
+Instead of sleeping:
+	if the player is in the Damp Tunnel:
+		say "This is no time to sleep. You have much to do.";
+	otherwise:
+		say "The steady buzz of fluorescent lighting prevents your slumber."
+
+Rule for printing the description of a dark room:
+    say "It's black as night here. You can't make progress in the dark." instead.
+
+Rule for printing the name of a dark room:
+    say "In Total Darkness" instead.
+
+Instead of showing something to someone, try giving the noun to the second noun.
+Instead of telling someone about something, try asking the noun about it.
+Instead of answering the noun that something, try asking the noun about it.
+
+[booleans]
+guardSaidDim is a truth state that varies. guardSaidDim is false.
+bossExamined is a truth state that varies. bossExamined is false.
+guardExamined is a truth state that varies. guardExamined is false.
+techieSeenReport is a truth state that varies. techieSeenReport is false.
+techieExamined is a truth state that varies. techieExamined is false.
+coworkerExamined is a truth state that varies. coworkerExamined is false.
+complexifierDead is a truth state that varies. complexifierDead is false.
+yearEndReportRuined is a truth state that varies. yearEndReportRuined is false.
+ceoExamined is a truth state that varies. ceoExamined is false.
+faxIsConnectedToTicTacToe is a truth state that varies. faxIsConnectedToTicTacToe is false.
+cardboardBoxFlat is a truth state that varies. cardboardBoxFlat is false.
+playerWaiting is a truth state that varies. playerWaiting is false.
+flashlightDead is a truth state that varies. flashlightDead is false.
+
+[Scene control]
+playerFired is a truth state that varies. playerFired is false.
+playerWon is a truth state that varies. playerWon is false.
+playerDead is a truth state that varies. playerDead is false.
+
+Adventure is a scene.
+Adventure begins when play begins.
+Adventure begins when the player is in the Hallway for the first time.
+Adventure ends when playerFired is true or playerWon is true or playerDead is true.
+	
+When Adventure ends:
+	if playerFired is true:
+		place an image "img/green-pasture.jpg" with the description "Green Pasture", aligned left;
+		now the player is in the Green Pasture;
+		say "[bold type]*** Best of Luck in Your Fast Food Career ***";
+		say "[paragraph break][roman type]In this game you scored [score] points in [turn count] turns.";
+		stop game abruptly;
+	otherwise if playerWon is true:
+		place an image "img/corner-office-8.jpg" with the description "Corner Office", aligned left;
+		now the player is in the Corner Office;
+		say "[bold type]*** You Won the Game ***";
+		say "[paragraph break][roman type]In this game you scored [score] points in [turn count] turns.";
+		stop game abruptly;
+	otherwise if playerDead is true:
+		place an image "img/final-rest-2.jpg" with the description "Graveyard", aligned left;
+		now the player is in the Final Resting Place;
+		say "[bold type]*** You Have Died ***";
+		say "[paragraph break][roman type]In this game you scored [score] points in [turn count] turns.";
+		stop game abruptly.
+
+Brightness is a kind of value. The brightnesses are dim, fading, radiant.
+The laser pointer is a device.  The laser pointer weighs 2gm.
+The description of the laser pointer is "[if switched on]A [brightness of laser pointer] green narrow beam of light is emitted from the pointer.[otherwise]A presentation pointer from our founder about the size of a ball-point pen inscribed with the initials M.P." 
+The laser pointer is switched off.
+The laser pointer has a brightness. The laser pointer is radiant.
+The boss carries the laser pointer.
+
+Instead of dropping the laser pointer:
+	if the player is in a dark room:
+		say "Better keep your hands on the laser pointer. You may need it later.";
+
+Understand "flip [something switched off]" as switching on. Understand "flip [something switched on]" as switching off. 
+
+Understand "toggle [something switched off]" as switching on. Understand "toggle [something switched on]" as switching off. 
+
+Understand the command "connect" as "attach".
+
+The block giving rule is not listed in the check giving it to rules.
+		
+Knocking is an action applying to one visible thing.
+Understand "knock on [something]" as knocking.
+Carry out knocking:
+	if the noun is a locked door:
+		say "No one answers. How sad.";
+	otherwise if the noun is an open door:
+		say "You waste your time knocking on an open door.";
+	otherwise:
+		say "Your knocking has no effect."
+	
+Kicking is an action applying to one visible thing. 
+Understand "kick [something]" as kicking.
+Carry out kicking:
+	say "You feel embarrassed by your childish impulse and decide to control yourself instead."
+
+Peeling is an action applying to one visible thing.
+Understand "peel [something]" as peeling.
+Instead of peeling something:
+	if the noun is a person:
+		say "You can't peel a person.";
+	otherwise:
+		say "You try to peel [noun] but soon realize it's futile."
+
+Pointing it at is an action applying to two things.
+Understand "point [something] at [something]" as pointing it at.
+
+Check pointing it at:
+	if noun is the laser pointer:
+		if laser pointer is switched on:
+			if second noun is a person:
+				say "You reconsider pointing the laser at [second noun].";
+			otherwise if the second noun is the maintenance compartment and the maintenance compartment is closed:
+				say "The laser easily removes the rusted screws and the compartment opens.";
+				now the maintenance compartment is open;
+			otherwise:
+				say "The narrow green beam of light has no effect on [second noun].";
+		otherwise:
+			say "Waving the switched-off laser casts no light and makes you look like a drunken orchestra conductor.";
+	otherwise:
+		say "Pointing [noun] at [second noun] has no effect."	
+			
+Instead of tasting something:
+	if the noun is a person:
+		say "You reconsider such a career-ending action.";
+	otherwise:
+		continue the action.
+		
+A thing has some text called the scent.
+Definition: A thing (called the odor-bearer) is smelly if the scent of the odor-bearer is not "".
+
+Instead of smelling something:
+	if the noun is a person and the noun is smelly:
+		say "[noun] [scent of the noun].[paragraph break]";
+	otherwise if the noun is smelly:	
+		say "The [noun] [scent of the noun].[paragraph break]";
+	otherwise if the noun is the player:
+		say "You smell ordinary. Work on it.";
+	otherwise:
+		say "It smells like an ordinary [noun]."
+		
+Instead of smelling a room:
+	let L be the list of smelly things enclosed by the location;
+	if L is empty:
+		say "You smell nothing unexpected.";
+	otherwise:
+		say "You smell [a list of smelly things enclosed by the location]." 
+
+The description of the player is "Your name is Jordan Michael and you've always had a penchant for puzzles and adventures. Although you've earned degrees from prestigious institutions such as Harvard, Columbia, and Lake Region Junior College, you rely primarily on your street smarts, which you developed while traveling the world to unsavory places such as Tehran, Kabul, and Plano.[paragraph break]You've been working as a humble tech support agent at Minimax Inc. for the past three months, assisting customers by troubleshooting office products.[paragraph break]It has become clear to you that Minimax Inc. is struggling to remain in business."
+
+After examining player:
+	try taking inventory.
+
+Instead of kissing the noun:
+	say "You reconsider such a career-ending action."
+
+
+A chair is a kind of enterable supporter. A chair weighs 10000gm.
+Every chair allows seated and standing. 
+The posture of a chair is usually seated.
+A chair has a number called the actor carrying capacity.
+The actor carrying capacity of a chair is usually one.
+Check an actor entering a chair when the number of people on the noun is at least the actor carrying capacity of the noun:
+	say "[The list of people on the noun] [are] already sitting there." instead.
+
+Hanging around until is an action applying to one time.
+
+Check hanging around until:
+	if the time of day is the time understood, say "It's [time understood] now!" instead;
+	if the time of day is after the time understood, say "It's too late for that now." instead.
+
+Carry out hanging around until:
+	now playerWaiting is true;
+	while the time of day is before the time understood:
+		follow the turn sequence rules;
+	now playerWaiting is false.
+
+Report hanging around until:
+	say "You yawn until [time understood]."
+
+Understand "wait until [time]" as hanging around until.
+Understand "advance time to [time]" as hanging around until.
+
+[edit and revise]
+Editing is an action applying to one object and requiring light. 
+Understand "edit [something]" as editing.
+Check editing:
+	if the noun is not a presentation:
+		say "[The noun] is not something you can edit.";
+		stop the action.
+
+Report editing: say "You edit [the noun] and hope it's somehow better.";
+
+Understand "revise [something]" as editing.
+	
+Part 5 - Cubicle
+
+Before going to Your Cubicle:
+	if the boss is on the office chair:
+		place an image "img/your-cubicle-boss-e.jpg" with the description "Your cubicle with boss", aligned left;
+	otherwise:
+		place an image "img/your-cubicle.jpg" with the description "Your cubicle.", aligned left.
+	
+Your Cubicle is a room. "A simple Formica-topped desk and rolling chair sit in a dull gray cubicle. [if the player can see the boss][paragraph break]Your boss is sitting impatiently in your office chair.[otherwise][end if] There's a hallway to the east and a cube farm to the southeast."
+Your Cubicle is scored.
+
+Your desk is in Your Cubicle.
+Your desk is an enterable supporter. 
+Your desk is fixed in place. 
+Your desk weighs 20000gm.
+The description of your desk is "A sturdy work area just for you."
+Your desk is scenery.
+	
+The office chair is a chair. It is pushable between rooms.
+The posture of the office chair is usually seated.
+The office chair is in Your Cubicle.
+The description of the office chair is "A comfortable rolling office chair with a mesh back and a thick padded seat."
+
+Understand "rolling chair" as the office chair.
+Understand "cubicle" as your desk.
+
+Every turn:
+	if the player is in Your Cubicle:
+		if the player can see the boss for more than 12 turns:			
+			say "[line break]'Let's discuss the year-end report you prepared.'";
+			say "[line break]She sighs as she flips through the pages of the year-end report and shakes her head, unimpressed.";
+			say "[line break]'It seems thin. We can't present this in its current state. You're going to have to improve it for the executive meeting today,' she says.";
+			say "[line break]'I've written some notes for you on this evaluation sheet.'";
+			say "[line break]She slides the report across the desk to you like she just handled something radioactive.";
+			now the player has the year-end report;
+			say "[line break]'Bring your finished report to me in the executive conference room by noon, and keep in mind that the chairman is 'old school' and prefers his presentations to be printed. The thicker the better.'";
+			say "[line break]She hands you the evaluation sheet and leaves.";
+			now the player has the evaluation sheet;
+			now the description of the evaluation sheet is "The evaluation sheet is not positive. You notice the fail box is checked in red ink.[paragraph break]The notes read: [line break]1. Step up to the plate, take this report to the next level and make it a paradigm shift to a win-win![line break]2. Writing for executives needs more elaboration and punch.[line break]3. Vocabulary is too simplistic.[line break]4. Some grammar errors in work.[line break]5. Worst of all, you confused our mission statement with our vision statement.[paragraph break]Seriously, get it across the finish line by noon. I'll be in the executive conference room until then.";
+			now the boss is in the Conference room;
+			now bossExamined is false;
+			increase the score by Easy_Score_Bonus.
+	
+Instead of taking the office chair:
+	say "It's too heavy to lift, but maybe you can push it in a direction.";
+	
+After standing up on the office chair:
+	say "That's not a steady platform. Be careful.";
+	
+After getting off the office chair:
+	say "Whew, that was wobbly.";
+
+After going a direction (called way-pushed) with something (called the thing-pushed):
+	say "You push [the thing-pushed] [way-pushed] to [the location].";
+	try looking.
+
+Instead of going to Your Cubicle for the first time:
+	now the player is in Your Cubicle;
+	say "Your boss says, 'Good morning, Jordan. You're late.'"
+	
+Before pushing the office chair:
+	if second noun is nothing:
+		say "You must say which direction to push the chair.";
+		stop the action.
+		
+The boss is a woman. "Your boss is [one of]glaring[or]smirking[then at random] at you with [one of]suspicion[or]disappointment[or]mild contempt[at random]."
+The scent of the boss is "smells like floral soap, leather, dust, and bitterness".
+The indefinite article of the boss is "your".
+The boss is on the office chair. The boss is seated.
+Before switching on the laser pointer when the player can see the boss:
+	say "The boss is annoyed. 'Hands off my stuff, kid.'";
+	stop the action;
+
+The description of the boss is "Years of stressing over project deadlines have earned her worry lines and a reputation as an exacting micromanager."
+	
+After examining the boss:
+	say "Your boss [one of]impatiently twiddles a pointer between her fingers[or]smirks at you in an unnerving fashion[or]ignores you[or]looks nervous and bored[then at random].";
+	say "She [the scent of the boss].";
+	say "She has [a list of unconcealed things had by the noun].";
+	if bossExamined is false:
+		if the boss has the complex report:
+			do nothing;
+		otherwise:
+			say "[line break]Pointing to the evaluation sheet, she says, 'We need to discuss your performance, Jordan.'";
+	now bossExamined is true;
+
+Before giving something to the boss:
+	if the noun is edible:
+		say "Your boss is not in the mood for a bribe and refuses the treat.";
+		stop the action;
+	otherwise if the noun is not a presentation:
+		say "Your boss isn't interested in [the noun].";
+		stop the action;
+	otherwise:
+		continue the action.
+	
+Before going from Your Cubicle:
+	if the boss can be seen by the player:
+		say "'Oh, before you run off,' says your boss, holding up a presentation. 'I have feedback for you.'";
+		say "[line break]'Let's discuss the year-end report you prepared.'";
+		say "[line break]She sighs as she flips through the pages and shakes her head, unimpressed.";
+		say "[line break]'It seems thin. We can't present this in its current state. You're going to have to improve it for the executive meeting today,' she says.";
+		say "[line break]'I've written some notes for you on this evaluation sheet.'";
+		say "[line break]She slides the report across the desk to you like she just handled something radioactive.";
+		now the player has the year-end report;
+		say "[line break]'Bring your finished report to me in the executive conference room by noon.'";
+		say "[line break]'Remember, the chairman is 'old school' and requires his presentations printed. The thicker the better.'";
+		say "[line break]She hands you the evaluation sheet and leaves.";
+		now the player has the evaluation sheet;
+		now the description of the evaluation sheet is "The evaluation sheet is not positive. You notice the fail box is checked in red ink.[paragraph break]The notes read: [line break]1. Step up to the plate, take this year-end report to the next level and make it a paradigm shift to a win-win![line break]2. Writing for executives needs more elaboration and punch.[line break]3. Vocabulary is too simplistic.[line break]4. Some grammar errors in work.[line break]5. Worst of all, you confused our mission statement with our vision statement.[paragraph break]Seriously, get it across the finish line by noon. I'll be in the executive conference room until then.";
+		now the boss is in the Conference room;
+		now bossExamined is false;
+		increase the score by Easy_Score_Bonus;
+		stop the action;
+	otherwise:
+		continue the action.
+				
+The boss is carrying an evaluation sheet and a red pen. The description of the evaluation sheet is "A standard pass/fail reprimand sheet. You can see your name circled at the top and the fail box is checked in red ink."
+The red pen weighs 50gm.
+Instead of examining the pen: 
+   say "'Boss of the year 2022' is engraved on the pen in large proud letters."
+
+Instead of standing up on the desk:
+	say "That isn't sturdy enough to hold you."
+	
+A stale double-stuff Oreo is on the desk. 
+The Oreo is edible. 
+The description of the Oreo is "Just begging to be eaten, it's a delicious sandwich cookie consisting of two simulated chocolate wafers surrounding a sicky-sweet gooey filling."
+The Oreo weighs 2gm.
+the scent of the Oreo is "has a borderline rancid odor".
+Understand "cookie" as Oreo.
+After taking the Oreo, say "You pick up the yummy snack."
+
+[to prevent the player from eating the orea immediately we stop him from eating it. ]
+[We would rather have him giving it away as a bribe later]
+
+Instead of eating the Oreo:
+	if player has the oreo:
+		do nothing;
+	otherwise:
+		try taking the oreo;
+	say "The Oreo is too stale for your taste, so you don't even try a nibble.";
+	stop the action.
+
+After asking the Boss about something:
+	if the player is in Your Cubicle:
+		if the topic understood matches the regular expression "(?i)\bpresentation|(?i)\breport|advice|recommend":
+			say "After [one of]a thoughtful pause[or]an audible sigh[or]a visible smirk[or]a far-off stare[at random], she says, 'I found your first draft to be weak. You need to be laser-focused on reworking it before lunch.'";
+		otherwise if the topic understood matches the regular expression "(?i)\bhi\b|(?i)\bhello\b|good morning":
+			say "She replies a little annoyed, 'Yes, of course. Good morning. Now let's get to work.'";
+		otherwise if the topic understood matches the regular expression "(?i)\blaser|(?i)\bpointer":
+			say "She smiles and says, 'It's a prized possession of mine. It's something Max Sr. gave me years ago before his unfortunate accident. It still works great after all these years.'";
+		otherwise if the topic understood matches the regular expression "(?i)\bminimax|(?i)\bcompany":
+			say "She seems rushed, and says, 'Our share of the U.S. copier business has declined to less than 10% under the weight of cheap machines from Japan. Max Jr. is leading us into financial services instead. That's where our opportunity lies. Keep up, kid.'";
+		otherwise if the topic understood matches the regular expression "(?i)\bsheet\b|(?i)\bevaluation":
+			say "After a [one of]thoughtful pause[or]audible sigh[or]visible smirk[or]far-off stare[at random], she says, 'Let's just say there's room for improvement.'";
+		otherwise if the topic understood matches the regular expression "(?i)feedback|(?i)performance":
+			say "After a heavy sigh, she says, 'You need to ask yourself if you're giving Minimax your best, kid. Work on it. We need more innovation from you.'";
+		otherwise if the topic understood includes "vacation":
+			say "She says, 'If you fail, you can go on a permanent vacation, kid.'";
+		otherwise if the topic understood includes "chair":
+			say "She says, 'You can have the chair back when I'm done here, kid.'";
+		otherwise:
+			say "She says, [one of]'That seems out of scope to me. Let's get back on topic.'[or]'Let's take that offline.'[at random]";
+	otherwise:
+		say "Your boss is too engrossed in reviewing charts and graphs to notice you.";
+
+Every turn when the player can see the boss for more than one turn and playerWaiting is false:
+	say "Your boss [one of]says, 'Net-net, Minimax is a great place to work.'[or]locks eyes with you and says, 'Remember, we have to think outside the box.'[or]awkwardly puts her hand on your shoulder and says, 'My door is always open.'[or]sighs wistfully as she checks her watch. [or]says, 'There's no I in team.'[or]says, 'Seriously, you need to work smarter not harder.'[or]points her finger at you and says, 'At the end of the day we need to grab the low-hanging fruit.'[or]says, 'It is what it is.'[or]says, 'Remember, failure is not an option.'[or]says, 'Remind me to pick your brain later.'[or]says, 'We're looking for you to bring your whole self to work each day.'[or]says, 'Going forward, we need to put a pin in it.'[or]says, 'If we take it to the next level, our results will be legendary, actionable, and value-add.'[or]sighs and says, 'I really don't have much bandwidth until you get your ducks in a row.'[or]says, 'Teamwork makes the dream work. I love that!'[or]says, 'Several projects in the pipeline will have us burning the candle at both ends.'[or]says, 'If we push the envelope, it's a win-win.'[or]says, 'We have to break down silos and complete action items to reduce pain points.'[or]says, 'I think we can agree that you need to scale up, increase transparency, and embrace change through enterprise thought leadership.'[or]says, 'When your plate is full you need to move the needle and embrace a paradigm shift.'[then at random]"
+
+Instead of editing the year-end report:
+	say "You realize this is a daunting task and your time would be better spent exploring the office or asking a coworker for advice.";
+	stop the action.
+	
+Working on is an action applying to one visible thing. 
+Understand "work on [something]" as working on.
+Carry out working on:
+	say "You consider working on [the noun] but think [one of]exploring[or]looking around[at random] the office might be [one of]a more fruitful[or]a better[or]a superior[or]a more efficient[at random] use of your time."
+	
+Improving is an action applying to one visible thing.
+Understand "improve [something]" as improving.
+
+Instead of improving something:
+	try working on the noun.
+	
+At 11:59 AM:
+	now Max is in the Conference Room;
+	if the boss has the complex report:
+		do nothing;
+	otherwise:
+		clear the screen;
+		if Your Cubicle is visited:  [it's possible player never went to his cube so change msg]
+			say "[paragraph break]Unfortunately, you failed to deliver your revised year-end presentation to your boss on time.[paragraph break]You missed the deadline, and now you're fired.";
+		otherwise:
+			say "[paragraph break]Unfortunately, you missed a critical 9:00 AM meeting with your boss, and now you're fired.";
+		now playerFired is true.
+
+At 11:00 AM:
+	if the boss has the complex report:
+		do nothing;
+	otherwise if the player has the evaluation sheet:
+		say "[line break]You review your evaluation sheet and remember that your boss wants you to revise the report and deliver the final version to her in the executive conference room by noon.";
+		say "[line break]You have one hour to make that happen.";
+		try examining evaluation sheet;
+	otherwise:
+		do nothing;  [wait to get fired, loser]
+			
+At 5:00 PM:
+	clear the screen;
+	say "[paragraph break]Unfortunately, you failed to save your job in time and Minimax Inc. will certainly fail as its reputation and profitability slip lower over the coming months.";
+	now playerFired is true.
+	
+Part 6 - Hallway
+
+The player is in the Hallway.
+
+Before going to The Hallway:
+	place an image "img/hallway-2.jpg" with the description "Long Hallway", aligned left.
+	
+The Hallway is east of your cubicle. "You're in a long corridor. To the east is a helpdesk. Your cubicle is to the west. To the south, you can smell the breakroom."
+
+
+Part 7 - Breakroom
+
+Before going to The Breakroom:
+	if Rich is in the breakroom:
+		place an image "img/breakroom-5.jpg" with the description "Rich in the Breakroom", aligned left;
+	otherwise:
+		place an image "img/breakroom.jpg" with the description "Empty Breakroom", aligned left;
+	
+The Breakroom is a room. "The stale odor of coffee grounds permeates the air. Hallways lead north and east. You can see long rows of cubicles to the south."
+The Breakroom is south of the Hallway. 
+The Breakroom is scored.
+
+Rich is a man in the Breakroom. "Rich, who won Minimax salesman of the year two years ago, [one of]is delighted to see you[or]greets you with a wide smile[at random]." 
+The description of Rich is "He's an old-timer and chief sales rep at Minimax Inc." 
+Rich is wearing a tight button-down shirt.
+The description of the button-down shirt is "It's a blue shirt monogrammed with the company logo. Too many sales lunches have left it taut across his wide belly."
+The description of the logo is "A distinctive graphic symbol that identifies Minimax Inc."
+The logo is undescribed.
+
+The scent of Rich is "smells of bourbon, cigarette smoke, and adrenaline".
+The indefinite article of Rich is "Everyone's pal".
+	
+After examining Rich:
+	say "Rich has [a list of unconcealed things had by the noun]. He [scent of the noun].";
+	if coworkerExamined is false:
+		say "[line break]Looking around nervously, he says, 'We need to discuss the layoff rumors I've been spreading.'";
+	now coworkerExamined is true;
+	
+Instead of asking Rich for something:
+	say "Rich [one of]has better things to do[or]ignores you[or]seems distracted[at random]."
+	
+Before giving anything that is not the baseball cap to Rich:
+	if the noun is something edible:
+		say "'No thanks. I'm more of a donut and bourbon guy,' he says.";
+	otherwise if the noun is the year-end report:
+		say "Rich looks unimpressed and says, 'Looks a little thin, kid. Where's the beef?'";
+		say "Handing the report back to you, he lowers his voice and whispers furtively, 'If I were you, I'd run it through the old complexifier.'";
+	otherwise if the noun is the complex report:
+		say "Rich looks impressed and says, 'Wow. That's more like it, kid.'";
+		say "'A presentation that thick should keep you off the layoff list for sure!'";	
+	otherwise if the noun is the evaluation sheet:
+		say "Rich looks concerned and says, 'Looks like bad news for you, kid. You better hit a home run with this report or your job will be outsourced faster than you can say Bangalore.'";
+	otherwise if the noun is the KISS mug:
+		say "Rich turns the mug over in his hands and says,  'Too bad. I've got a million of these, kid. What else have you got? I love collecting old branded Minimax stuff.'";
+		say "He hands the mug back to you, uninterested.";
+	otherwise if the noun is the KICK water bottle:
+		say "Rich examines the bottle and laughs, 'No thanks, kid.'";
+		say "He hands the bottle back to you, uninterested.";
+	otherwise if the noun is the Complexity Sticker:
+		say "Rich glances at the sticker but isn't interested.";
+	otherwise if the noun is the marketing brochure:
+		say "Rich smiles and happily takes the brochure saying, 'Thanks, kid. I knew these party girls back in the day. I think they're probably all old hags by now. I'm going to put this up in my cubicle to remind me of the good times at Minimax.'";
+		now Rich has the marketing brochure;
+	otherwise if the noun is the Bronze Key:
+		say "Rich studies the tag hanging off the key and says, 'This must be the key to the Department of Complexity storage area. That room hasn't been used since we decommissioned the Complexifier years ago.'";	
+	otherwise if the noun is the Silver Key:
+		say "Rich studies the key thoughtfully and says, 'That's a fancy key, kid. I think it opens the marketing storage room beyond the cube farm. That room used to be full of company merchandise until I took all the best bits and they banned me.'";
+	otherwise:
+		say "Rich says, [one of]'No thanks, kid.'[or]'Nah.'[or]'Nothing I care about, kid.'[at random]";
+	stop the action. 
+
+Before giving the baseball cap to Rich:
+	say "Rich smiles gratefully, slips the cap onto his head, and slaps you on the back.";
+	say "[line break]'Thanks, Rookie! I haven't seen one of these team caps in years. They're definitely collector's items now.'";
+	say "[line break]Rich struts down the hallway showing off his new cap.";	
+	[now everything carried by Rich is in the breakroom;]
+	now Rich wears the baseball cap;
+	now Rich is nowhere;
+	increase the score by Medium_Score_Bonus;
+	stop the action.
+
+Every turn when the player can see Rich for more than two turns and the player has the baseball cap:
+	say "Rich notices your baseball cap and [one of]bounds up to[or]approaches[at random] you like[one of] an eager puppy[or] a kid on Christmas morning[or] a jungle predator[at random].";
+	say "'Hey, kid, that's [one of]an unusual[or]a cool[at random] cap you've got there.'"; 
+	say "'Let me [one of]check it out[or]try it on[or]have a look[at random].'";
+	[try giving the baseball cap to Rich;]
+	continue the action.
+	
+The pastry box is a closed container. 
+Understand "donut box" as the pastry box.
+Understand "donuts" as the pastry box.
+Understand "box" as the pastry box.
+The pastry box is in the breakroom.
+The pastry box is fixed in place and openable.
+The description of the pastry box is "Ahh, assorted donuts. These soft and sticky treats are the ideal incentive for employees to come to the office. "
+
+[the obvious way of storing the donut in the box turned out to suck]
+[Inside the pastry box is the donut. ]
+The donut is in the breakroom. The donut is undescribed.
+The description of the donut is "You can't see the donut, but you somehow know it's nestled in the pastry box. For now, you can only sense its greasy goodness.";
+
+Instead of taking the donut:
+	if the pastry box is not open:
+		say "It's hidden in the pastry box and cannot be taken.";
+		stop the action;
+	otherwise:
+		say "You grab the greasy donut at last.";
+		now the player has the donut;
+		stop the action.
+		
+The donut is edible. The donut weighs 2gm.
+
+Instead of eating the pastry box:
+	say "The donuts remain tucked away in the pastry box.";
+	stop the action.
+		
+Instead of eating the donut:
+	if the pastry box is open: 
+		say "The slightly rancid odor makes you gag and prevents you from consuming the treat.";
+	otherwise:
+		say "You'd like a bite, but the donut remains elusive, stuck in a secure pastry box.";
+	stop the action.
+		
+Instead of tasting the donut: 
+	say "The odor reminds you of stinky feet, so you reconsider even a nibble."
+
+Instead of taking the pastry box:
+	say "The sticky pastry box is wedged firmly to the counter and cannot be dislodged.";
+	stop the action.
+		
+Before opening the pastry box:
+	if Rich can be seen by the player:
+		say "Rich [one of]blocks your way, [or]guards the donuts, [at random][one of]'Donuts are for closers only, kid.'[or]'Me and donuts are a thing.'[or]'I can tell you've been working out. Don't ruin it.'[or]'I hear pay cuts are coming our way. Good thing we've got donuts and I'm on commission.'[or]'We need to play racketball to work off my gut, and soon.'[or]'You got any company merch for me?'[or]'You gotta earn it.'[or]'You don't need all that sugar and fat or soon you'll look like me around the middle.'[or]'You gotta earn it, kid.'[or]'Donuts are rocket fuel for the soul. Don't you agree?'[or]'Donuts and coffee are my primary food groups.'[or]'Life is not about the weight you lose but about the donuts you gain.'[or]'My doctor says I need to consume several of these per hour or I'll die.'[then at random]";
+		stop the action;
+	otherwise:
+		say "At last, you open the pastry box.";
+		continue the action.
+		
+After opening the pastry box:
+	now the description of the donut is "The last remaining ring-shaped piece of sweet fried dough. Too bad it has a bite taken out of it.";
+	now the scent of the donut is "smells like an over-sweet mildewed rag".
+					
+A label is in the breakroom.
+The description of the label is "The fine print says, 'Use only Red Herring brand coffee filters in this unit.'".
+The label is undescribed.
+The label is fixed in place.
+	
+The coffeemaker is in the breakroom. 
+The coffeemaker is a device. 
+The coffeemaker is switched off. 
+The scent of the coffeemaker is "smells like burned coffee grounds and broken dreams".
+The coffeemaker weighs 5000gm.
+The description of the coffeemaker is "Bone dry. Apparently, it was good to the last drop. You notice a small label on the pot."
+The coffeepot is in the breakroom. the coffeepot is undescribed. 
+The description of the coffeepot is "Bitter dregs."
+Understand "coffee maker" as coffeemaker.
+Understand "coffee pot" as coffeepot.
+Understand "pot" as coffeepot.
+	
+Report switching off the coffeemaker:
+	say "You switch off the coffeemaker.";
+	
+Instead of taking the coffeepot:
+	say "Rich blocks your way, 'Whoa, cowboy. You can't take that.'";
+	
+The block drinking rule is not listed in any rulebook.
+A thing can be drinkable. A thing is usually not drinkable.
+
+Check drinking:
+	if the noun is not drinkable:
+		say "[The noun] [are] not drinkable.";
+		stop the action.
+
+Before drinking the coffee:
+	if the coffeemaker is switched off:
+		try switching on the coffeemaker.
+		
+Report drinking:
+	say "You slurp down [the noun]. Refreshing!"
+
+The coffee is drinkable.
+The coffee is in the breakroom. The coffee is undescribed.
+The description of the coffee is "It's not exactly a gourmet blend, but it will do."
+The coffee weighs 5gm.
+
+Brewing is an action applying to one visible thing.
+Understand "brew [something]" as brewing. 
+
+Making is an action applying to one visible thing.
+Understand "make [something]" as making.
+
+Carry out brewing:
+	if the noun is coffee:
+		say "Ahhh. Soon the coffee brews into precious jitter juice.";
+		now the description of the coffeepot is "A full pot of joe.";
+	otherwise:
+		say "You can't brew that.";
+		
+Carry out making:
+	if the noun is coffee:
+		try switching on the coffeemaker;
+	otherwise:
+		continue the action.
+		
+Instead of eating the coffee:
+	try drinking the coffee.
+	
+Instead of taking the coffee:
+	try drinking the coffee.
+	
+Before taking the coffeemaker:
+	say "Coffee is for closers only. Anyway, the coffeemaker is firmly stuck to the countertop and cannot be dislodged.";
+	stop the action.
+	
+Instead of switching on the coffeemaker:
+	say "You activate the coffeemaker.";
+	now the coffeemaker is switched on;
+	try brewing the coffee;
+	stop the action.
+
+After brewing the coffee:
+	now the description of the coffeemaker is "Full Pot. Enjoy."
+	
+Every turn when the player can see Rich and coworkerExamined is true and playerWaiting is false:
+	say "Rich [one of]looks bored and begins to walk around the breakroom.[or]says, 'At the end of the day, Minimax is still a great place to work.'[or]locks eyes with you and says, 'Remember, we have to think outside the box--The donut box!'[or]shakes your hand firmly and with piercing eye contact says, 'Just remember, my door is always open for you...because since that last reorganization, I'm in a damn cubicle!', and laughs.[or]sighs wistfully as he checks his watch. [or]says, 'Whoever said there's no me in 'team' doesn't know how to spell.'[or]nods knowingly and says, 'Profits this quarter, kid. Am I right?'[or]Smiles sympathetically and says, 'Did I mention I'm driving a new BMW? What kind of beat-up Hyundai are you driving, kid?'[or]laughs nervously and says, 'You didn't hear it from me, but there's an executive meeting at noon today all about downsizing, and my gut could use some downsizing!'[or]says, 'The high-level view of our future may look small, but if we drill down on it, we're still screwed.'[or]whispers in confidence, 'To be honest with you, I know nothing about our products.'[or]looks at you profoundly and says, 'At the end of the day, sales is my life, kid.'[or]says, 'We should get tacos sometime. I'll ping you later in the week.'[or]looks confused and says, 'We gotta work harder not smarter.'[or]grins and says, 'Hey, remember our Minimax motto: We may be slow, but we do lousy work!'[then at random]"
+	
+After asking Rich about something:
+	if the topic understood matches the regular expression "(?i)\bminimax|\bcompany|\bbusiness":
+		say "After a [one of]thoughtful pause[or]audible sigh[or]visible smirk[or]far-off stare[at random], he says, 'Things were better around here when Max Sr. was leading Minimax. We've lost a lot of customers since his kid took over the business, and we're in big trouble now. His idea of selling financial services isn't working. The soul of Minimax has always been office machines, and we should get back to that. But that's just one old copier salesman's opinion.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bhi\b|(?i)\bhello\b|good morning":
+		say "He replies, [one of]'Hey, kid.'[or]'Good morning fellow Minimaxer!'[at random]";
+	otherwise if the topic understood matches the regular expression "copier|salesx |product":
+		say "He says, 'I used to meet my annual sales goal by the end of February, but now I struggle all year. The customers are just smarter now.'";
+	otherwise if the topic understood matches the regular expression "vacation|rumor|meeting":
+		say "He says, 'I hear layoffs are coming and we might all have a long vacation...if you know what I mean. I hear there's an executive meeting at noon today all about downsizing.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bbourbon|booze":
+		say "He whispers, 'You know what goes with coffee and donuts? Bourbon!'";
+	otherwise if the topic understood matches the regular expression "(?i)\bboss|\blayoff|\bdownsiz":
+		say "After an audible sigh, he says, 'The boss says we've got nothing to worry about as long as we haven't received a negative evaluation this year. So don't make any major purchases, kid. Some of us won't get a Christmas this year.'";
+	otherwise if the topic understood matches the regular expression "golf|racketball":
+		say "Rich says, 'Golf and racketball are great games for closing deals. Over the years I've learned to lose convincingly to clients and it paid off in more sales. Who says salesmen aren't smart?'";
+	otherwise if the topic understood matches the regular expression "merch|trinket|collectibles|brand|marketing":
+		say "Rich says, 'Marketing is nothing but lies and alcohol. I love to collect old Minimax-branded items. You got any?'";
+	otherwise if the topic understood matches the regular expression "(?i)\bcomplexifier|(?i)\bcomplexity":
+		say "Rich says, 'I'm sure you'll find what you're looking for if you can navigate your way through the cube farm. You can get lost in there.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bdonut|(i?)coffee":
+		say "Rich says, 'It's pretty picked over today. You gotta get in early, kid. They used to buy us two boxes of donuts, but now only one. We're in trouble, dude.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bwife|(i?)wives|women|woman":
+		say "Rich says, 'The women just can't keep up with me for long. I'm good at building rapport but I can't seem to close the deal.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bbmw|(i?)\bcar":
+		say "Rich says, 'You know the best thing about driving a BMW? I can drive like a reckless asshole and park anywhere, even in handicapped spaces. It's totally acceptable.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bbelly|(i?)\bgut|health":
+		say "Pointing to his belly, he says, 'You know it's taken years of training to develop these muscles? The ladies love it.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bcubicle|(i?)\boffice":
+		say "Rich says, 'In the old days I had a private office and it was great. But with us all in cubicles now, I find it hard to enjoy my afternoon nap in peace.'";
+	otherwise:
+		say "He says, [one of]'To be honest with you, I'm not authorized to provide that information.'[or]'I'll have to circle back with you on that.'[or]'Lets table that for later.'[or]'Candidly, that's too technical for me. I'm in sales.'[or]'I have to circle back with marketing before a hard stop at noon.'[or]'I've probably already said too much about that.'[or]'I love collecting old Minimax-branded items. You got any?'[at random]";
+		
+After taking the donut when the donut is not handled:
+	increase the score by Easy_Score_Bonus.
+	
+Part 8 - Helpdesk
+
+Before going to the Helpdesk:
+	if Ray is in the Helpdesk:
+		place an image "img/helpdesk-f.jpg" with the description "Helpdesk", aligned left;
+	otherwise:
+		place an image "img/helpdesk-empty-a.jpg" with the description "Empty Helpdesk", aligned left.
+
+The plural of manual is manuals.
+
+The Helpdesk is east of the hallway.  "A heavy pile of outdated tech manuals sits behind an oversized coffee-stained desk. A long hallway leads west."
+The Helpdesk is scored.
+The coffee-stained desk is a thing in the Helpdesk.
+The coffee-stained desk is scenery. 
+The description of the coffee-stained desk is "It's a beaten-up vintage desk. Even an electric sander wouldn't remove the layers of coffee ring build-up."
+
+In the Helpdesk is a man called Ray. The indefinite article of Ray is "Lead techie."
+The description of Ray is "Ray is an aging engineer who has worked in Minimax tech support for nearly twenty years. He [if the player has been in the helpdesk for 4 turns]looks bored[otherwise]is flipping excitedly through a technical journal and murmuring to himself[end if]."
+Ray is wearing a faded Simpson's T-Shirt and a shaggy gray beard.
+The scent of Ray is "smells of yellowing paper and coffee breath".
+Ray is carrying old manuals. 
+The description of the old manuals is "Stacks of well-worn technical manuals are spread haphazardly across the shelves."
+
+After examining Ray:
+	say "[The noun] has [a list of unconcealed things had by the noun].";
+	now techieExamined is true.
+	
+After asking Ray about something:
+	if the topic understood matches the regular expression "(?i)\bMinimax|(?i)\bcompany":
+		say "After [one of]a long pause[or]an audible belch[or]a disapproving smirk[or]a far-off stare[at random], he says, 'With all the layoffs, Minimax is getting to be a ghost town. I used to love working here, but we're failing fast. You should be planning your exit, newbie.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bhelpdesk\b|(?i)\bmanual|(?i)\bjob":
+		say "After a [one of]deep thought[or]audible belch[or]second or two[or]far-off stare[then at random], he says, 'Tech support is a scam, newbie. It's too late for me, but you could still be somebody. Why are you still working here?'";
+	otherwise if the topic understood matches the regular expression "(?i)\bIBM|360":
+		say "After a second or two, he says, 'In the old days, IBM was always willing to take a chance and try something new. Just like Minimax is trying with financial services. We should be supporting Max Jr. even though he's a weak copy of his old man. The 360 was magnificent. It has to be one of the all-time top business accomplishments, along with the Ford Model T, Boeing's 707 jet, and the Minimax Complexifier.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bdonut|(?i)\boreo|(?!)\bsnack\b":
+		say "He says, 'Tech support is exhausting. I could use a snack.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bcopier|(?i)\bcomplexifier":
+		say "He says, 'The CX74 was an old machine we built back in the 70s. It was a dilly of a copier and we sold a million.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bwife|(?i)\bwives|\bfamily":
+		say "He says, 'I've been married a few times, but never loved any of them more than my Linux server.'";
+	otherwise:
+		say "He says, [one of]'You remind me of me when I was your age. Wake up and smell the coffee, newbie.'[or]'I enjoy the hum of a well-tuned Linux server more than talking to you.'[or]'Surely you serve some function here besides wasting my time.'[or]'I would have less stress if you whiners would just read the documentation.'[or]'I'm pretending you're part of a poorly executed computer simulation.'[or]'I'd rather be abducted by aliens than continue this conversation.'[then at random]";
+		
+Understand "manual" as old manuals.
+Understand "trapdoor" or "shelves" as the bookcase.
+
+The bookcase is below the helpdesk and above the Damp Tunnel.
+The bookcase is a door. 
+The bookcase is closed and not openable.
+
+[The opening doors before entering rule does nothing when the bookcase is closed.]
+
+Instead of going down when the bookcase is closed:
+	say "You can't go that way."
+The description of the bookcase is "A pile of old IBM 360 manuals rests heavily on the shelves, the pages yellowed with age."
+	
+Understand "helpdesk" as desk.
+	
+Instead of opening the bookcase:
+	say "It isn't something you can open."
+	
+Every turn when the player can see Ray and techieExamined is true and playerWaiting is false:
+	say "Ray [one of]stares at you blankly.[or]continues to study an arcane technical manual.[or]meets your gaze and says 'The old IBM System 360 was a hell of a ride.'[or]says, 'USB is the best kind of connector. It changed my life.'[or]rubs his fat gut absentmindedly and returns to his reading.[or]says, 'Minimax was a company to be proud of.'[or]tears up and whispers, 'Most of all I miss rebooting Windows 98.'[or]disappointedly says, 'This place is a den of vipers. I would retire but I've got three ex-wives and a hardware habit to support.'[or]says, 'I could automate your entire function with a one-line Perl script, newbie.'[or]mumbles, 'Are you still here? You're an annoyware virus, newbie.'[or]says, 'You know I'm realizing I'm nothing but a code monkey around here.'[or]says, 'Object Oriented programming is overrated sheepdip.'[then at random]"
+	
+Instead of taking the manuals:
+	say "You quickly realize these obsolete manuals are sticky and too heavy to lift."
+	
+Before giving anything edible to Ray:
+	if the noun is the Oreo:
+		say "He devours your stale offering but seems to want more.";
+		say "Then he says, 'Keep that up and you'll get special treatment,' and laughs.";
+		now the Oreo is nowhere;
+	otherwise if the noun is the donut:
+		say "He gobbles down the treat and winks at you as he pushes aside some manuals to reveal a trapdoor under the bookcase. He points to the entrance, smiles, and heads toward the breakroom to look for more donuts.";
+		now the description of the helpdesk is "Beneath the bookcase, there's a trapdoor leading down into darkness. There's a hallway to the west.";
+		now the description of the bookcase is "There's a trapdoor leading down into darkness.";
+		increase the score by Medium_Score_Bonus;
+		[now the donut is in the pastry box;]
+		now everything carried by Ray is in the helpdesk;
+		now Ray is nowhere;	
+		now the donut is nowhere;
+		now the bookcase is open;
+	otherwise:
+		say "Ray isn't interested in [the noun]";
+	stop the action.			
+	
+Before giving anything not edible to Ray:
+	if the noun is the KISS mug or the noun is the KICK water bottle or the noun is the Complexity Sticker:
+		say "Ray says, 'I despise company trinkets. This is so lame.'";
+		say "He refuses to touch [the noun].";
+	otherwise if the noun is the Bronze Key:
+		say "He studies the key and says, 'That must be a key to the storage room. Good luck finding it, newbie. It's like a maze down there.'";		
+	otherwise if the noun is a presentation:
+		if techieSeenReport is false:
+			say "Ray studies the report briefly, shakes his head, and says, 'There hasn't been a machine invented that could calculate my indifference to this nonsense.'"; 
+			say "He gives the presentation back to you.";
+			now techieSeenReport is true;
+		otherwise:
+			say "Ray ignores the report and goes back to this technical journal.";
+	otherwise:
+		say "Ray rolls his eyes and snorts. He ignores [the noun] and [one of]returns to this technical journal[or]stares out the window[or]picks his nose[or]belches contemptuously[or]farts disdainfully[then at random].";
+	stop the action.
+	
+Part 9 - Cube Farm
+
+Definition: a direction (called thataway) is viable if the room thataway from the location is a room.
+Instead of going nowhere:
+	if the location is not the helpdesk:
+		let count of exits be the number of viable directions;
+		if the count of exits is 0, say "You appear to be trapped in here." instead;
+		if the count of exits is 1, say "From here, the only way out is [list of viable directions].";
+		otherwise say "From here, the viable exits are [list of viable directions].";
+	otherwise:
+		continue the action.
+
+[cube farm maze]
+Before going to CF-1:
+	place an image "img/cf-1.jpg" with the description "Cube Farm", aligned left.
+CF-1 is a room. "You're in a maze of vacant cubicles. You could get lost in the sameness."
+
+Before going to CF-2:
+	place an image "img/cf-2.jpg" with the description "Cube Farm", aligned left.
+CF-2 is a room. "You're in a maze of deserted cubicles. You could get lost in the sameness."
+
+Before going to CF-3:
+	place an image "img/cf-3.jpg" with the description "Cube Farm", aligned left.
+CF-3 is a room. "You're in a maze of unused cubicles. You could get lost in the sameness."
+
+[------------ START GUARD ---------]
+Before going to CF-4:
+	if the guard is alert:
+		place an image "img/cf-4b.jpg" with the description "Cube Farm", aligned left;
+	otherwise:
+		place an image "img/cf-4c.jpg" with the description "Sleeping Guard", aligned left.
+		
+CF-4 is a room. "You're in a maze of abandoned cubicles. You could get lost in the sameness."
+A person is either alert or asleep. 
+A person is usually alert.
+The security guard is a man in CF-4. 
+The security guard is alert. 
+The description of the security guard is "[if the security guard is alert]An elderly security guard [one of]confronts you with a threatening stare[or]stares at you with suspicion[at random][otherwise]The security guard is in a deep sleep[end if]."
+
+After going to CF-4 for the first time:
+	try looking;
+	say "The guard says, 'Sorry, but this area is off-limits, kid. You'll have to go back.'"
+
+The description of the long-handled flashlight is "It's a PowerPlay Guardsman Plus flashlight. A sturdy aluminum-clad light suitable for illuminating a room or busting heads."
+The long-handled flashlight is a device.
+The guard holds the long-handled flashlight.
+The long-handled flashlight is switched off.
+
+Instead of hitting something with the flashlight:
+	say "You may need anger management classes."
+	
+The scent of the security guard is "smells like malt liquor, shoe polish, and rage".
+
+After examining the security guard:
+	if the guard is alert:
+		say "The guard [one of]slaps his flashlight into his palm and glares at you[or]shakes his head at you with disapproval[or]ignores you[or]looks bored[then at random].";
+		say "He [the scent of the security guard].";
+		[say "He has [a list of unconcealed things had by the noun].";]
+		if guardExamined is false:
+			say "[line break]Pointing at you, he says, 'You college kids don't belong down here.'";
+		now guardExamined is true;
+	otherwise:
+		say "The guard snores contentedly dreaming he's Mannix.";
+		now guardExamined is true.
+
+After taking the flashlight:
+	if guardSaidDim is true:
+		say "You grab the flashlight and say, 'Now who's dim?'";
+	otherwise:
+		say "You pick up the flashlight."
+
+Before taking the long-handled flashlight:
+	if the security guard is alert:
+		say "Surprised and alarmed the guard steps back and says, 'Hands off the flashlight, kid!'";
+		stop the action;
+	otherwise:
+		continue the action.
+		
+Before switching on the flashlight when the player can see the guard:
+	say "The guard is annoyed. 'Hands off the flashlight, kid.'";
+	stop the action;
+		
+Jumping up is an action applying to nothing.
+Understand "jump" and "jump up" and "jump up high" as jumping up.
+Check jumping up: say "Jumping does nothing here." instead.
+	
+Jumping over is an action applying to one object and requiring light. 
+Understand "jump over [something]" as jumping over.
+Report jumping over: say "You trip while jumping [the noun] and hope no one was watching.";
+		
+Hitting it with is an action applying to two things and requiring light. 
+Understand "hit [something] with [something preferably held]" as hitting it with.
+Report hitting it with: say "Your action has no effect."
+
+Instead of waking the security guard: 
+	try attacking the security guard.
+
+Instead of jumping over the guard:
+	if the player is in CF-4:
+		if the player is standing:
+			if the guard is alert:
+				say "The security guard is more nimble than expected. He [one of]restrains you by the collar[or]grabs you by the ankle[or]pushes you back[or]pokes you with his flashlight[at random], preventing your escape.";
+			otherwise:
+				say "You hop over the dozing guard without issue.";
+				now the player is in CF-6;
+		otherwise:
+			say "You have to be standing to jump.";
+	otherwise:
+		continue the action.
+			 
+Instead of hitting the security guard with something:
+	say "[if the security guard is alert]The guard laughs and continues to block your way[otherwise]Better to let sleeping guards lie[end if].";
+	
+Instead of throwing something at the security guard:
+	if the player has the noun:
+		say "[if the security guard is alert]You miss the target and now the guard seems more annoyed than before[otherwise]Better to let sleeping guards lie[end if].";
+	otherwise:
+		say "You aren't holding [the noun]."
+
+Instead of pushing the security guard:
+	try attacking the security guard.
+	
+Instead of kicking the security guard:
+	try attacking the security guard.
+	
+Instead of attacking the security guard:
+	say "[if the security guard is alert]Attacking the guard with your bare hands would surely be a mistake![otherwise]Better to leave sleeping guards lie.[end if]";
+
+Instead of going South when the player is in CF-4:
+	if the player can see the security guard and the security guard is alert:
+		say "[one of]The wide-bodied guard confronts you. You cannot pass[or]The annoyed guard blocks your way[or]The guard gives you an intimidating stare and won't let you go that way[or]The guard gives you the evil eye and you back off[then at random].";
+		stop the action;
+	otherwise:
+		continue the action.
+		
+After giving something to the guard:
+	if the noun is edible and the guard is alert:
+		say "The guard gobbles [the noun] without thanking you.";
+		say "[line break]'Bribes will do you no good, kid' he says, 'This area is off-limits.'";
+		say "[line break]He continues to block your exit to the south.";
+		now the noun is nowhere;
+	otherwise if the guard is alert and the noun is the newspaper or the noun is the year-end report or the noun is the evaluation sheet:
+		say "The guard studies [the noun], succumbs to boredom, and falls asleep.";
+		say "[line break]His flashlight falls from his grip onto the floor.";
+		now the flashlight is in CF-4;
+		increase the score by Easy_Score_Bonus;
+		now the player has the noun;
+		now the guard is asleep;
+	otherwise:
+		say "The guard [one of]doesn't seem interested in [or]ignores [at random][the noun].";
+		now the noun is in CF-4;
+		stop the action.
+	
+Every turn when the player can see the security guard for more than one turn and playerWaiting is false:
+	if the security guard is alert:
+		say "The guard [one of]says, 'Minimax is a great place to work in spite of punks like you who break the rules.'[or]locks eyes with you and says, 'You think you can outrun me, punk?'[or]sighs loudly as he checks his watch.[or]says, 'You look guilty of something, kid.'[or]says, 'Dirty Harry is my favorite hero.'[or]says, 'Seriously, you've got no business down here in my cube farm.'[or]points a finger at you and says, 'What mischief were you planning, kid?'[or]says, 'Just go back the way you came and I'll forget I saw you.'[or]says, 'Just old-fashioned trespassing. That's what this is. You're in big trouble, punk.'[or]says, 'Nothing to see down here. Run along.'[then at random]";
+	otherwise:
+		say "The guard [one of]snores loudly[or]rolls over contentedly[or]stirs briefly and goes back to sleep[or]dozes quietly[or]is enjoying a siesta[or]is catching up on his beauty sleep[or]is catching forty winks[then at random]."	
+	
+After asking the security guard about something:
+	if the security guard is alert:
+		if the topic understood matches the regular expression "(?i)\bMinimax|(?i)\bcompany":	
+			say "After a disapproving glance, he says, 'I've been patrolling the Minimax grounds for almost twenty years, and I've seen punks like you come and go. I know your type lacks respect for boundaries. Are you dim? It's as if you think the rules don't apply to you. Now, clear out of here.'";
+			now guardSaidDim is true;
+		otherwise if the topic understood matches the regular expression "(?i)\bcubes|rules":
+			say "After a second or two, he says, 'I think you know these cubes are supposed to be cleared out. I make sure there's no monkey business going on down here. It's my job to make my rounds, and I'm no dimwit. Just last week I interrupted a couple of degenerates practicing their hot yoga moves over by marketing storage. The week before that, I caught a raccoon taking a dump in a trash bin. I love my job because it matters.'";
+		otherwise if the topic understood matches the regular expression "(?i)\bintruder|office|max":
+			say "He paces back and forth and says, 'In my line of work you have to assume everyone is an intruder. When people pretend to be lost, I know they're up to no good. You know that this area has been off-limits ever since Max Jr. got Minimax out of the copier business. If they let me carry a gun, you'd be in big trouble right now, punk.'";
+		otherwise if the topic understood matches the regular expression "(?i)\bdonut|(?i)\boreo|(?!)\bsnack\b":
+			say "He says, 'Security is exhausting. I could use a snack.'";
+		otherwise if the topic understood matches the regular expression "(?i)protection":
+			say "While slapping his flashlight in his palm he says, 'Back when Max Sr. ran the show, I was a part of his personal security squad. We had to keep him safe because he pretty much invented all the office machines. If we lost him, the company would be screwed. Once his son took over, we didn't provide personal security anymore. Guess that shows how valuable Max Jr. is around here.'";
+		otherwise if the topic understood matches the regular expression "(?i)security|camera|budget":
+			say "He says, 'We're a constant presence. We patrol the premises at all hours of the day and night to look for suspicious activity. I've been trying to convince Max Jr. to install cameras in the facility to keep an eye open for illegal activity from punks like you, but so far he says there isn't enough money in the budget.'";
+		otherwise if the topic understood matches the regular expression "(?i)building":
+			say "He says, 'This section of the building is mostly deserted, but that doesn't stop me from maintaining order. There's a lot of stuff in here that delinquents like you want to sell on eBay. Is that your game, punk?'";
+		otherwise if the topic understood matches the regular expression "(?i)flashlight":
+			say "He spins his flashlight around and points at you saying, 'You see this flashlight, punk? This flashlight doubles as a nightstick if things get rough. Don't make me use it.'"; 
+		otherwise:
+			say "He says, [one of]'Move along, punk.'[or]'Security isn't just crowd control.'[or]'You kids have no respect for property.'[or]'I just keep the peace. I'm no hero.'[or]'I've already said too much. Now move along, kid.'[or]'Because I'm a nice guy, I won't report this incident to your boss.'[or]'College kids like you are the worst offenders.'[or]'Too many questions. I could take you down with one finger, punk.'[then at random]";
+	otherwise:
+		continue the action.
+		
+[----------END GUARD---------------------------]
+
+Before going to CF-5:
+	place an image "img/cf-5.jpg" with the description "Cube Farm", aligned left.
+CF-5 is a room. "You're in a maze of empty cubicles. You could get lost in the sameness."
+
+Before going to CF-6:
+	if the security guard is asleep:
+		place an image "img/cf-6.jpg" with the description "Cube Farm", aligned left.
+		
+CF-6 is a room. "You're in a maze of vacant cubicles. You could get lost in the sameness. The buzz and flicker of fluorescent lights surround you."
+
+Before going to CF-7:
+	place an image "img/cf-7.jpg" with the description "Cube Farm", aligned left.
+CF-7 is a room. "You're in a maze of deserted cubicles. You could get lost in the sameness."
+
+Before going to CF-8:
+	place an image "img/cf-8.jpg" with the description "Cube Farm", aligned left.
+CF-8 is a room. "You're in a maze of abandoned cubicles. You could get lost in the sameness."
+
+Before going to CF-9:
+	place an image "img/cf-9.jpg" with the description "Cube Farm", aligned left.
+CF-9 is a room. "You're in a maze of empty cubicles. You could get lost in the sameness. The buzz and flicker of fluorescent lights surround you."
+
+[1]
+CF-2 is east of CF-1.
+CF-6 is southeast of CF-1.
+
+[2]
+CF-2 is south of the Breakroom.
+CF-3 is east of CF-2. [key in CF-3]
+CF-4 is south of CF-2.
+
+[3]
+CF-8 is southeast of CF-3.
+CF-9 is east of CF-3.
+
+[4]
+CF-5 is southwest of CF-4.
+CF-6 is south of CF-4.
+
+[5]
+Your Cubicle is northwest of CF-5.
+
+[6]
+CF-7 is east of CF-6.
+
+[7]
+[copier storage door is south of CF-7]
+
+[8]
+CF-9 is northeast of CF-8.
+[marketing storage door is east of CF-8]
+
+The Silver Key is a thing.
+The Silver Key can be discovered or undiscovered.
+The Silver Key is undiscovered.
+The matching key of the Marketing Door is the Silver Key.
+The Silver Key unlocks the Marketing Door. 
+[The Silver Key is in CF-1.]
+The Silver Key is undescribed.
+The Silver Key weighs 1000gm.
+
+The description of the Silver Key is "It's a sturdy piece of nickel-plated metal with an ornate crystal handle that feels cool and fits agreeably in your hand. It's well-balanced and heavier than you expected with far more notches than you've seen on any other key."
+
+The Buddha poster is in CF-1.
+The Buddha poster weighs 11gm.
+The description of the Buddha poster is "Alongside a serene image of the Buddha in a meditating posture are the words: 'To walk safely through the maze of human life, one needs to look ahead as well as behind.'"
+
+Instead of pushing the Buddha poster:
+	try taking the poster.
+		
+Instead of taking the Buddha poster:
+	if the Silver Key is undiscovered:
+		say "When you remove the poster from the cubicle wall, you discover an ornate silver key hidden behind it.[line break]You slip the key into your pocket.";
+		now the Silver Key is discovered;
+		now the Silver Key is described;
+		now the player has the Buddha poster;
+		now the player has the Silver Key;
+		increase the score by Easy_Score_Bonus;
+		say "You pick up the poster and feel more serene already.";
+		stop the action;
+	otherwise:
+		continue the action.
+
+Instead of looking under the Buddha poster when the Silver Key is off-stage:
+	try taking the Buddha poster.
+			
+The inspirational sticker is in CF-8. The inspirational sticker is fixed in place.
+The description of the inspirational sticker is "The sticker features a cartoon lab rat holding the message: 'Life is a maze we never escape.'".
+Instead of taking the inspirational sticker:
+	say "It's stuck firmly to the cubicle wall."
+
+Understand "swag" as KISS Mug.
+The Shelf is a thing.
+The Shelf is scenery.
+The description of the shelf is " A simple wooden shelf, ideal for displaying company swag."
+The Shelf is a supporter.
+The Shelf is in CF-3.
+
+Instead of taking the shelf:
+	say "it's securely fastened to the wall.";
+	
+The KISS Mug is a container. "A Minimax branded mug sits on a shelf."
+The KISS Mug weighs 200gm.
+The description of the KISS mug is "A Minimax trinket embossed with the phrase 'Keep It Simple Stupid' in red capital letters."
+The KISS Mug is on the Shelf.
+The Bronze Key is a thing.
+The Bronze Key can be discovered or undiscovered.
+The Bronze Key is undiscovered. The Bronze Key weighs 1gm.
+The description of the Bronze Key is "A shiny bronze key with a worn tag hanging off of it. The tag says 'D of C.'"
+[The Bronze Key unlocks the Security Door.] 
+The Bronze Key is in the KISS Mug.
+
+Before taking the Bronze Key:
+	now the Bronze Key is discovered.
+	
+Instead of taking the KISS Mug:
+	if the Bronze Key is undiscovered:
+		say "You pick up the mug and hear something rattling around inside. It's a key![line break]You slip the key into your pocket.";
+		now the player is carrying the Bronze Key;
+		now the Bronze Key is discovered;
+		now the player is carrying the KISS Mug;
+		increase the score by Easy_Score_Bonus;
+	otherwise:
+		continue the action.
+
+Before the player inserting something into the KISS Mug:
+	if the noun is heavy:
+		say "[the noun] is too big for the mug.";
+		stop the action;
+	otherwise:
+		continue the action.
+		
+After examining the Shelf:
+	if the KISS Mug is on the Shelf:
+		say "There's a mug on the shelf.";
+		
+Part 10 - Storage
+
+Before going to The Storage Room:
+	place an image "img/storage-room.jpg" with the description "Storage Room", aligned left.
+	
+The you-can-also-see rule does nothing when the player is in the Storage Room.
+
+The Storage Room is a room. "The storage room is cramped and stuffy. An exit leads north. Banners, signs, and empty shelves decorate the walls. You notice a plaque on the wall near an old copy machine."
+
+The Storage Room is scored.
+
+Some storage_decor are scenery in the Storage Room. Understand "decorations", "banners", "banner", "shelves", "shelf", "sign", and "signs" as the storage_decor. The description of the storage_decor is "The dusty shelves have long been empty, the decorations are old and faded. You see an old marketing brochure here."
+Instead of doing anything other than examining with the storage_decor:
+	say "You have more important things to do right now than fiddle with decorations."
+The marketing brochure is in the Storage Room. The marketing brochure is undescribed.
+The description of the marketing brochure is "It's a promotional piece about a line of Minimax copiers. Under the sepia photo of three leggy models seductively posed alongside an oversized copier is the caption, 'Minimax. Make mine in triplicate!'"
+
+After taking the marketing brochure:
+	now the description of the storage_decor is "The dusty shelves have long been empty, the decorations old and faded.";
+	continue the action.
+
+The Storage Door is a door. 
+The description of the Storage Door is "On the door, it says 'Storage Area - Authorized Personel Only.'"
+The Storage Door can be locked or unlocked.
+The Storage Door is closed.
+The Storage Door is locked.
+The Storage Door is north of the Storage Room and south of CF-7.
+The matching key of the Storage Door is the Bronze Key.
+
+Before opening the storage door:
+	if the storage door is locked:
+		say "You have to unlock it first.";
+		stop the action.
+		
+Instead of going south in CF-7 when the storage door is closed:
+	say "A closed door blocks your way.";
+	stop the action.
+
+After opening the Storage Door:
+	if the player is in the Storage Room:
+		say "Beyond the door, you see a cube farm to the north.";
+	otherwise:
+		say "Behind the door to the south, you can see into the Storage Room.";
+		now the description of CF-7 is "You're in a maze of deserted cubicles. You could get lost in the sameness. To the south is the Storage Room."
+
+The Complexifier is in the Storage Room.
+The Complexifier is a device. "[if switched on]The old machine rattles loudly but seems operational.[otherwise]The copy machine lays dormant." 
+The Complexifier is switched off.
+		
+Instead of switching on the Complexifier:
+	if complexifierDead is true:
+		say "Nothing happens. It appears to be overheated or dead.";
+	otherwise if the complexifier is switched off:
+		say "The old machine rattles loudly but seems fully operational. The paper feeder falls open.";
+		now the paper feeder is accessible;
+		now the complexifier is switched on;
+		stop the action;
+	otherwise:
+		continue the action.
+
+Instead of inserting the neuropack into the complexifier:
+	try inserting the neuropack into the maintenance compartment.
+	
+Instead of switching off the Complexifier:
+	if the complexifier is switched on:
+		say "The complexifier makes a grinding sound, sputters, whines, and goes silent.";
+		now the complexifier is switched off;
+		now the paper feeder is inaccessible;
+		stop the action;
+	otherwise:
+		continue the action.
+
+Understand "slot" as paper feeder.
+
+The paper feeder is a thing.
+The paper feeder is fixed in place.
+The paper feeder can be accessible or inaccessible.
+The paper feeder is inaccessible.
+Instead of examining the paper feeder:
+	if the paper feeder is accessible:
+		say  "A two-inch wide slot lays open on the side of the complexifier eager to accept standard-sized pages.";
+	otherwise:
+		say "The paper feeder cannot be accessed.";
+	stop the action.
+	
+The paper feeder is in the Storage Room.
+The paper feeder is an open container.
+The paper feeder is undescribed.
+
+The paper exit tray is a supporter.
+The paper exit tray is fixed in place.
+The paper exit tray is in the Storage Room.
+The paper exit tray is undescribed.
+
+The maintenance compartment is a closed container.
+
+Understand "cover" as maintenance compartment.
+The description of the maintenance compartment is "Under the copier paper feeder, you find the maintenance compartment which houses the inner workings of the complexifier."
+The maintenance compartment is undescribed.
+The maintenance compartment is in the Storage Room.
+The maintenance compartment is fixed in place and openable.
+Inside the maintenance compartment is the neuropack.
+The description of the neuropack is "The neuropack is the brain of the complexifier, capable of understanding human language patterns and even predicting behavior. Max Prophet spent years researching and experimenting to perfect the algorithms that allow the complexifier to produce output far exceeding what a human is capable of."
+
+The wires are in the storage room. The wires are fixed in place. The wires are undescribed.
+Understand "tangle" as wires.
+The description of the wires is "Two white insulated copper wires, each about 10 inches long."
+
+Instead of taking the wires:
+	say "You strain and pull, but cannot free the wires.";
+	stop the action.
+
+Report taking the neuropack:
+	if the complexifier is switched on:
+		clear the screen;
+		say "Unfortunately, performing maintenance on high-voltage equipment while it's switched on can be damaging to your health.[paragraph break]";
+		say "You are puzzled by the smell of sizzling bacon before the end.[paragraph break]";
+		now playerDead is true;
+		pause the game;
+		stop the action;
+	otherwise:
+		now complexifierDead is true;
+		continue the action.
+	
+Report inserting the neuropack into the maintenance compartment:
+	now complexifierDead is false;
+	continue the action.
+	
+After examining the maintenance compartment:
+	if the maintenance compartment is empty:
+		say "With the neuropack removed, the compartment is nothing but a tangle of wires.";
+		continue the action.
+
+Understand "screws" as the maintenance compartment.
+Understand the command "loosen" as "turn".
+		
+Instead of turning the maintenance compartment:
+	if the player has the impact screwdriver:
+		say "The impact screwdriver makes easy work of the rusted screws.[paragraph break]The maintenance compartment pops open.";
+		now the maintenance compartment is open;
+	otherwise:
+		say "Your action had no effect.";
+
+Instead of opening the maintenance compartment:
+	if the maintenance compartment is open:
+		continue the action;
+	otherwise:
+		say "It's shut tight, protected by a sheet metal cover held in place by four rusty screws.";
+		stop the action.
+		
+Instead of examining the paper exit tray:
+	now the description of the paper exit tray is "This sturdy exit location for the copy paper allows for efficient stacking of even the thickest jobs.";
+	if the complex report is not on the paper exit tray:
+		say "The paper exit tray looks dusty.";
+	continue the action.
+	
+Before taking the complex report:
+	say "Taken.";
+	now the player is carrying the complex report;
+	stop the action.
+	
+Instead of taking the year-end report:
+	if yearEndReportRuined is true:
+		say "The year-end report is little more than ashes. In fact, it's so damaged that it crumbles in your hands when you pick it up.";
+		now the year-end report is nowhere;
+		stop the action;
+	otherwise:
+		continue the action.
+	
+Carry out the player inserting something into the paper feeder:
+	if the paper feeder is accessible:
+		now the scent of the complexifier is "smells dusty and smokey";
+		if the noun is the year-end report:
+			say "The complexifier sputters and roars as it spins through the report pages.";
+			say "It agitates like an old washing machine for a full minute and radiates enough heat to fry a donut. You smell smoke coming from the maintenance compartment.";
+			now the year-end report is on the paper exit tray;
+			now the complex report is on the paper exit tray;
+			say "[line break]Finally, a complex report appears on the paper exit tray as the machine stops shaking and halts.";
+			say "[line break]The original year-end report emerges mutilated from the process. It's torn and burned around the edges.";
+			now the description of the year-end report is "The report is badly damaged and barely recognizable. The paper looks delicate and it's frayed and burned around the edges.";
+			now yearEndReportRuined is true;
+			now the complexifier is switched off;
+			increase the score by Medium_Score_Bonus;
+			stop the action;
+		otherwise if the noun is the complex report:
+			say "The complexifier sputters and roars to life but overheats due to the thickness of the report.";
+			now the complexifier is switched off;
+			now complexifierDead is true;
+			stop the action;
+		otherwise:
+			say "You hear a loud grinding sound as the complexifier shreds [the noun]. A cloud of fine dust mixed with smoke appears briefly on the paper exit tray.";
+			now the noun is nowhere;
+			stop the action;
+	otherwise:
+		say "The paper feeder is not accessible. Try turning on the copier.";
+		continue the action.
+	
+Report the player inserting something into the paper feeder:
+	say "An amazing invention, the Complexifier.";
+	stop the action.
+				
+Instead of inserting something into the complexifier:
+	if complexifierDead is true:
+		say "The machine is overheated. Nothing happens.";
+		stop the action;
+	otherwise if the complexifier is switched on:
+		try inserting the noun into the paper feeder;
+	otherwise:
+		say "You have to switch it on first.";
+		stop the action.
+		
+The plaque is in the Storage Room. The plaque is fixed in place.
+The description of the plaque is "You read a tarnished plaque mounted on the wall:[line break][line break]In 1974, Minimax Inc. released the CX74: their first intelligent copy machine. The culmination of more than five years of experimentation, the machine sparked a revolution in business communications. It went beyond simply reproducing a clear image of a document as a standard photocopier would by applying intricate grammar rules to transform any simple document into something dazzlingly complex. The CX74 proved enormously appealing to marketing departments and was nicknamed 'The Complexifier.' When these massive half-ton machines were rolled out to corporate customers, the era of complexity began."
+
+The description of the complexifier is "An old photocopier with a standard paper feeder and exit tray above and a maintenance compartment below.[paragraph break][if the complexifier is switched on]The machine hums away oblivious to its obsolescence.[otherwise]The machine lays dormant." 
+
+Understand "copy machine" as complexifier.
+Understand "machine" as complexifier.
+Understand "photocopier" as complexifier.
+Understand "copier" as complexifier.
+Understand "CX74" as complexifier.
+
+The Complexifier is fixed in place.
+Instead of taking the complexifier:
+	say "The machine is immense and cannot be moved no matter how much you strain.";
+	stop the action.
+
+Part 11 - Marketing Storage
+
+Before going to Marketing Storage:
+	place an image "img/marketing-storage-6.jpg" with the description "Marketing Storage", aligned left.
+	
+The Marketing Door is a door. 
+
+The description of the Marketing Door is "[if the player is in CF-8]On the door, it says 'Marketing Personel Only'. You notice deep scratches under an unusually ornate lock.[otherwise]A plain, smooth door. Nothing special.[end if]".
+Some marketing_door_stuff is scenery in CF-8. Understand "scratch", "scratches", "writing", "lock", "ornate lock" as the marketing_door_stuff. The description of the marketing_door_stuff is "The words 'Keep Out Rich' are scratched into the door under the antique brass deadbolt lock. Apparently, the marketing department knows about Rich's fondness for Minimax collectibles." 
+The Marketing Door can be locked or unlocked.
+The Marketing Door is closed.
+The Marketing Door is locked.
+The Marketing Door is west of Marketing Storage and east of CF-8.
+
+Before opening the Marketing Door:
+	if the Marketing Door is locked:
+		say "You have to unlock it first.";
+		stop the action.
+		
+Instead of going east in CF-8 when the marketing door is closed:
+	say "A closed door blocks your way.";
+	stop the action.
+			
+After opening the Marketing Door:
+	if the player is in Marketing Storage:
+		say "Beyond the door, you see a cube farm to the west.";
+	otherwise:
+		now the description of CF-8 is "You're in a maze of abandoned cubicles. You could get lost in the sameness. To the east is Marketing Storage.";
+		say "Behind the door to the east, you can see into the marketing storage room."
+		
+Understand "ad" as advertisement.
+
+Marketing Storage is a room. "You're in a cramped storage room, uncomfortably hemmed in by lack of space on either side. A scattering of branded company merchandise amid empty boxes sits lonely on a shelf. An advertisement near the entrance says 'For every complex question there is an answer that is clear, simple, and wrong.' To the west, you see a vast sea of cubicles."
+
+There is an advertisement in Marketing Storage.
+The description of the advertisement is "It's an old promotional piece for Minimax copiers."
+
+There are cardboard boxes in Marketing Storage. 
+The cardboard boxes are an enterable portable supporter.
+The cardboard boxes are undescribed.
+The description of the cardboard boxes is "Old and somewhat flimsy, these empty boxes have seen better days."
+
+Instead of jumping in Marketing Storage:
+	try jumping up.
+	
+There is a cardboard box in Marketing Storage. 
+The cardboard box is an enterable portable supporter.
+The cardboard box is undescribed.
+
+Instead of climbing the cardboard boxes:
+	try standing up on the cardboard boxes.
+	
+Instead of opening the cardboard box:
+	try opening the cardboard boxes.
+	
+Instead of standing up on the cardboard box:
+	try standing up on the cardboard boxes;
+	
+Instead of standing up on the cardboard boxes:
+	if cardboardBoxFlat is false:
+		say "You stack the boxes neatly and stand taller for a moment.";
+		say "But the flimsy boxes collapse under your weight.";
+		now the description of the cardboard boxes is "Old boxes, flattened and useless.";
+		now cardboardBoxFlat is true;
+	otherwise:
+		say "Standing on flat boxes is a waste of your time.";
+	stop the action.
+	 
+After taking the advertisement:
+	now the description of Marketing Storage is "A scattering of branded company merchandise amid empty boxes sits lonely on a shelf. To the west are a sea of cubicles.";
+	continue the action.
+	
+Instead of taking company merchandise:
+	try taking the stickers.
+
+There is company merchandise in Marketing Storage. The company merchandise is scenery.
+The description of company merchandise is "A selection of Minimax branded water bottles and stickers intended to promote the Minimax Complexifier line of copiers."
+
+There are stickers in Marketing Storage. The stickers are undescribed.
+The description of the stickers is "The stickers have various slogans. One says, 'The art of simplicity is a puzzle of complexity.' Another says, 'If you think it's simple, think again.'"
+
+There are water bottles in Marketing Storage. The water bottles are undescribed.
+The description of the water bottles is "Minimax-branded white plastic water bottles adorned with the slogan 'KICK - Keep It Complex, Kiddo.'"
+
+Understand "collectibles" or "merch" as company merchandise.
+
+Instead of dropping the water bottles:
+	try dropping the water bottle.
+	
+Instead of dropping the stickers:
+	try dropping the sticker.
+	
+Instead of opening the boxes:
+	say "The old and flimsy boxes are empty.";
+	
+Instead of taking the water bottles:
+	say "You take one of the KICK water bottles.";
+	now the player is carrying the water bottle;
+	stop the action.
+
+The KICK water bottle weighs 500gm.
+The KICK water bottle is in Marketing Storage.
+The KICK water bottle is undescribed.
+The description of the water bottle is "A white water bottle with the slogan 'KICK - Keep It Complex, Kid.'"
+
+The Complexity Sticker weighs 500gm.
+The Complexity Sticker is in Marketing Storage.
+The Complexity Sticker is undescribed.
+The description of the Complexity Sticker is "A sticker that says, 'Let's run it through the Complexifier!'"
+
+Instead of taking the stickers:
+	say "You pick up one of the stickers.";
+	now the player is carrying the Complexity Sticker;
+	stop the action.
+
+Marketing Storage is scored.
+
+[dissuade player from jumping up to grab the cap]
+Instead of jumping up in Marketing Storage:
+	say "It's too cramped in here to jump.";
+	stop the action.
+
+Instead of throwing the something at the hook:
+	try throwing the the noun at the cap;
+	
+Instead of throwing something at the cap:
+	say "You find it impossible to throw properly in such cramped conditions.";
+	say "You miss the target.";
+	now the KISS mug is in marketing storage;
+	stop the action.
+
+[The high shelf is an enterable supporter in Marketing Storage.]
+The high shelf is scenery in Marketing Storage. 
+Understand "shelves" as the high shelf.
+The description of the high shelf is "The dusty shelf contains nothing interesting, but you spot a baseball cap high above you on a hook."
+
+The hook is a supporter in Marketing Storage. The hook is scenery.
+The description of the hook is "It's a wall-mounted clothing hook high on the wall."
+The baseball cap is on the hook.
+The description of the baseball cap is "It looks like a white baseball cap. You can't read the logo from here."
+The baseball cap is undescribed.
+The baseball cap weighs 200gm.
+The baseball cap is wearable.
+Understand "hat" as the baseball cap.
+	
+Before putting the baseball cap on the hook:
+	if the player is not standing on the complex report:
+		say "You can't reach that from here.";
+		stop the action.
+		
+Before taking the baseball cap:
+	if the player is not standing on the complex report:
+		if the noun is on the hook:
+			say "You stretch as high as you can but [the noun] remains just out of reach.";
+			stop the action.
+
+Carry out taking the baseball cap when the baseball cap is not handled:
+	say "Standing on the thick report adds just enough height to reach the cap.[line break]You take it.";
+	now the description of the baseball cap is "The cap is boldly embroidered in red with the words 'Dept. of Complexity' and sports a handsome metal D-ring slider buckle with a hideaway strap closure.";
+	now the description of the high shelf is "The dusty shelf contains nothing interesting.";
+	increase the score by Hard_Score_Bonus.
+	
+Instead of climbing the office chair in Marketing Storage:
+	try standing up on the office chair.
+		
+Instead of standing up on the office chair in Marketing Storage:
+	say "You grow concerned when the office chair wobbles and shakes as you stand on it.";
+	say "[line break]You realize your mistake too late.";
+	pause the game;
+	clear the screen;
+	say "Unfortunately, an office chair is not a steady platform and you should know better.[paragraph break]";
+	say "You lose your balance and fall onto your noggin like Humpty Dumpty.[paragraph break]";
+	say "Before you lose consciousness and succumb to your injuries, you have time to reflect on your short but promising career at Minimax Inc.";
+	now playerDead is true;
+	pause the game.
+	
+Instead of dropping the complex report:
+	say "The heavy report plops to the floor. It might make an excellent platform.";
+	now the complex report is in Marketing Storage;
+	stop the action.
+
+[suppress the room description, etc. when we stand on the complex report.]
+The room description heading rule does nothing when playerStandingOnComplexReport is true.
+The room description body text rule does nothing when playerStandingOnComplexReport is true.
+The describe what's on scenery supporters in room descriptions rule does nothing when playerStandingOnComplexReport is true.
+The you-can-also-see rule does nothing when playerStandingOnComplexReport is true.
+
+playerStandingOnComplexReport is a truth state that varies. playerStandingOnComplexReport is false;
+	
+Instead of entering the complex report:
+	if the player is holding the complex report:
+		say "You have to drop it first.";
+		stop the action;
+	otherwise if the complex report is on a supporter:
+		say "You can't stand on the report unless it's on the floor.";
+		stop the action;
+	otherwise:
+		say "Your knees tremble on shaky footing.";
+		now playerStandingOnComplexReport is true;
+		now the player is on the complex report.
+		
+After taking the baseball cap:
+	try getting off the complex report.
+	
+After getting off the complex report:
+	say "You step off the report.";
+	say "[line break]You're several inches shorter now--definitely not management material at this height.";
+	say "[line break]You pick up the complex report.";
+	now playerStandingOnComplexReport is false;
+	now the player has the complex report.		
+	
+
+
+	
+Part 12 - Gallery
+
+Before going to The Gallery:
+	place an image "img/gallery.jpg" with the description "Gallery", aligned left.
+	
+The Gallery is east of the breakroom. "Your steps echo across the polished marble floor as you make your way down a wide hallway. On your left, a full-length portrait of the company's founder covers the wall from floor to ceiling. Far to the west, you can see the breakroom. Going east leads to the executive conference room. To the northeast is the Office of the Chairman."
+The Gallery is scored.
+
+There is a  portrait in the Gallery. The portrait is a transparent open container.  
+The portrait is fixed in place.
+Understand "painting" as portrait.
+Understand "frame" as portrait.
+Understand "inscription" as portrait.
+Understand "emperor" as bust.
+Understand "max" as founder.
+Understand "prophet" as founder.
+Understand "company founder" as founder.
+
+The portrait is undescribed.
+
+The description of the portrait is "Surrounded by a museum-quality golden frame and adorned with raised sculpted leaves, the painting freezes a crucial historic moment for the company: the introduction of the first Minimax calculator. The inscription reads, 'Our Founder, Max Prophet, 1968.'"
+
+The founder is in the portrait.
+The indefinite article of the founder is "the".
+The printed name of the founder is "company founder".
+
+The description of the founder is "Max Prophet's fatherly gaze follows you from behind his mid-century horn-rimmed glasses. He's wearing a starched white shirt, a slender dark tie, and an impeccable gray wool suit. His position, wealth, and significance are clear. His wide-set eyes are bright, ever-watchful, alert, and brimming with ideas. His left hand is resting on a bust of Marcus Aurelius while his right hand is poised over an old-fashioned calculator. Clean-shaven and sporting a close-cropped haircut, his square jaw adds to his determined appearance.[paragraph break]After a fatal electrical accident in his research lab in 2010, Max Prophet Jr. assumed the role of chairman from his father."
+
+Instead of taking the founder:
+ say "You resist the urge to put your hands on our dear founder."
+
+In the portrait is an old calculator.
+Understand "MM19" as the old calculator.
+The description of the old calculator is "In the bottom left corner of the painting rests the MM19 prototype, the seminal invention and top-selling calculator manufactured by Minimax Inc. in the late 1960s."
+Instead of taking the old calculator:
+ say "It's part of the painting and cannot be taken."
+
+The bust of Marcus Aurelius is in the portrait. 
+Understand "bust" as Marcus Aurelius.
+The description of the bust is "A hero to our founder, Marcus Aurelius was the last of the Five Good Emperors of Rome. His reign (161-180 CE) marked the end of a period of internal tranquility and good government."
+Instead of taking the bust:
+	say "It's part of the painting and cannot be taken."
+		
+Part 13 - Conference Room
+
+Before going to The Conference Room:
+	place an image "img/conference-room-4.jpg" with the description "Conference Room", aligned left.
+	
+The Conference Room is east of the Gallery. "The executive conference room is a highly functional meeting room that offers undisturbed privacy in a formal business setting. To the west is the gallery."
+
+The Conference Room is scored.
+
+After going to the Conference Room:
+	if the player can see the boss: 
+		try looking;
+		say "Meeting you at the entrance, your boss smiles and says, [one of]'I'm glad you made it in time. Show me your revised report.'[or]'Let's see that presentation.'[or]'I'm pleased you came through in time. Show me your improved report.'[then at random]";
+		[otherwise:
+			say "Your boss says, [one of]'You'd better get going on that report, kid.'[or]'I'm relying on you to get that report done.'[or]'Get started on those revisions, kid. We don't have much time left.'[then at random]";]
+	otherwise:
+		say "You don't see your boss here. Maybe that's a good thing."; 
+		try looking.
+
+After giving the year-end report to the boss for the first time:
+	if the player is in the Conference Room:
+		say "You hand the report over to your boss.";
+		say "[line break]She shakes her head in disbelief.";
+		say "[line break]With panic in her voice, she says, 'I thought we agreed you would improve this presentation before noon.'";
+		say "[line break]'Take this back and try again. I suggest you speed up the process by using the resources in the storage room.'";
+		now the player is carrying the year-end report;
+		if the Storage Room is not visited:
+			say "[line break]'Here are the directions to find it.'";
+			say "[line break]Your boss hands you a map of the building with directions.";
+			now the player is carrying the map;
+		otherwise:
+			say "[line break]'You know the way. Get started.'";
+		if the player is not carrying the Bronze Key:
+			say "[line break]She hands you a bronze key and says, 'Here is the key to the storage room. Get started, We don't have much time.'";
+			now the player is carrying the Bronze Key;
+		otherwise:
+			do nothing;
+	otherwise:
+		say "Your boss doesn't seem interested in [the noun] anymore."
+				
+After giving the complex report to the boss for the first time:
+	now the laser pointer is in the Conference Room;
+	if the player is in the Conference Room:
+		say "You hand the complex report over to your boss.";
+		say "[line break]She smiles as she flips through the pages and nods her head in approval.";
+		say "[line break]'It's so thick! The chairman will love it,' she beams. 'I can't wait to present it to the executives.'";
+		say "[line break]'You did good work. I'll write you a glowing recommendation letter after we layoff all you worker bees.'";
+		increase the score by Easy_Score_Bonus;
+		say "[line break]Your boss hustles you to the exit and hands you a memo.[paragraph break]";
+		pause the game;
+		now the player is in The Gallery;
+		now the player is carrying the layoff memo.
+
+[once the boss has what she wants from you, you are barred from the conference room]
+Before going to the Conference Room:
+	if the boss is carrying the complex report:
+		if the boss is in the conference room:
+			say "The entrance is closed for the executive meeting until 12:30 PM.";
+			stop the action.
+	
+Every turn:
+	if the player is in the Conference Room for more than three turns:
+		if the player can see the boss:
+			if the player is not carrying the map:
+				if the boss is not carrying the complex report:
+					say "The boss says, '[one of]Show me the presentation, kid[or]Let's see that revised report[at random].'";
+
+[no one will be blocking the door after the meeting is done and you can get the laser pointer if needed]
+At 12:29 PM:
+	say "[line break]You realize it's nearly 12:30 and the executive meeting will be over soon.";
+	now the boss is nowhere;
+	now Max is in the Chairman's Office;
+	now the complex report is in the Conference Room.
+	
+Part 14 - Chairman's Office
+
+Before going to The Chairman's office:
+	place an image "img/chairmans-office.jpg" with the description "Chairman's Office", aligned left.
+	
+The Chairman's office is a room. "The office is regal and refined yet inviting and comfortable. An expansive walnut desk piled high with sales reports rests at the
+center of a large well-lit space. To the right of the doorway, you notice an informal seating area with three oversized chairs arranged in a semi-circle. Ample bookshelves and document storage cabinets line the walls, and natural light streams through the picture windows overlooking an idyllic duck pond and a manicured golf course. In a recessed niche, a photograph of the company's founder is displayed alongside a display case filled with company memorabilia. To the southwest is the Gallery."
+The Chairman's office is northeast of the Gallery.
+The Chairman's office is scored.
+
+[make sure Max is in his office when player is there]
+After going to the Chairman's Office:
+	if the player can see Max:
+		do nothing;
+	otherwise:
+		now Max is in the Chairman's Office;
+	try looking.
+
+
+Max is a man in the Chairman's office. "Max Jr. [one of]seems distracted and doesn't notice you[or]nods in your general direction[at random]." 
+The description of Max is "Max Prophet Jr. is the son of the founder and the somewhat reluctant chairman of Minimax Inc. Overworked and pale, he's dressed impeccably, but is a bit out of his depth, lacking his father's business acumen and technical aptitude."  
+Max is wearing a bespoke dark gray business suit, a blue designer tie, and a custom-tailored dress shirt.
+The printed name of Max is "Max Jr".
+The description of the white shirt is "It's a white custom shirt monogrammed with the Minimax logo."
+The description of the bespoke dark gray business suit is "Made by exclusive UK tailor William Westmancott, the hand-stitched suit was made to Max's exact specifications from rare vicuna wool."
+The description of the tie is "Made from high-quality silk, a subtle flounder pattern complements the deep blue."
+
+Before giving something edible to Max:
+	say "Back off, kid. I'm not going to risk getting crumbs on my designer suit.";
+	stop the action.
+	
+Before giving something to Max:
+	if the noun is edible:
+		say "He says, 'Back off, kid. I'm not going to risk getting crumbs on my designer suit.'";
+		stop the action;
+	otherwise:
+		say "[one of]'You have nothing I need, kid.'[or]He ignores you.[or]'Run along, kid. I'm busy losing money here.'[or]'Stop bothering me, kid, or I'll put your name first on the layoff list.'[then at random]";
+		stop the action.
+		
+After taking the newspaper, say "You pick up the newspaper."
+			
+The glass-top coffee table is a supporter in the Chairman's office.
+The description of the glass-top coffee table is "A circular table where the chairman has informal meetings."
+There is a newspaper on the glass-top coffee table.
+The description of the newspaper is "The Wallstreet Journal. Crammed with valuable stock prices and business news, no self-respecting business leader should be without it. Max Jr. always has a copy handy because he's obsessed with news about Minimax Inc., especially the stock price."
+Understand "Wallstreet Journal" or "Journal" or "newpaper" as newspaper.
+
+Before taking the newspaper when the newspaper is not handled:
+	if the player can see Max:
+		say "Max says, 'Before you run off with that newspaper, let me tell you a story.'";
+		say "[line break]'Through dumb luck, I was born into a rich family business. And, while this opened the door to the best schools and a fast track to an executive position, I didn't appreciate it. Unlike my father, I had an easy life with very few obstacles to overcome.'";
+		say "[line break]'You see kid, my father had to be persistent and driven to build this business. But all I had to do was show up, and now I'm chairman. It doesn't feel like I earned it, and sometimes I feel like an imposter when I sit in this office.'";
+		say "[line break]'When my father died, I inherited the company but not his inventiveness. Initially, I played it safe by selling legacy office products like copiers and fax machines. But this hurt the company's reputation. We were seen as falling behind, stuck in the past, and unable to compete.'";
+		say "[line break]'But I proved I can have big ideas too. For the first time, I felt like I had built something when I transformed the company into a financial services business. And with Minimax gaining traction I know we have a bright future if we can come to market with some new products to impress our clients.'";
+		say "[line break]'I hire young people like you to bring fresh ideas into the business. Innovations that you dream up will elevate Minimax to become the market leader I know it can be.'";
+		say "[line break]'But without a breakthrough product, sales will continue to suffer and I'll have to let most of the staff go.'"; 
+		say "[line break]'So go ahead and take the newspaper, but use it as inspiration for generating ideas or we'll all be in trouble.'"; 
+	increase the score by Easy_Score_Bonus;
+	continue the action.
+	
+The scent of Max is "smells like citrus layered with tarragon, mint, and sweat".
+	
+After examining Max:
+	say "Max has [a list of unconcealed things had by the noun]. He [scent of the noun].";
+	if ceoExamined is false:
+		say "[line break]Looking up briefly, he says, 'Why are you wasting my time, kid?'";
+		say "Max looks bewildered as usual.";
+	now ceoExamined is true;
+
+The photograph is a thing in the Chairman's office. The photograph is undescribed.
+The photograph is fixed in place.
+The description of the photograph is "The photo shows the company founder hard at work in 
+the Minimax research lab where he invented many innovative office machines. The inscription under the simple silver frame reads, 'Max Prophet invents the future.'"
+
+Understand "chairman" as Max.
+Understand "photo" as photograph.
+Understand "memorabilia" as display case.
+Understand "awards" as display case.
+Understand "case" as display case.
+The display case is fixed in place.
+The display case is a closed transparent container in the Chairman's office. 
+The display case is undescribed.
+The description of the display case is "The display case is filled with dusty company awards and photos commemorating the company's glory days from years ago when Minimax was the unrivaled leader in the office machine market. There are no recent awards here."
+
+Some ceo_decor are scenery in the Chairman's Office. Understand "desk", "seating area", "chairs", "chair", "bookshelf", "shelf", "cabinets", "cabinet", "storage", and "storage cabinets" as the ceo_decor. The description of the ceo_decor is "The well-appointed office furnishings are just what you would expect from a corporate executive."
+Instead of doing anything other than examining with the ceo_decor:
+	say "Max Jr. wouldn't want you to fiddle with his stuff."
+
+Some window_view are scenery in the Chairman's Office. Understand "ducks", "duck", "pond", "duck pond", "golf course", "golf", "picture window", and "window" as window_view. The description of the window_view is "Such a lovely view of the duck pond and golf course from here."
+Instead of doing anything other than examining with the window_view:
+	say "Max Jr. would not approve."
+
+After asking Max about something:
+	if the topic understood matches the regular expression "(?i)\bminimax|\bcompany|copier|calculator|sales":
+		say "After a [one of]long pause[or]far-off stare[at random], he says, 'The current product line is old and so is the reputation of the company. We need some innovation around here. Minimax core copier business is irrelevant because our customers can buy a copier from anyone.'[paragraph break]'The slide began when our patents expired and we lost 90% of the market. We need to focus on financial services now. That's where opportunity lies.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bfather|\bfounder|\bphoto|memorabilia":
+		say "After [one of]a long stare out the window[or]an audible sigh[at random], he says, 'It's been tough growing up in the shadow of my father, the great inventor. I never really had his talent for engineering, but here I am, king at last. If only we could regain his spirit of innovation around here. Maybe you can help, kid.'[paragraph break]'Most days I don't feel like my father. I lack his courage, endurance, and patience.'[paragraph break]'After his accident in 2010, I was ambivalent about inheriting the business. I was eager to prove myself, but at the same time, I was filled with self-doubt. And now with Minimax struggling, I wish we had someone on staff like him. Maybe you're the innovator we need, kid.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bpresentation|\breport":
+		if the boss has the complex report:
+			say "He says, 'I was impressed by the complexity of your year-end presentation in the executive meeting. You're going places, kid!";
+		otherwise:
+			say "He says, 'Your boss showed me your draft presentation, and I must say I was underwhelmed. It was weak tea, kid.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bboss|\boutsourc|\bbusiness|\blayoff|\bdownsiz|\bcuts":
+		say "After a heavy sigh, he says, 'Honestly, we're getting out-maneuvered by our rivals. If we don't generate new product ideas we'll never gain enough market share in our financial services business to be profitable like the old days. With profits down, we need to make deep cuts. I'm looking to employees like you to suggest new product ideas in a hurry.'";
+	otherwise if the topic understood matches the regular expression "death|accident":
+		say "After a long pause, he says, 'From what I understand, not all the powerlines in his research lab were properly insulated. My father made a fatal mistake, and enough voltage passed through him to stop his heart and cause a power failure in the entire building. I remember it burned out my espresso machine. It was a bad day for sure. Of course, he didn't survive, and unfortunately, neither did his latest invention. We could sure use him today with our innovation pipeline running dry.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bsuccess|(?i)\bfashion|(?i)\bclothes|(?i)\boffice|status|winner":
+		say "He says, 'I've earned my success, kid. Do you see this suit? It's custom-made, just like my career. Someday maybe you can be someone who matters. For now, you're just a stain on the carpet. Now go innovate something.'";
+	otherwise if the topic understood matches the regular expression "duck|pond|golf|window|office":
+		say "Max Jr. stares out the window and says, 'I've made it, kid. Do you see this office? It's enormous. And I've got a terrific view of the duck pond and the golf course from here. My father wasted a lot of time in the research lab, but I know the action is here, in the executive suite where big decisions are made. Anyone can build a copier.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bcomplexifier|(?i)\bcomplexity":
+		say "Max Jr. says, 'Our old products were extremely profitable, but those days are past. We need products that appeal to our financial services customers. I'm paying you to come up with ideas on that, kid. Now go get started or you'll be another name on the layoff list.'";
+	otherwise if the topic understood matches the regular expression "(?i)\bnewspaper|(i?)journal":
+		say "Max Jr. says, 'I know it seems old-fashioned, but I read the Wallstreet Journal because my father always did. It helps structure my mornings and contains all the stock quotes and business news I need. Reading it with my coffee has become a ritual for me. And of course, I'm terrible with new technology. I'll leave that to kids like you. Now get back to work.";
+	otherwise:
+		say "He says, [one of]'I find your comments impertinent. I like that. You have potential, kid.'[or]'You're not making sense to me, kid.'[or]'You should take that up with your boss.'[or]'I don't have an answer for you, so figure it out yourself.'[or]'I think it's time you left, kid.'[or]'My father would know what to do, but I mostly just flip a coin.'[or]'Honestly, that's too technical for me. I'm no engineer.'[or]' Lots of people would like to trade places with me, but then they don't know it's been hell this last year.'[or]'I've probably already said too much. Run along, kid.'[or]'That sounds like lazy thinking, kid.'[or]'Don't be a suck-up, kid. Go invent something.'[or]'You sound like a weakling. Now get out and get some work done.'[then at random]";
+
+		
+Part 15 - Damp Tunnel
+
+Before going to The Damp Tunnel:
+	if the Damp Tunnel is lit:
+		place an image "img/damp-tunnel.jpg" with the description "Damp Tunnel", aligned left.
+	
+The Damp Tunnel is a dark room. "You find yourself in a confined nook filled with a disquieting stillness. Musty odors fill your nostrils. As you explore the narrow space you notice a rusted Minimax adding machine standing next to a black panel." 
+The Damp Tunnel is scored.
+
+Before going nowhere from the Damp Tunnel:
+	if the black panel is open:
+		continue the action;
+	otherwise if the laser pointer is switched off and the player has the laser pointer:
+		say "You can't make progress in the dark.";
+		stop the action;
+	otherwise if the flashlight is switched off:
+		say "You can't make progress in the dark.";
+		stop the action.
+
+Before going south from the Damp Tunnel:
+	if the black panel is open:
+		[now the player is in the Research Lab; <-- probable bug when using go to Research Lab]
+		continue the action;
+	otherwise if the laser pointer is switched off and the player has the laser pointer:
+		say "You can't make progress in the dark. A dim light above you reveals an exit.";
+		stop the action;
+	otherwise if the flashlight is switched off and the player has the flashlight:
+		say "You can't make progress in the dark. A dim light from above reveals an exit.";
+		stop the action;
+	otherwise:
+		continue the action.
+
+Carry out switching on the laser pointer:
+	now the Damp Tunnel is lit.
+		
+Carry out switching off the laser pointer:
+	if flashlightDead is true:
+		now the Damp Tunnel is dark;
+	otherwise if the player has the long-handled flashlight:
+		if the long-handled flashlight is switched on:
+			now the Damp Tunnel is lit;
+		otherwise:
+			now the Damp Tunnel is dark.
+	
+After switching off the laser pointer:
+	say "The laser pointer flickers briefly and fades out."
+	
+After switching on the laser pointer:
+	say "The laser pointer emits a narrow green beam."
+
+Carry out switching on the long-handled flashlight:
+	if flashlightDead is false:
+		now the Damp Tunnel is lit;
+	otherwise:
+		do nothing;
+		stop the action.
+
+Report switching on the long-handled flashlight:
+	if flashlightDead is true:
+		say "The flashlight blinks briefly and goes dark again.";
+	otherwise:
+		say "You switch on the flashlight. It emits a weak flicker of light."
+
+Report switching off the long-handled flashlight:
+	say "The flashlight goes dark.";
+				
+Every turn while the player is in the Damp Tunnel:
+	[determine if room is lit or dark]
+	if the player has the laser pointer and the laser pointer is switched on:
+		now the Damp Tunnel is lit;
+	otherwise if flashlightDead is true:
+		now the Damp Tunnel is dark;
+	otherwise if player has the flashlight and the flashlight is switched on:
+		now the Damp Tunnel is lit;
+	otherwise:
+		now the Damp Tunnel is dark.
+	
+Every turn while the player is in the Damp Tunnel:
+   [the flashlight runs out of juice unexpectedly]		
+	if the long-handled flashlight is switched on for 6 turns:
+		say "Suddenly, the flashlight dims considerably and goes out.";
+		now flashlightDead is true;
+		now the long-handled flashlight is switched off;
+		if the player has the laser pointer:
+			if the laser pointer is switched off:
+				say "You switch on the laser pointer.";
+				now the laser pointer is switched on;
+				now the Damp Tunnel is lit;
+			otherwise:
+				say "The laser pointer guides your way.";
+				now the Damp Tunnel is lit;
+		otherwise:
+			say "Looks like you're going to need another light source.";
+			now the Damp Tunnel is dark;
+	otherwise:
+		do nothing.
+				
+Instead of examining the bookcase:
+	if the player is in the Damp Tunnel:
+		say "You look up through the trap door and see a bookcase full of old manuals.";
+		stop the action;
+	otherwise:
+		continue the action.
+						
+The black panel is a door.
+The black panel is south of the Damp Tunnel and north of the Research Lab.
+The black panel is closed and unopenable.
+The description of the black panel is "[if player is in the Damp Tunnel]A drab black panel that extends from floor to ceiling. It appears to be scraped and dented by people kicking it. A vague message has been scratched into its dusty surface. A frayed cable runs from the adding machine to the panel[otherwise]A dull black panel borders a damp tunnel to the north[end if]."
+The message is in the Damp Tunnel. The message is undescribed.
+The description of the message is "Scrawled on the black panel is: 'Marcus was here 1972'."
+		
+In the Damp Tunnel is a Minimax calculator.
+The Minimax calculator is scenery.
+Understand "MM19" as the Minimax.
+Understand "adding machine" as the Minimax.
+Understand "calculator" as the Minimax.
+Understand "keypad" as the Minimax.
+Understand "keyboard" as the Minimax.
+Understand "buttons" or "button" as the Minimax.
+Understand "adding machine" as the Minimax.
+		
+The description of the Minimax calculator is "Ahh, the original MM19, just like the one featured in the founder's portrait. This one is a well-preserved example of a full-function calculator that was a marvel for its heyday in the 1960s. It has the standard buttons 1-9 as well as add and subtract."
+There is a black cable in the Damp Tunnel.
+The black cable is fixed in place.
+The description of the black cable is "A high-voltage cable frayed from years of neglect and damp conditions connects the Minimax adding machine to the black panel."
+The black cable is undescribed.
+	
+The Minimax calculator has a text called combo.
+When play begins, now the combo of the Minimax calculator is "161-180".
+
+Typing is an action applying to one thing and requiring light.
+Understand "type on [something]" as typing.
+
+Instead of typing the Minimax:
+	say "You should think of something to type and try again."
+
+Typing it on is an action applying to one topic and one thing and requiring light. Understand "type [text] on [something]" as typing it on.
+
+Instead of pushing the Minimax:
+	say "try typing on the keypad instead.";
+	stop the action.
+
+Check typing it on:
+	if the second noun is not a Minimax:
+		instead say "You can't do that to [the second noun]."
+
+Carry out typing it on:
+	let T be text;
+	let T be the topic understood;
+	now the combo of the second noun is T;
+	if the second noun is not a Minimax:
+		say "Typing '[T]' on [the second noun] does nothing.";
+	otherwise:	
+		if the combo of the second noun is "161-180" and the black panel is closed:
+			say "You hear a loud squeaking of rusty metal on metal as the black panel swings open revealing Max Prophet's legendary secret lab to the south.";
+			increase the score by Hard_Score_Bonus;
+			now the black panel is open;
+			now the Damp Tunnel is lit;
+			pause the game;
+			place an image "img/research-lab.jpg" with the description "Research Lab", aligned left;
+			now the player is in the Research Lab;
+		otherwise:
+			say "You type '[T]' on the keypad, but nothing happens.";
+			if the black panel is open:
+				say "[line break]You're wasting your time. The black panel is already open."
+			
+Before opening the black panel:
+	if the black panel is open:
+		say "It's already open to the research lab.";
+		stop the action;
+	otherwise:
+		continue the action.
+		              	
+Every turn when the player is in the Damp Tunnel for more than 1 turn and the player can see the Minimax and the black panel is closed:
+	if the long-handled flashlight is switched on:
+		say "[one of]You grow concerned as the beam of the flashlight grows weaker[or]The flashlight fades in and out[or]The flashlight shines a dull gray light on the damp walls[at random].";
+	otherwise if the laser pointer is switched on:
+		say "The laser pointer [one of]casts eerie green shadows[or]fades in and out[or]shines brightly[at random].";
+	otherwise:
+		do nothing.
+	
+Every turn when the player can see the black panel and the player is in the Damp Tunnel and the black panel is closed:
+	if the player has been in the Damp Tunnel for 12 turns:
+		now the Damp Tunnel is dark;
+		now the laser pointer is switched off;
+		now the flashlight is switched off;
+		clear the screen;
+		say "With one final weak pulse, the light flickers off leaving you to stagger around blind and alone.";
+		say "[paragraph break]The Damp Tunnel brightens considerably as you trip over the frayed high-voltage cable. Sparks fly, and alas, this mistake is fatal. To the delight of the rats, your death comes swiftly with the aroma of cooked flesh.";
+		now playerDead is true;
+		pause the game;
+	otherwise:
+		say "[one of]You are feeling weary.[or]The musty stink of this place makes you gag.[or]You think you hear rats.[or]You feel a sense of doom.[or]The warm dank air is nearly unbearable.[or]You feel a cool breeze from under the panel, or maybe that's just your imagination.[or]You hear scurrying sounds behind you.[or]You fear you'll go insane if you stay here much longer.[or]You stifle a scream when something wet scampers over your foot.[at random]";
+
+Instead of taking the cable:
+	clear the screen;
+	say "The Damp Tunnel brightens considerably as you grip the frayed high-voltage cable. Sparks fly, and alas, this mistake is fatal. Your death comes swiftly with the stink of burning flesh.";
+	now playerDead is true;
+	pause the game.
+	
+Before opening the black panel:
+	say "There's no obvious way to open [the noun].";
+	stop the action.
+		
+Part 16 - Research Lab
+
+Before going to The Research Lab:
+	place an image "img/research-lab.jpg" with the description "Research Lab", aligned left.
+	
+The Research Lab is a room. "A collection of outdated electronic parts and gadgets lay forgotten, scattered on a long dusty workbench. To the north is a tunnel."
+The Research Lab is scored.
+The Research Lab is south of the black panel.
+The workbench is a supporter in the Research Lab.
+The description of the workbench is "The sturdy table where Max Prophet built the prototypes for his inventions."
+The workbench is undescribed.
+Understand "table" as the workbench.
+The leather-bound notebook is on the workbench.
+The description of the leather-bound notebook is "It looks like old notes from Max Prophet.[paragraph break][bold type]Predict-Tac-Toe[paragraph break][italic type]Tic-Tac-Toe has been a favorite toy problem of mine since the 1950s because it reveals a great many truths about probability. Because of the limited number of possible moves at any point in a game, even as a teenager, I was able to construct a simple prediction machine to calculate the win/loss/draw outcome from the very first move.[paragraph break]But can these techniques be applied to more complicated games? It seems to me that flawless prediction should be possible for other domains as well. Lately, I've been exploring the application of this idea to the stock market by modifying my original tic-tac-toe machine. Shouldn't it be possible to predict a company's future stock price based on its recent performance? Such an invention would launch a new era of innovation at Minimax.[paragraph break]Unfortunately, my experiments to date have been fruitless, and I've grown too old to continue. I feel like I'm forgetting something, but what could it be?"
+
+The impact screwdriver is a thing on the workbench. 
+The description of the impact screwdriver is "An impact screwdriver, ideal for loosening screws, nuts, or bolts that are corrosively frozen in place." 
+The impact screwdriver weighs 1000gm.
+Some worn leather shoes are in the Research Lab. The indefinite article is "a pair of".
+The worn leather shoes weighs 2500gm.
+The description of the worn leather shoes is "These are the size 13 black wingtip shoes Max Prophet buffed, polished, resoled, and wore for more than 50 years. He might have been thrifty or sentimental, but he obviously preferred old reliable things. It would take someone special to fill these shoes."
+The worn leather shoes are wearable.
+	
+Before taking the worn leather shoes:
+	say "They say no one could ever fill Max Prophet's shoes, but maybe you can.";
+	continue the action.
+ 
+The tic-tac-toe machine is a device on the workbench.
+The tic-tac-toe machine is fixed in place.
+The description of the tic-tac-toe machine is "It's the old tic-tac-toe machine featured in the magazine clipping. It appears to have been highly modified since the 1950s. On the front of the unit is a barely-legible label that says 'Predict-Tac-Toe.' The machine makes a delightful hum and warms up the room. On the back of the unit, you notice an expansion port."
+The tic-tac-toe machine is switched on.
+The expansion port is a container on the workbench. 
+The expansion port is undescribed.
+The description of the expansion port is "An opening on the back of the tic-tac-toe machine for connecting additional modules."
+
+Instead of switching off the tic-tac-toe machine:
+	say "There doesn't seem to be an off switch for this machine. It must have been running continuously for years.";
+	now the tic-tac-toe machine is switched on;
+	stop the action.
+	
+Instead of taking the tic-tac-toe machine:
+	say "The old machine is far too heavy to lift.";
+	stop the action.
+	
+Understand "Minimax-Fax" as the fax machine.
+Understand "gadgets" as the workbench.
+Understand "parts" as the workbench.
+Understand "Predict-tac-toe" as the tic-tac-toe machine.
+
+The fax machine is a device on the workbench.
+The fax machine is fixed in place.
+The description of the fax machine is "An early fax machine with exposed tubes and wires sits on the workbench. It's labeled Minimax-Fax. The paper slot is dusty but appears functional. There's a green connector dangling from the back of the machine."
+
+Report switching on the fax machine:
+	say "The fax machine powers up. The status panel displays 'Initializing'."
+	
+Report switching off the fax machine:
+	say "You turn off the fax machine. The status panel reads 'Powering down'."
+	
+Understand "status panel" as fax machine.
+	
+The paper slot is a container on the workbench.
+The paper slot is undescribed.
+The description of the paper slot is "On the front of the fax machine, there's a thin opening that accepts messages to transmit."
+The green connector is on the workbench. The green connector is fixed in place.
+The green connector is undescribed.
+The fax machine is switched off.
+
+Instead of inserting something into the fax machine:
+	try inserting the noun into the paper slot.
+
+Understand "projections" as projection report.
+Understand "stock prices" as projection report.
+Understand "predictions" as projection report.
+
+The projection report is nowhere.
+The description of the projection report is "[line break]Congratulations! You have successfully synthesized the next breakthrough technology for Minimax Inc. and the financial world by combining spare parts from the research lab and salvaging the neuropack from the Complexifier![paragraph break]This is the culmination of the stockpicker project, and Max Prophet Sr. couldn't have completed it without your drive and good judgment. Because of your keen insights, this machine can predict business results with high accuracy days in advance, giving Minimax Inc. a significant advantage over all its competitors.[paragraph break]Proof is right in front of you: a summary of next week's Wallstreet Journal, complete with stock prices, derived from the newspaper you provided.[paragraph break]A surprising paragraph from the front page is also included:[paragraph break][italic type]Minimax Inc. scores a major victory by announcing a ground-breaking stockpicker technology. This news represents a new lease on life for Minimax Inc. which has struggled in recent years due to increased overseas competition and shrinking demand for office machines.[paragraph break]Chairman Max Prophet Jr. believes that by inviting Minimax clients to reap the benefits of near-perfect business predictions, the proprietary technology will propel Minimax Inc. to emerge as a clear leader in the financial services industry. Prophet said, 'Although the details of the technology will remain a company secret, our financial clients will immediately benefit from the improved investment advice our advisors can offer.'[roman type]"
+
+Disconnecting it is an action applying to two things.
+Understand "disconnect [something] from [something]" as disconnecting it.
+Understand "unfasten [something] from [something]" as disconnecting it.
+
+Carry out disconnecting:
+	if the noun is the fax machine:
+		if the second noun is the tic-tac-toe machine:
+			if faxIsConnectedToTicTacToe is true:
+				say "You disconnect [the noun] from [the second noun].";
+				now faxIsConnectedToTicTacToe is false;
+				decrease the score by Easy_Score_Bonus;
+			otherwise:
+				say "The two devices are not connected.";
+		otherwise:
+			say "Disconnecting the fax from [the second noun] doesn't make sense.";
+	otherwise if the noun is the neuropack and the second noun is the expansion port:
+		now the player has the neuropack;
+		say "You disconnect the neuropack.";
+		stop the action;
+	otherwise:
+		say "I don't understand that sentence."
+
+Instead of tying the neuropack to the expansion port:
+	try inserting the neuropack into the expansion port.
+	
+Instead of inserting something into the paper slot:
+	if the fax machine is switched off:
+		say "You need to turn on the fax machine first.";
+		stop the action;
+	otherwise if the noun is the newspaper:
+		say "The thin newsprint paper glides easily into the paper feed.";
+		say "[line break]The fax roars to life loudly consuming the input.";
+		if faxIsConnectedToTicTacToe is false:
+			say "[paragraph break]The fax machine halts abruptly. The status panel displays 'Connection Error.'";
+		otherwise:
+			say "[line break]The status panel on the fax machine says 'Connection Stable.'";
+			say "[line break]The fax machine clicks and spins as it transmits the contents of the newspaper across the connection to the tic-tac-toe machine.";
+			say "[line break]The tic-tac-toe machine emits waves of heat as it churns through the newspaper details.";
+			if the neuropack is in the expansion port:
+				say "[line break]The results are stunning. A stream of predictions spills from the fax printer onto the workbench as the ancient tic-tac-toe machine pumps out a projection report that anticipates next week's stock prices and business news.";
+				now the projection report is in the Research Lab;
+				now the newspaper is in the Research Lab;
+				increase the score by Medium_Score_Bonus;
+				stop the action;
+			otherwise:
+				say "[line break]Suddenly, a puff of acrid smoke rises from the expansion port on the tic-tac-toe machine.";
+				say "[line break]The status panel on the fax machine says 'Transmission Overload.'";
+				say "[line break]Clearly, there's something missing from this contraption.";
+				stop the action;
+	otherwise:
+		say "[the noun] has no effect.";
+		stop the action.
+	
+Before examining the projection report:
+	if the projection report is on the workbench:
+		continue the action.
+		
+After examining the projection report:
+	increase the score by Hard_Score_Bonus;
+	now everything carried by the player is nowhere;
+	pause the game;
+	now playerWon is true.
+
+Instead of tying the green connector to the tic-tac-toe machine:
+	if faxIsConnectedToTicTacToe is false:
+		say "After some effort, the connection slips into place almost like it was meant to be. A green light on the tic-tac-toe machine glows in seeming approval.";
+		now the description of the green connector is "It's a thin green wire leading from the rear of the fax machine to the input jack on the tic-tac-toe machine.";
+		increase the score by Easy_Score_Bonus;
+		now faxIsConnectedToTicTacToe is true;
+	otherwise:
+		say "The fax and tic-tac-toe machines are already connected."
+	
+Instead of tying the fax machine to the tic-tac-toe machine:
+	try tying the green connector to the tic-tac-toe machine.
+		
+The magazine clipping is in the Research Lab. 
+The description of the magazine clipping is "It's an inspiring article from the May 1951 issue of Look Magazine where the boy genius, Maxwell Prophet, is profiled with his tic-tac-toe machine. Under a faded, black and white photo of a bright-eyed Max is the caption:[italic type] 'The young scientist checks on switches, panels, and 400 feet of wire of his mechanical brain that can't be beat.'[paragraph break][italic type]A MECHANICAL brain, the invention of 14-year-old Maxwell Prophet of Kellogg, Idaho, can, without even stopping to think, defeat the best human brain 40 percent of the time in a fast game of 'noughts-and-crosses.' A draw is about the best a human can hope for. Between rounds with his machine, Maxwell, who was repairing electric trains at the age of eight, favors an afternoon of calculus."
+
+
+Part 17 - Freedom
+		
+The Green Pasture is a room. "At long last, you find yourself in a green pasture, free of your old job and eager for new opportunities.[paragraph break]The good news is that you're free to find a better job away from the struggling Minimax Inc. But too bad you didn't get a positive recommendation from your boss. Just tell yourself working at Pizza Hut is not the end of your career, just a fresh start with extra cheese."
+	
+Part 18 - Death
+
+The Final Resting Place is a room. "Although you were likely to lose your job at Minimax Inc. as part of the upcoming layoffs, this is a far more tragic end for such a talented and hardworking young employee.[paragraph break]Perhaps you'll climb the corporate ladder more successfully in your next life."
+	
+Part 19 - Victory
+
+The Corner office is a room. "Your ingenuity and resourcefulness have paid off. Your actions saved Minimax Inc. from certain bankruptcy and restored its profitability. On top of that, your efforts not only saved your job but also earned you the prestigious title of 'Chief of Innovation.' Your days of sitting in a dull gray cubicle are over. You now lead your team from a luxurious corner office on mahogany row. This is the C-suite, where you can relax in your executive chair and take in the natural beauty of the nearby scenic greenscape. Of course, to make your triumph even sweeter, your former boss delivers your gourmet coffee each morning in a mug that reads 'Innovator of the Year.'"
