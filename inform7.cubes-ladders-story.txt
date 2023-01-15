@@ -39,8 +39,6 @@ The display banner rule is listed before the when play begins stage rule in the 
 Use American dialect and the serial comma.
 The display banner rule is not listed in the startup rulebook.
 
-
-
 Part 1 - Hints
 
 Understand "help [text]" or "help about [text]" as getting help about. Understand the commands "instructions" or "hint" or "hints" or "menu" or "info" or "about" as "help".
@@ -1307,7 +1305,8 @@ After examining the Shelf:
 Part 10 - Storage
 
 Before going to The Storage Room:
-	place an image "img/storage-room.jpg" with the description "Storage Room", aligned left.
+	if the Storage Door is open:
+		place an image "img/storage-room.jpg" with the description "Storage Room", aligned left.
 	
 The you-can-also-see rule does nothing when the player is in the Storage Room.
 
@@ -1534,7 +1533,8 @@ Instead of taking the complexifier:
 Part 11 - Marketing Storage
 
 Before going to Marketing Storage:
-	place an image "img/marketing-storage-6.jpg" with the description "Marketing Storage", aligned left.
+	if the Marketing door is open:
+		place an image "img/marketing-storage-6.jpg" with the description "Marketing Storage", aligned left.
 	
 The Marketing Door is a door. 
 
