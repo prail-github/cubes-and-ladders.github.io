@@ -128,7 +128,7 @@ When play begins:
 	pause the game;
 	say "[Bold type]Changes in Leadership - Max Prophet Jr. Takes Charge[paragraph break][roman type]By the time Max Prophet Sr. turned over the business to his son in 2010, Minimax Inc. was no longer a market leader.[paragraph break]With investor confidence in the company falling along with the stock price, Max Jr. made the bold decision to move away from selling copiers and into selling financial services. This was a radical departure from the company's traditional business of selling office machines, but the strategy paid off fairly well, and the company has been able to stay afloat ever since.[paragraph break]However, Minimax's former dominance has yet to return, and the company is losing money as it struggles to retain customers.";
 	pause the game;
-	place an image "img/corp-headquarters.jpg" with the description "Minimax Inc.";
+	[place an image "img/corp-headquarters.jpg" with the description "Minimax Inc.";]
 	say "[Bold type]Your Aim is To Save Your Job and To Save Minimax Inc.[paragraph break][roman type]The company is no longer regarded as innovative, and with its customer base shrinking and profits falling, the threat of job cuts is looming. This puts your job in jeopardy.[paragraph break]Some may argue that an entry-level job like yours has little influence over the fate of the company, but today is your last chance to shape the future of Minimax Inc. If you succeed, it will be the most significant day in your brief career.[paragraph break]Will you be able to restore the company's reputation for innovation and return it to profitability?[paragraph break]If you fail, it's time for you to look for greener pastures. Good luck.";
 	say "[line break]On the next page, you'll begin the challenge.";
 	pause the game;
@@ -1653,7 +1653,7 @@ Instead of jumping up in Marketing Storage:
 	say "It's too cramped in here to jump.";
 	stop the action.
 
-Instead of throwing the something at the hook:
+Instead of throwing the something at the clothing hook:
 	try throwing the the noun at the cap;
 	
 Instead of throwing something at the cap:
@@ -1662,35 +1662,30 @@ Instead of throwing something at the cap:
 	now the KISS mug is in marketing storage;
 	stop the action.
 
-[The high shelf is an enterable supporter in Marketing Storage.]
-The high shelf is scenery in Marketing Storage. 
-Understand "shelves" as the high shelf.
-The description of the high shelf is "The dusty shelf contains nothing interesting, but you spot a baseball cap high above you on a hook."
+The clothing hook is a supporter in Marketing Storage. 
+The baseball cap is on the clothing hook.
+The description of the clothing hook is "[if the baseball cap is on the clothing hook]You spot a baseball cap high above you on a hook.[otherwise]It's a wall-mounted clothing hook high on the wall."
 
-The hook is a supporter in Marketing Storage. The hook is scenery.
-The description of the hook is "It's a wall-mounted clothing hook high on the wall."
-The baseball cap is on the hook.
 The description of the baseball cap is "It looks like a white baseball cap. You can't read the logo from here."
 The baseball cap is undescribed.
 The baseball cap weighs 200gm.
 The baseball cap is wearable.
 Understand "hat" as the baseball cap.
 	
-Before putting the baseball cap on the hook:
+Before putting the baseball cap on the clothing hook:
 	if the player is not standing on the complex report:
 		say "You can't reach that from here.";
 		stop the action.
 		
 Before taking the baseball cap:
 	if the player is not standing on the complex report:
-		if the noun is on the hook:
+		if the noun is on the clothing hook:
 			say "You stretch as high as you can but [the noun] remains just out of reach.";
 			stop the action.
 
 Carry out taking the baseball cap when the baseball cap is not handled:
 	say "Standing on the thick report adds just enough height to reach the cap.[line break]You take it.";
 	now the description of the baseball cap is "The cap is boldly embroidered in red with the words 'Dept. of Complexity' and sports a handsome metal D-ring slider buckle with a hideaway strap closure.";
-	now the description of the high shelf is "The dusty shelf contains nothing interesting.";
 	increase the score by Hard_Score_Bonus.
 	
 Instead of climbing the office chair in Marketing Storage:
