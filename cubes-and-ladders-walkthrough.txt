@@ -4,8 +4,8 @@
 
 ===============================================================================
 
-Updated: Jan 24, 2023
-Version: 1.0
+Updated: Feb 6, 2023
+Version: 1.1
 Contact: prail@yahoo.com
 
 CONTENTS
@@ -18,6 +18,7 @@ VERSION HISTORY
 ---------------
 
 1.0: Jan 24, 2023 (First Version)
+1.1: Feb 6, 2023 
 
 
 ===============================================================================
@@ -47,16 +48,18 @@ Read this walkthrough ONLY if you get stuck as it reveals the game solution.
 Hallway
 -------
 
-The game starts in a long hallway. Go west to your cubicle.
-Meet the boss. Examine the boss (who speaks in cliches) and ask her about 
+The game starts in a long hallway. Take the leaflet and read it. 
+This will give tell you the history of the company.
+Go west to your cubicle and meet the boss. 
+Examine the boss (who speaks in cliches) and ask her about 
 Minimax and your presentation. Apparently, your presentation is not 
 good enough and needs improvement by noon for an executive meeting. 
 Go southeast to end your conversation. The boss will give you an evaluation
 sheet and a year-end report. Go southeast to enter the cube farm, 
 which is intended to be a kind of maze.
 
-Cube Farm
----------
+Cube Farm 5 (CF-5)
+------------------
 The cube farm consists of nine cube zones, CF-1 through CF-9 with nearly
 identical descriptions meant to confuse. Some of the cubicles contain 
 important objects you must collect. From CF-5 you go northeast to 
@@ -64,6 +67,7 @@ CF-4 where you meet the security guard who blocks you path to the south.
 
 CF-4
 ----
+Examine the guard and ask him about intuders and cubes. 
 To get past the security guard and head south you must show him your year-end
 report. This bores him to sleep and you can then pass. Take the flashlight. 
 Go north to CF-2.
@@ -119,8 +123,10 @@ Go northwest to CF-3, west to CF-2, and north to the breakroom.
 Break Room
 ----------
 In the breakroom you meet Rich, the salesman who is interested in merch
-and donuts. You cannot get a donut unless you distract Rich, so give Rich
-the cap. Once he leaves, open the pastry box and take the donut for later.
+and donuts. You can ask Rich about different topics like the company, 
+marketing, and rumors. You cannot get a donut unless you distract Rich, 
+so give Rich the cap. Once he leaves, open the pastry box and take 
+the donut for later.
 Go east to the Gallery.
 
 Gallery
@@ -134,8 +140,15 @@ Chairman's Office
 -----------------
 In the Chairman's office you meet Max Jr. the somewhat reluctant leader
 of Minimax Inc. Examine Max. You can ask him questions about Minimax and his
-father. Take the newspaper and head southwest back to the Gallery, 
-west to the breakroom, North to the hallway, and then east to the Helpdesk.
+father. Take the newspaper and head southwest back to the Gallery and 
+then east to the conference room where your boss awaits you.
+
+Conference Room
+---------------
+Give the complex report to the boss. This appeases her, and she quickly
+dismisses you and you end up in the Gallery holding a layoff memo.
+When you read the memo you learn the layoff rumors were true. 
+Go west to the breakroom, north to the hallway, and then east to the Helpdesk.
 
 Helpdesk
 --------
@@ -150,6 +163,10 @@ Switch on the flashlight. If you examine the black panel you will realize
 it can be opened by typing something on the calculator keypad. Type the 
 combination you learned from the bust in the form 999-999 into the keypad
 (type 999-999 on keypad) to open the panel and reveal the secret research lab.
+Note that if your flashlight runs out of power it will be useless. 
+You can retrieve a more reliable light source from the conference room 
+after the executive meeting is over at 12:30pm. 
+Try typing "advance time to 12:30 PM" to make the executive meeting end.
 
 Research Lab
 ------------
@@ -176,7 +193,7 @@ Connect the fax machine to the tic-tac-toe machine. Turn on fax.
 Examine the tic-tac-toe machine and notice it has an expansion port.
 This is where you place the neuropack to complete the invention. Because
 the Predict-Tac-Toe machine needs input you next put the newspaper in the
-fax machine which will send information to the invention. A project report
+fax machine which will send information to the invention. A projection report
 appears that predicts future business news, including stock prices. This 
 breakthrough will save the company. To complete the game, examine the 
 projection report. You find your self in the Corner Office.
