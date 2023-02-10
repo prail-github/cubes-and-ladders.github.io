@@ -98,6 +98,7 @@ Carry out getting help about:
 		say "[line break]switch on  ___";
 		say "[line break]take ___";
 		say "[line break]taste ___";
+		say "[line break]throw ___ at ___";
 		say "[line break]type ___ on ___";
 		say "[line break]unlock";
 	otherwise:
@@ -1790,8 +1791,15 @@ Instead of taking the bust:
 		
 Part 13 - Conference Room
 
-Before going to The Conference Room:
-	place an image "img/conference-room-4.jpg" with the description "Conference Room", aligned left.
+[once the boss has what she wants from you, you are barred from the conference room]
+Before going to the Conference Room:
+	if the boss is carrying the complex report:
+		if the boss is in the conference room:
+			place an image "img/closed-conference-room.jpg" with the description "Closed Conference Room", aligned left;
+			say "The entrance to the conference room is closed for the executive meeting until 12:30 PM.";
+			stop the action;
+	otherwise:
+		place an image "img/conference-room-4.jpg" with the description "Conference Room", aligned left.
 	
 The Conference Room is east of the Gallery. "The executive conference room is a highly functional meeting room that offers undisturbed privacy in a formal business setting. To the west is the gallery."
 
@@ -1840,13 +1848,6 @@ After giving the complex report to the boss for the first time:
 		pause the game;
 		now the player is in The Gallery;
 		now the player is carrying the layoff memo.
-
-[once the boss has what she wants from you, you are barred from the conference room]
-Before going to the Conference Room:
-	if the boss is carrying the complex report:
-		if the boss is in the conference room:
-			say "The entrance is closed for the executive meeting until 12:30 PM.";
-			stop the action.
 	
 Every turn:
 	if the player is in the Conference Room for more than three turns:
