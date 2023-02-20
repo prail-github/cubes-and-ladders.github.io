@@ -1043,7 +1043,6 @@ After examining the security guard:
 			say "[line break]Pointing at you, he says, 'You college kids don't belong down here.'";
 		now guardExamined is true;
 	otherwise:
-		say "The guard snores contentedly dreaming he's Mannix.";
 		now guardExamined is true.
 
 After taking the flashlight:
@@ -1138,7 +1137,7 @@ Every turn when the player can see the security guard for more than one turn and
 	if the security guard is alert:
 		say "The guard [one of]says, 'Minimax is a great place to work in spite of punks like you who break the rules.'[or]locks eyes with you and says, 'You think you can outrun me, punk?'[or]sighs loudly as he checks his watch.[or]says, 'You look guilty of something, kid.'[or]says, 'Dirty Harry is my favorite hero.'[or]says, 'Seriously, you've got no business down here in my cube farm.'[or]points a finger at you and says, 'What mischief were you planning, kid?'[or]says, 'Just go back the way you came and I'll forget I saw you.'[or]says, 'Just old-fashioned trespassing. That's what this is. You're in big trouble, punk.'[or]says, 'Nothing to see down here. Run along.'[then at random]";
 	otherwise:
-		say "The guard [one of]snores loudly[or]rolls over contentedly[or]stirs briefly and goes back to sleep[or]dozes quietly[or]is enjoying a siesta[or]is catching up on his beauty sleep[or]is catching forty winks[then at random]."	
+		say "The guard [one of]snores contentedly dreaming he's Mannix[or]snores loudly[or]rolls over contentedly[or]stirs briefly and goes back to sleep[or]dozes quietly[or]is enjoying a siesta[or]is catching up on his beauty sleep[or]is catching forty winks[then at random]."	
 	
 After asking the security guard about something:
 	if the security guard is alert:
@@ -1190,7 +1189,7 @@ CF-9 is a room. "You're in a maze of empty cubicles. You could get lost in the s
 
 [1]
 CF-2 is east of CF-1.
-CF-6 is southeast of CF-1.
+CF-5 is south of CF-1.
 
 [2]
 CF-2 is south of the Breakroom.
@@ -2180,6 +2179,9 @@ Instead of taking the cable:
 	say "The Damp Tunnel brightens considerably as you grip the frayed high-voltage cable. Sparks fly, and alas, this mistake is fatal. Your death comes swiftly with the stink of burning flesh.";
 	now playerDead is true;
 	pause the game.
+
+Instead of touching the cable:
+	try taking the cable.
 	
 Before opening the black panel:
 	say "There's no obvious way to open [the noun].";
