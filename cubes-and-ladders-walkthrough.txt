@@ -4,8 +4,8 @@
 
 ===============================================================================
 
-Updated: Feb 6, 2023
-Version: 1.1
+Updated: Feb 21, 2023
+Version: 1.2
 Contact: prail@yahoo.com
 
 CONTENTS
@@ -13,13 +13,14 @@ CONTENTS
 
 1. Introduction
 2. Walkthrough
+3. Game Trivia
 
 VERSION HISTORY
 ---------------
 
 1.0: Jan 24, 2023 (First Version)
 1.1: Feb 6, 2023 
-
+1.2: Feb 21, 2023 
 
 ===============================================================================
 
@@ -153,8 +154,8 @@ Go west to the breakroom, north to the hallway, and then east to the Helpdesk.
 Helpdesk
 --------
 At the helpdesk you find Ray the techie. You can examine Ray and ask him about
-Minimax. He will not help you unless you give him the donut. Once you give
-him the donut he will open a trapdoor to a tunnel and leave. Enter the 
+Minimax and the research lab. He will not help you unless you give him the donut. 
+Once you give him the donut he will open a trapdoor to a tunnel and leave. Enter the 
 tunnel by going down.
 
 Damp Tunnel
@@ -164,9 +165,8 @@ it can be opened by typing something on the calculator keypad. Type the
 combination you learned from the bust in the form 999-999 into the keypad
 (type 999-999 on keypad) to open the panel and reveal the secret research lab.
 Note that if your flashlight runs out of power it will be useless. 
-You can retrieve a more reliable light source from the conference room 
+You can retrieve a more reliable light source from the conference room
 after the executive meeting is over at 12:30pm. 
-Try typing "advance time to 12:30 PM" to make the executive meeting end.
 
 Research Lab
 ------------
@@ -203,5 +203,26 @@ Corner Office
 Your reward for saving Minimax Inc. from failure is a promotion and a nice
 corner office overlooking a scenic golf course.
 
+===============================================================================
+
+3.                              Game Trivia
+
+===============================================================================
+
+1. You can open the maintenance compartment on the Complexifier with the impact 
+screwdriver or the laser pointer.
+
+2. There are two ways to die. You can stand on the office chair in the marketing 
+storage room or you can try touching the frayed cable in the damp tunnel. 
+This may have been how Max Prophet Sr.  ended his earthly career.
+
+3. The artwork helps the storytelling. I added AI-generated digital art 
+from https://dream.ai/create based on descriptions from the game text.
+
+4. Max Prophet Sr. was based on a real person--a finalist in the Westinghouse 
+Science Talent search of 1950 who built a tic-tac-toe machine as described in 
+the magazine clipping.  Here a museum curator talks 
+about him https://youtu.be/4sDYK4hDwAM?t=601
 
 ** End of Walkthrough **
+
