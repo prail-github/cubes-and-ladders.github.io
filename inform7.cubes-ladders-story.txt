@@ -244,19 +244,26 @@ flashlightDead is a truth state that varies. flashlightDead is false.
 
 [Scene control]
 playerFired is a truth state that varies. playerFired is false.
+playerLayoff is a truth state that varies. playerLayoff is false.
 playerWon is a truth state that varies. playerWon is false.
 playerDead is a truth state that varies. playerDead is false.
 
 Adventure is a scene.
 Adventure begins when play begins.
 Adventure begins when the player is in the Hallway for the first time.
-Adventure ends when playerFired is true or playerWon is true or playerDead is true.
+Adventure ends when playerFired is true or playerLayoff is true or playerWon is true or playerDead is true.
 	
 When Adventure ends:
 	if playerFired is true:
+		place an image "img/parking-lot-2.jpg" with the description "Parking Lot", aligned left;
+		now the player is in the Parking Lot;
+		say "[bold type]*** Good Luck in Your Fast Food Career ***";
+		say "[paragraph break][roman type]In this game you scored [score] points in [turn count] turns.";
+		stop game abruptly;
+	otherwise if playerLayoff is true:
 		place an image "img/green-pasture.jpg" with the description "Green Pasture", aligned left;
 		now the player is in the Green Pasture;
-		say "[bold type]*** Best of Luck in Your Fast Food Career ***";
+		say "[bold type]*** Best of Luck in Your Next Job ***";
 		say "[paragraph break][roman type]In this game you scored [score] points in [turn count] turns.";
 		stop game abruptly;
 	otherwise if playerWon is true:
@@ -358,7 +365,7 @@ Instead of smelling a room:
 	otherwise:
 		say "You smell [a list of smelly things enclosed by the location]." 
 
-The description of the player is "Your name is Jordan Michael and you've always had a penchant for puzzles and adventures. Although you've earned degrees from prestigious institutions such as Harvard, Columbia, and Lake Region Junior College, you rely primarily on your street smarts, which you developed while traveling the world to unsavory places such as Tehran, Kabul, and Plano.[paragraph break]You've been working as a humble tech support agent at Minimax Inc. for the past three months, assisting customers by troubleshooting office products.[paragraph break]It has become clear to you that Minimax Inc. is struggling to remain in business."
+The description of the player is "Your name is Jordan Michael and you've always had a penchant for puzzles and adventures. You rely primarily on your street smarts, which you developed while traveling the world to unsavory places such as Tehran, Kabul, and Plano.[paragraph break]You've been working as a humble tech support agent at Minimax Inc. for the past three months, assisting customers by troubleshooting office products.[paragraph break]It has become clear to you that Minimax Inc. is struggling to remain in business."
 
 After examining player:
 	try taking inventory.
@@ -530,25 +537,6 @@ Instead of examining the pen:
 Instead of standing up on the desk:
 	say "That isn't sturdy enough to hold you."
 	
-A stale double-stuff Oreo is on the desk. 
-The Oreo is edible. 
-The description of the Oreo is "Just begging to be eaten, it's a delicious sandwich cookie consisting of two simulated chocolate wafers surrounding a sicky-sweet gooey filling."
-The Oreo weighs 2gm.
-the scent of the Oreo is "has a borderline rancid odor".
-Understand "cookie" as Oreo.
-After taking the Oreo, say "You pick up the yummy snack."
-
-[to prevent the player from eating the orea immediately we stop him from eating it. ]
-[We would rather have him giving it away as a bribe later]
-
-Instead of eating the Oreo:
-	if player has the oreo:
-		do nothing;
-	otherwise:
-		try taking the oreo;
-	say "The Oreo is too stale for your taste, so you don't even try a nibble.";
-	stop the action.
-
 After asking the Boss about something:
 	if the player is in Your Cubicle:
 		if the topic understood matches the regular expression "(?i)\bpresentation|(?i)\breport|advice|recommend":
@@ -559,6 +547,8 @@ After asking the Boss about something:
 			say "She smiles and says, 'It's a prized possession of mine. It's something Max Sr. gave me years ago before his unfortunate accident. It still works great after all these years.'";
 		otherwise if the topic understood matches the regular expression "(?i)\bminimax|(?i)\bcompany":
 			say "She seems rushed, and says, 'Our share of the U.S. copier business has declined to less than 10% under the weight of cheap machines from Japan. Max Jr. is leading us into financial services instead. That's where our opportunity lies. Keep up, kid.'";
+		otherwise if the topic understood matches the regular expression "\bresearch\b|\blab\b":
+			say "See seems surprised, and says, 'I'm not authorized to provide that information. Let's get back on topic.'";
 		otherwise if the topic understood matches the regular expression "(?i)\bsheet\b|(?i)\bevaluation":
 			say "After a [one of]thoughtful pause[or]audible sigh[or]visible smirk[or]far-off stare[at random], she says, 'Let's just say there's room for improvement.'";
 		otherwise if the topic understood matches the regular expression "(?i)feedback|(?i)performance":
@@ -615,7 +605,7 @@ At 11:00 AM:
 At 5:00 PM:
 	clear the screen;
 	say "[paragraph break]Unfortunately, you failed to save your job in time and Minimax Inc. will certainly fail as its reputation and profitability slip lower over the coming months.";
-	now playerFired is true.
+	now playerLayoff is true.
 	
 Part 6 - Hallway
 
@@ -848,8 +838,10 @@ After asking Rich about something:
 		say "After a [one of]thoughtful pause[or]audible sigh[or]visible smirk[or]far-off stare[at random], he says, 'Things were better around here when Max Sr. was leading Minimax. We've lost a lot of customers since his kid took over the business, and we're in big trouble now. His idea of selling financial services isn't working. The soul of Minimax has always been office machines, and we should get back to that. But that's just one old copier salesman's opinion.'";
 	otherwise if the topic understood matches the regular expression "(?i)\bhi\b|(?i)\bhello\b|good morning":
 		say "He replies, [one of]'Hey, kid.'[or]'Good morning fellow Minimaxer!'[at random]";
-	otherwise if the topic understood matches the regular expression "copier|salesx |product":
+	otherwise if the topic understood matches the regular expression "copier|sales |product":
 		say "He says, 'I used to meet my annual sales goal by the end of February, but now I struggle all year. The customers are just smarter now.'";
+	otherwise if the topic understood matches the regular expression "research|lab":
+		say "He says, 'I remember Max Sr. had a lab in the basement. Not sure exactly where. Maybe Ray in Tech Support would know.'";
 	otherwise if the topic understood matches the regular expression "vacation|rumor|meeting":
 		say "He says, 'I hear layoffs are coming and we might all have a long vacation...if you know what I mean. I hear there's an executive meeting at noon today all about downsizing.'";
 	otherwise if the topic understood matches the regular expression "(?i)\bbourbon|booze":
@@ -910,9 +902,11 @@ After asking Ray about something:
 		say "After [one of]a long pause[or]an audible belch[or]a disapproving smirk[or]a far-off stare[at random], he says, 'With all the layoffs, Minimax is getting to be a ghost town. I used to love working here, but we're failing fast. You should be planning your exit, newbie.'";
 	otherwise if the topic understood matches the regular expression "(?i)\bhelpdesk\b|(?i)\bmanual|(?i)\bjob":
 		say "After a [one of]deep thought[or]audible belch[or]second or two[or]far-off stare[then at random], he says, 'Tech support is a scam, newbie. It's too late for me, but you could still be somebody. Why are you still working here?'";
+	otherwise if the topic understood matches the regular expression "research|lab":
+		say "He says, 'Years ago Max Sr. spent a lot of time in his secure research lab. If I wasn't so weak with hunger, I might remember exactly where it was.'";
 	otherwise if the topic understood matches the regular expression "(?i)\bIBM|360":
 		say "After a second or two, he says, 'In the old days, IBM was always willing to take a chance and try something new. Just like Minimax is trying with financial services. We should be supporting Max Jr. even though he's a weak copy of his old man. The 360 was magnificent. It has to be one of the all-time top business accomplishments, along with the Ford Model T, Boeing's 707 jet, and the Minimax Complexifier.'";
-	otherwise if the topic understood matches the regular expression "(?i)\bdonut|(?i)\boreo|(?!)\bsnack\b":
+	otherwise if the topic understood matches the regular expression "(?i)\bdonut|(?!)\bsnack\b":
 		say "He says, 'Tech support is exhausting. I could use a snack.'";
 	otherwise if the topic understood matches the regular expression "(?i)\bcopier|(?i)\bcomplexifier":
 		say "He says, 'The CX74 was an old machine we built back in the 70s. It was a dilly of a copier and we sold a million.'";
@@ -946,11 +940,7 @@ Instead of taking the manuals:
 	say "You quickly realize these obsolete manuals are sticky and too heavy to lift."
 	
 Before giving anything edible to Ray:
-	if the noun is the Oreo:
-		say "He devours your stale offering but seems to want more.";
-		say "Then he says, 'Keep that up and you'll get special treatment,' and laughs.";
-		now the Oreo is nowhere;
-	otherwise if the noun is the donut:
+	if the noun is the donut:
 		say "He gobbles down the treat and winks at you as he pushes aside some manuals to reveal a trapdoor under the bookcase. He points to the entrance, smiles, and heads toward the breakroom to look for more donuts.";
 		now the description of the helpdesk is "Beneath the bookcase, there's a trapdoor leading down into darkness. There's a hallway to the west.";
 		now the description of the bookcase is "There's a trapdoor leading down into darkness.";
@@ -1074,6 +1064,12 @@ Hitting it with is an action applying to two things and requiring light.
 Understand "hit [something] with [something preferably held]" as hitting it with.
 Report hitting it with: say "Your action has no effect."
 
+Instead of touching the flashlight:
+	if the guard is alert:
+		try taking the flashlight;
+	otherwise:
+		continue the action.
+	
 Instead of waking the security guard: 
 	try attacking the security guard.
 
@@ -1148,7 +1144,7 @@ After asking the security guard about something:
 			say "After a second or two, he says, 'I think you know these cubes are supposed to be cleared out. I make sure there's no monkey business going on down here. It's my job to make my rounds, and I'm no dimwit. Just last week I interrupted a couple of degenerates practicing their hot yoga moves over by marketing storage. The week before that, I caught a raccoon taking a dump in a trash bin. I love my job because it matters.'";
 		otherwise if the topic understood matches the regular expression "(?i)\bintruder|office|max":
 			say "He paces back and forth and says, 'In my line of work you have to assume everyone is an intruder. When people pretend to be lost, I know they're up to no good. You know that this area has been off-limits ever since Max Jr. got Minimax out of the copier business. If they let me carry a gun, you'd be in big trouble right now, punk.'";
-		otherwise if the topic understood matches the regular expression "(?i)\bdonut|(?i)\boreo|(?!)\bsnack\b":
+		otherwise if the topic understood matches the regular expression "(?i)\bdonut|(?!)\bsnack\b":
 			say "He says, 'Security is exhausting. I could use a snack.'";
 		otherwise if the topic understood matches the regular expression "(?i)protection":
 			say "While slapping his flashlight in his palm he says, 'Back when Max Sr. ran the show, I was a part of his personal security squad. We had to keep him safe because he pretty much invented all the office machines. If we lost him, the company would be screwed. Once his son took over, we didn't provide personal security anymore. Guess that shows how valuable Max Jr. is around here.'";
@@ -1749,7 +1745,7 @@ Part 12 - Gallery
 
 Before going to The Gallery:
 	place an image "img/gallery.jpg" with the description "Gallery", aligned left.
-	
+
 The Gallery is east of the breakroom. "Your steps echo across the polished marble floor as you make your way down a wide hallway. On your left, a full-length portrait of the company's founder covers the wall from floor to ceiling. Far to the west, you can see the breakroom. Going east leads to the executive conference room. To the northeast is the Office of the Chairman."
 The Gallery is scored.
 
@@ -1787,7 +1783,9 @@ Understand "bust" as Marcus Aurelius.
 The description of the bust is "A hero to our founder, Marcus Aurelius was the last of the Five Good Emperors of Rome. His reign (161-180 CE) marked the end of a period of internal tranquility and good government."
 Instead of taking the bust:
 	say "It's part of the painting and cannot be taken."
-		
+
+[after you've delivered the complex report and been laid off you stop to reflect]
+
 Part 13 - Conference Room
 
 [once the boss has what she wants from you, you are barred from the conference room]
@@ -1811,7 +1809,7 @@ After going to the Conference Room:
 		[otherwise:
 			say "Your boss says, [one of]'You'd better get going on that report, kid.'[or]'I'm relying on you to get that report done.'[or]'Get started on those revisions, kid. We don't have much time left.'[then at random]";]
 	otherwise:
-		say "You don't see your boss here. Maybe that's a good thing."; 
+		[You don't see your boss here. Maybe that's a good thing.]
 		try looking.
 
 After giving the year-end report to the boss for the first time:
@@ -1841,12 +1839,23 @@ After giving the complex report to the boss for the first time:
 		say "You hand the complex report over to your boss.";
 		say "[line break]She smiles as she flips through the pages and nods her head in approval.";
 		say "[line break]'It's so thick! The chairman will love it,' she beams. 'I can't wait to present it to the executives.'";
-		say "[line break]'You did good work. I'll write you a glowing recommendation letter after we layoff all you worker bees.'";
+		say "[line break]'You did good work. Maybe I'll even write you a glowing recommendation letter after we layoff all you worker bees.'";
 		increase the score by Easy_Score_Bonus;
 		say "[line break]Your boss hustles you to the exit and hands you a memo.[paragraph break]";
 		pause the game;
+		place an image "img/gallery.jpg" with the description "Gallery", aligned left;
 		now the player is in The Gallery;
-		now the player is carrying the layoff memo.
+		now the player is carrying the layoff memo;
+		say "You review the memo from the Chairman.";
+		try examining the layoff memo;
+		pause the game;
+		say "[paragraph break]Looking around the gallery, you study the towering portrait of Max Prophet, and you realize he, too, had setbacks early in his career.";
+		say "[line break]Your inspiration returns as you gaze into his wide-set eyes and realize that he didn't give up. Instead, he succeeded in growing Minimax Inc. from a small start-up to a large, thriving corporation."; 
+		say "[line break][italic type]'Innovation is the way forward,' [roman type]you can almost hear Max say.";
+		say "[line break]Just a moment ago you were regretting your career choice, fearing that your next job would be as a mall Santa or rodeo clown. However, you're now inspired and energized to reclaim your job.";
+		say "[line break]If you could only track down the founder's research lab, you might be able to pick up where he left off before his unfortunate accident.";
+		[now make the time pass]
+		now the time of day is 12:29 PM.
 	
 Every turn:
 	if the player is in the Conference Room for more than three turns:
@@ -1957,6 +1966,8 @@ Instead of doing anything other than examining with the window_view:
 After asking Max about something:
 	if the topic understood matches the regular expression "(?i)\bminimax|\bcompany|copier|calculator|sales":
 		say "After a [one of]long pause[or]far-off stare[at random], he says, 'The current product line is old and so is the reputation of the company. We need some innovation around here. Minimax core copier business is irrelevant because our customers can buy a copier from anyone.'[paragraph break]'The slide began when our patents expired and we lost 90% of the market. We need to focus on financial services now. That's where opportunity lies.'";
+	otherwise if the topic understood matches the regular expression "\bresearch\b|\blab\b":
+		say "He says, 'My father spent all his time locked away in his research lab. It eventually killed him. I closed it permanently as a safety hazard after his accident. Nothing left down there but half-finished gadgets and useless machines.'";
 	otherwise if the topic understood matches the regular expression "(?i)\bfather|\bfounder|\bphoto|memorabilia":
 		say "After [one of]a long stare out the window[or]an audible sigh[at random], he says, 'It's been tough growing up in the shadow of my father, the great inventor. I never really had his talent for engineering, but here I am, king at last. If only we could regain his spirit of innovation around here. Maybe you can help, kid.'[paragraph break]'Most days I don't feel like my father. I lack his courage, endurance, and patience.'[paragraph break]'After his accident in 2010, I was ambivalent about inheriting the business. I was eager to prove myself, but at the same time, I was filled with self-doubt. And now with Minimax struggling, I wish we had someone on staff like him. Maybe you're the innovator we need, kid.'";
 	otherwise if the topic understood matches the regular expression "(?i)\bpresentation|\breport":
@@ -2344,14 +2355,19 @@ The magazine clipping is in the Research Lab.
 The description of the magazine clipping is "It's an inspiring article from the May 1951 issue of Look Magazine where the boy genius, Maxwell Prophet, is profiled with his tic-tac-toe machine. Under a faded, black-and-white photo of a bright-eyed Max is the caption:[italic type] 'The young scientist checks on switches, panels, and 400 feet of wire of his mechanical brain that can't be beat.'[paragraph break][italic type]A MECHANICAL brain, the invention of 14-year-old Maxwell Prophet of Kellogg, Idaho, can, without even stopping to think, defeat the best human brain 40 percent of the time in a fast game of 'noughts-and-crosses.' A draw is about the best a human can hope for. Between rounds with his machine, Maxwell, who was repairing electric trains at the age of eight, favors an afternoon of calculus."
 
 
-Part 17 - Freedom
+Part 17 - Fired
 		
-The Green Pasture is a room. "At long last, you find yourself in a green pasture, free of your old job and eager for new opportunities.[paragraph break]The good news is that you're free to find a better job away from the struggling Minimax Inc. But too bad you didn't get a positive recommendation from your boss. Just tell yourself working at Pizza Hut is not the end of your career, just a fresh start with extra cheese."
+The Parking Lot is a room. "You find yourself in an empty parking lot that might as well be a wasteland.[paragraph break]As you carry your belongings to your car, you take some comfort in knowing that you are no longer bound to the struggling Minimax Inc. However, your future employment options are limited because you didn't receive a positive recommendation from your boss. Just keep telling yourself that working at Pizza Hut is not the end of your career, but rather a new beginning with extra cheese."
+
+Part 18 - Hopeful
+
+The Green Pasture is a room. "Finally, you've arrived in a green pasture, free of your old job and eager for new opportunities.[paragraph break]Your boss's glowing recommendation should open doors to a better career path far away from the struggling Minimax Inc."
 	
-Part 18 - Death
+Part 19 - Death
 
 The Final Resting Place is a room. "Although you were likely to lose your job at Minimax Inc. as part of the upcoming layoffs, this is a far more tragic end for such a talented and hardworking young employee.[paragraph break]Perhaps you'll climb the corporate ladder more successfully in your next life."
 	
-Part 19 - Victory
+Part 20 - Victory
 
 The Corner office is a room. "Your ingenuity and resourcefulness have paid off. Your actions saved Minimax Inc. from certain bankruptcy and restored its profitability. On top of that, your efforts not only saved your job but also earned you the prestigious title of 'Chief of Innovation.' Your days of sitting in a dull gray cubicle are over. You now lead your team from a luxurious corner office on mahogany row. This is the C-suite, where you can relax in your executive chair and take in the natural beauty of the nearby scenic greenscape. Of course, to make your triumph even sweeter, your former boss delivers your gourmet coffee each morning in a mug that reads 'Innovator of the Year.'"
+
