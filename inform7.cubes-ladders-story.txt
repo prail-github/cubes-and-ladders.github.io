@@ -2185,14 +2185,11 @@ Every turn when the player can see the black panel and the player is in the Damp
 	otherwise:
 		say "[one of]You are feeling weary.[or]The musty stink of this place makes you gag.[or]You think you hear rats.[or]You feel a sense of doom.[or]The warm dank air is nearly unbearable.[or]You feel a cool breeze from under the panel, or maybe that's just your imagination.[or]You hear scurrying sounds behind you.[or]You fear you'll go insane if you stay here much longer.[or]You stifle a scream when something wet scampers over your foot.[at random]";
 
-Instead of taking the cable:
+Instead of doing anything other than examining with the cable:
 	clear the screen;
-	say "The Damp Tunnel brightens considerably as you grip the frayed high-voltage cable. Sparks fly, and alas, this mistake is fatal. Your death comes swiftly with the stink of burning flesh.";
+	say "The Damp Tunnel brightens considerably as you touch the frayed high-voltage cable. Sparks fly, and alas, this mistake is fatal. Your death comes swiftly with the stink of burning flesh.";
 	now playerDead is true;
 	pause the game.
-
-Instead of touching the cable:
-	try taking the cable.
 	
 Before opening the black panel:
 	say "There's no obvious way to open [the noun].";
