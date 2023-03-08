@@ -2198,7 +2198,8 @@ Before opening the black panel:
 Part 16 - Research Lab
 
 Before going to The Research Lab:
-	place an image "img/research-lab.jpg" with the description "Research Lab", aligned left.
+	if the black panel is open:
+		place an image "img/research-lab.jpg" with the description "Research Lab", aligned left.
 	
 The Research Lab is a room. "A collection of outdated electronic parts and gadgets lay forgotten, scattered on a long dusty workbench. To the north is a tunnel."
 The Research Lab is scored.
