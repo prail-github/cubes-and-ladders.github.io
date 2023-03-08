@@ -2286,6 +2286,14 @@ Carry out disconnecting:
 				decrease the score by Easy_Score_Bonus;
 			otherwise:
 				say "The two devices are not connected.";
+	otherwise if the noun is the tic-tac-toe machine:
+		if the second noun is the fax machine:
+			if faxIsConnectedToTicTacToe is true:
+				say "You disconnect [the noun] from [the second noun].";
+				now faxIsConnectedToTicTacToe is false;
+				decrease the score by Easy_Score_Bonus;
+			otherwise:
+				say "The two devices are not connected.";
 		otherwise:
 			say "Disconnecting the fax from [the second noun] doesn't make sense.";
 	otherwise if the noun is the neuropack and the second noun is the expansion port:
@@ -2346,6 +2354,9 @@ Instead of tying the green connector to the tic-tac-toe machine:
 		say "The fax and tic-tac-toe machines are already connected."
 	
 Instead of tying the fax machine to the tic-tac-toe machine:
+	try tying the green connector to the tic-tac-toe machine.
+
+Instead of tying the tic-tac-toe machine to the fax machine:
 	try tying the green connector to the tic-tac-toe machine.
 		
 The magazine clipping is in the Research Lab. 
