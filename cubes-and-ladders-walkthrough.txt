@@ -1,0 +1,228 @@
+===============================================================================
+
+                     Walkthrough for Cubes and Ladders
+
+===============================================================================
+
+Updated: Feb 21, 2023
+Version: 1.2
+Contact: prail@yahoo.com
+
+CONTENTS
+--------
+
+1. Introduction
+2. Walkthrough
+3. Game Trivia
+
+VERSION HISTORY
+---------------
+
+1.0: Jan 24, 2023 (First Version)
+1.1: Feb 6, 2023 
+1.2: Feb 21, 2023 
+
+===============================================================================
+
+1.                              Introduction
+
+===============================================================================
+
+Cubes and Ladders was written in 2022 using Inform 7 with Vorple. 
+The game begins in a long hallway at Minimax Inc., a failing electronics 
+company. You guide the protaganist, Jordan Michael, through an 
+office adventure where he explores the office, talks to coworkers, 
+and solves puzzles. Ultimately, you must keep your job by keeping 
+Minimax Inc. from bankruptcy.
+
+There are multiple routes to solving this game. This walkthrough
+presents the most direct route to a solution; not necessarily the only one.
+
+Read this walkthrough ONLY if you get stuck as it reveals the game solution.
+
+===============================================================================
+
+2.                              Walkthrough
+
+===============================================================================
+
+Hallway
+-------
+
+The game starts in a long hallway. Take the leaflet and read it. 
+This will give tell you the history of the company.
+Go west to your cubicle and meet the boss. 
+Examine the boss (who speaks in cliches) and ask her about 
+Minimax and your presentation. Apparently, your presentation is not 
+good enough and needs improvement by noon for an executive meeting. 
+Go southeast to end your conversation. The boss will give you an evaluation
+sheet and a year-end report. Go southeast to enter the cube farm, 
+which is intended to be a kind of maze.
+
+Cube Farm 5 (CF-5)
+------------------
+The cube farm consists of nine cube zones, CF-1 through CF-9 with nearly
+identical descriptions meant to confuse. Some of the cubicles contain 
+important objects you must collect. From CF-5 you go northeast to 
+CF-4 where you meet the security guard who blocks you path to the south.
+
+CF-4
+----
+Examine the guard and ask him about intuders and cubes. 
+To get past the security guard and head south you must show him your year-end
+report. This bores him to sleep and you can then pass. Take the flashlight. 
+Go north to CF-2.
+
+CF-2
+----
+Nothing of interest. Go west to CF-1.
+
+CF-1
+----
+Take the Buddha poster, which hides the silver key. Go east to CF-2, then
+east to CF-3.
+
+CF-3
+----
+Take the Minimax branded mug which hides the bronze key. Go west to CF-2, 
+south to CF-4 (and the sleeping guard), then south to CF-6.
+
+CF-6
+----
+Nothing of interest. Go east to CF-7 where you see a Storage Door.
+
+CF-7
+----
+Unlock the storage door with the bronze key. Open the door and go south into
+the storage room.
+
+Storage Room
+------------
+Examine the plaque to learn about the Complexifier. Examine the copier.
+Switch on the copier. Put the year-end report in the copier to produce
+a complex report. This report will appease your boss who wasn't pleased 
+with your earlier work on the year-end report. Take the complex report and
+go north to CF-7, west to CF-6, north to CF-4, north to CF-2, and east to
+CF-3.
+
+CF-3
+----
+Nothing of interest. Proceed southeast to CF-8 where you see the door
+to the Marketing Storage Room.
+
+CF-8
+----
+Unlock the door with the silver key. Open the door and head east into
+The Marketing Storage Room.
+
+Marketing Storage
+-----------------
+In this room you must get the cap that is out of your reach. Drop the 
+complex report. Stand on complex report and take the cap. Go west to CF-8,
+Go northwest to CF-3, west to CF-2, and north to the breakroom.
+
+Break Room
+----------
+In the breakroom you meet Rich, the salesman who is interested in merch
+and donuts. You can ask Rich about different topics like the company, 
+marketing, and rumors. You cannot get a donut unless you distract Rich, 
+so give Rich the cap. Once he leaves, open the pastry box and take 
+the donut for later.
+Go east to the Gallery.
+
+Gallery
+-------
+The gallery contains a portrait that contains clues to help solve puzzles.
+Examine the portrait, the founder, the calculator and the bust of 
+Marcus Aurelius. Write down the description of the bust for later. 
+Go northeast to the Chairman's office.
+
+Chairman's Office
+-----------------
+In the Chairman's office you meet Max Jr. the somewhat reluctant leader
+of Minimax Inc. Examine Max. You can ask him questions about Minimax and his
+father. Take the newspaper and head southwest back to the Gallery and 
+then east to the conference room where your boss awaits you.
+
+Conference Room
+---------------
+Give the complex report to the boss. This appeases her, and she quickly
+dismisses you and you end up in the Gallery holding a layoff memo.
+When you read the memo you learn the layoff rumors were true. 
+Go west to the breakroom, north to the hallway, and then east to the Helpdesk.
+
+Helpdesk
+--------
+At the helpdesk you find Ray the techie. You can examine Ray and ask him about
+Minimax and the research lab. He will not help you unless you give him the donut. 
+Once you give him the donut he will open a trapdoor to a tunnel and leave. Enter the 
+tunnel by going down.
+
+Damp Tunnel
+-----------
+Switch on the flashlight. If you examine the black panel you will realize
+it can be opened by typing something on the calculator keypad. Type the 
+combination you learned from the bust in the form 999-999 into the keypad
+(type 999-999 on keypad) to open the panel and reveal the secret research lab.
+Note that if your flashlight runs out of power it will be useless. 
+You can retrieve a more reliable light source from the conference room
+after the executive meeting is over at 12:30pm. 
+
+Research Lab
+------------
+You are in Max Prophet's legendary research lab. In the lab you must complete
+an important invention to save your job and the company. Examine the workbench.
+There you will find a notebook, a screwdriver, and a tic-tac-toe machine. 
+Examine the magazine clipping to learn about the tic-tac-toe machine. Take
+the screwdriver. Examine the notebook to reveal what invention you are 
+to complete from the parts before you. You need a part from the Complexifier
+so return by typing "walk to storage room"
+
+Storage Room (again)
+--------------------
+The complexifier has a maintenance compartment that contains a part we need.
+if you try to open the compartment, you will be reminded it is shut tight
+with rusty screws. To unlock the compartment we use the screwdriver. Type
+"loosen screws" then examine the compartment's contents and take the
+neuropack, which is the brain of the complexifier. We need this brain to 
+complete the invention in the research lab. Next, type "walk to research lab" 
+
+Research Lab (again)
+-------------------
+Connect the fax machine to the tic-tac-toe machine. Turn on fax.
+Examine the tic-tac-toe machine and notice it has an expansion port.
+This is where you place the neuropack to complete the invention. Because
+the Predict-Tac-Toe machine needs input you next put the newspaper in the
+fax machine which will send information to the invention. A projection report
+appears that predicts future business news, including stock prices. This 
+breakthrough will save the company. To complete the game, examine the 
+projection report. You find your self in the Corner Office.
+
+Corner Office
+-------------
+Your reward for saving Minimax Inc. from failure is a promotion and a nice
+corner office overlooking a scenic golf course.
+
+===============================================================================
+
+3.                              Game Trivia
+
+===============================================================================
+
+1. You can open the maintenance compartment on the Complexifier with the impact 
+screwdriver or the laser pointer.
+
+2. There are two ways to die. You can stand on the office chair in the marketing 
+storage room or you can try touching the frayed cable in the damp tunnel. 
+This may have been how Max Prophet Sr.  ended his earthly career.
+
+3. The artwork helps the storytelling. I added AI-generated digital art 
+from https://dream.ai/create based on descriptions from the game text.
+
+4. Max Prophet Sr. was based on a real person--a finalist in the Westinghouse 
+Science Talent search of 1950 who built a tic-tac-toe machine as described in 
+the magazine clipping.  Here a museum curator talks 
+about him https://youtu.be/4sDYK4hDwAM?t=601
+
+** End of Walkthrough **
+
