@@ -2,9 +2,9 @@ The story title is "Cubes and Ladders".
 The story author is "Pete Rail".
 The story headline is "An Office Adventure: Thinking Outside the Cubicle".
 The story genre is "Fiction".
-The release number is 7.
+The release number is 8.
 The story description is "Explore the office, solve puzzles, and save Minimax Inc. from bankruptcy  without getting fired or going insane."
-The story creation year is 2022.
+The story creation year is 2024.
 
 Include Vorple by Juhana Leinonen.
 Include Vorple Multimedia by Juhana Leinonen.
@@ -41,6 +41,9 @@ The display banner rule is not listed in the startup rulebook.
 Part 1 - Hints
 
 Understand "help" as summoning help. Summoning help is an action applying to nothing.
+
+After reading a command when the player's command includes "examine":
+	say "Tip: You can abbreviate EXAMINE to just X".
 
 Carry out summoning help:
    say "Typing HELP followed by the name of a topic will give further information.[paragraph break]";
@@ -126,14 +129,14 @@ The right hand Vorple status line is "[time of day]".
 	
 When play begins:
 	construct the Vorple status line with 2 columns;
-	place an image "img/corp-headquarters-2.jpg" with the description "Minimax Inc.";
+	execute JavaScript command "updateImage('img/corp-headquarters-2.jpg');";
 	display a notification reading "Welcome to Cubes and Ladders!";
 	say "[Bold type]Welcome to Minimax Inc., a Fortune 1000 Company[paragraph break][roman type]";
 	say "For the past three months, you've been diligently working as a tech support agent, assisting clients with resolving issues related to Minimax products.[paragraph break]However, today will be different. Beginning at 9:00 AM, you'll search the office for clues, interact with coworkers, and solve a series of puzzles to secure your job and save the business from impending bankruptcy.";
 	pause the game;
 	say "[Bold type]Your Aim is To Save Your Job and To Save Minimax Inc.[paragraph break][roman type]Minimax is losing money and struggling to retain customers. Once regarded as innovative, the company now faces a shrinking customer base and falling profits, putting jobs at risk, including yours.[paragraph break]Some may argue that an entry-level position like yours has little effect on the company's fate, but today is your chance to shape the future of Minimax Inc. If you succeed, it will be the most significant day in your career so far.[paragraph break]Can you restore the company's reputation for innovation and return it to profitability?[paragraph break]If you fail, it may be time to look for opportunities elsewhere. Good luck.[paragraph break]On the next page, you'll begin the challenge.";
 	pause the game;
-	place an image "img/hallway-2.jpg" with the description "Long Hallway", aligned left.
+	execute JavaScript command "updateImage('img/hallway-2.jpg');";
 Every turn:
 	If the current action is taking inventory or the current action is looking:
 		now the time of day is 1 minute before the time of day.
@@ -181,7 +184,7 @@ the check list is nowhere.
 understand "sheet" as check list.
 understand "green-bar" as check list.
 the check list weighs 2gm.
-The description of the check list is "In the Research Lab you must complete my greatest invention: Predict-Tac-Toe![paragraph break]1. Examine the magazine clipping to learn about my original Tic-Tac-Toe machine.[line break]2. Examine the workbench. There you will find a notebook, a screwdriver, and a Tic-Tac-Toe machine. [line break]3. Take the screwdriver. [line break]4. Examine the notebook to reveal the invention you will complete from the parts before you. [line break]5. You need a part from the Complexifier so return to it.[line break]6. Type 'walk to storage room'[line break]7. The complexifier has a maintenance compartment that contains the part we need.[line break]if you try to open the compartment, you will be reminded it is shut tight with rusty screws. [line break]8. To unlock the compartment we use the screwdriver. Type 'loosen screws' then examine the compartment.[line break]9. Take the neuropack, which is the brain of the complexifier. We need this brain to complete the invention in the research lab. [line break]10. Type 'walk to research lab'[line break]11. Connect the fax machine to the Tic-Tac-Toe machine. [line break]12. Turn on the fax machine.[line break]13. Examine the Tic-Tac-Toe machine and notice it has an expansion port. This is where you place the neuropack to complete the invention. [line break]14. The Predict-Tac-Toe machine needs input. Put the newspaper in the fax machine to transmit its contents through the mechanism. [paragraph break]The output of this machine should prove invaluable.[paragraph break]Good luck, kid.".
+The description of the check list is "In the Research Lab you must complete my greatest invention: Predict-Tac-Toe![paragraph break]1. Examine the magazine clipping to learn about my original Tic-Tac-Toe machine.[line break]2. Examine the workbench. There you will find a notebook, a screwdriver, and a Tic-Tac-Toe machine. [line break]3. Take the screwdriver. [line break]4. Examine the notebook to reveal the invention you will complete from the parts before you. [line break]5. You need a part from the Complexifier so return to it.[line break]6. Walk to the Storage Room.[line break]7. The complexifier has a maintenance compartment that contains the part we need.[line break]if you try to open the compartment, you will be reminded it is shut tight with rusty screws. [line break]8. You can open the compartment if you have the screwdriver. Then examine the compartment.[line break]9. Take the neuropack, which is the brain of the complexifier. We need this brain to complete the invention in the research lab. [line break]10. Walk to the Research Lab.[line break]11. Connect the fax machine to the Tic-Tac-Toe machine. [line break]12. Turn on the fax machine.[line break]13. Examine the Tic-Tac-Toe machine and notice it has an expansion port. This is where you place the neuropack to complete the invention. [line break]14. The Predict-Tac-Toe machine needs input. Put the newspaper in the fax machine to transmit its contents through the mechanism. [paragraph break]The output of this machine should prove invaluable.[paragraph break]Good luck, kid.".
 
 [when the player gets his work done he is laid off anyway]
 The layoff memo is nowhere.
@@ -269,25 +272,25 @@ Adventure ends when playerFired is true or playerLayoff is true or playerWon is 
 	
 When Adventure ends:
 	if playerFired is true:
-		place an image "img/parking-lot-2.jpg" with the description "Parking Lot", aligned left;
+		execute JavaScript command "updateImage('img/parking-lot-2.jpg');";
 		now the player is in the Parking Lot;
 		say "[bold type]*** Good Luck in Your Fast Food Career ***";
 		say "[paragraph break][roman type]In this game you scored [score] points in [turn count] turns.";
 		stop game abruptly;
 	otherwise if playerLayoff is true:
-		place an image "img/green-pasture.jpg" with the description "Green Pasture", aligned left;
+		execute JavaScript command "updateImage('img/green-pasture.jpg');";
 		now the player is in the Green Pasture;
 		say "[bold type]*** Best of Luck in Your Next Job ***";
 		say "[paragraph break][roman type]In this game you scored [score] points in [turn count] turns.";
 		stop game abruptly;
 	otherwise if playerWon is true:
-		place an image "img/corner-office-8.jpg" with the description "Corner Office", aligned left;
+		execute JavaScript command "updateImage('img/corner-office-8.jpg');";
 		now the player is in the Corner Office;
 		say "[bold type]*** You Won the Game ***";
 		say "[paragraph break][roman type]In this game you scored [score] points in [turn count] turns.";
 		stop game abruptly;
 	otherwise if playerDead is true:
-		place an image "img/final-rest-2.jpg" with the description "Graveyard", aligned left;
+		execute JavaScript command "updateImage('img/final-rest-2.jpg');";
 		now the player is in the Final Resting Place;
 		say "[bold type]*** You Have Died ***";
 		say "[paragraph break][roman type]In this game you scored [score] points in [turn count] turns.";
@@ -309,6 +312,7 @@ Understand "flip [something switched off]" as switching on. Understand "flip [so
 Understand "toggle [something switched off]" as switching on. Understand "toggle [something switched on]" as switching off. 
 
 Understand the command "connect" as "attach".
+Understand the command "jam" as "put".
 
 The block giving rule is not listed in the check giving it to rules.
 		
@@ -387,7 +391,6 @@ After examining player:
 Instead of kissing the noun:
 	say "You reconsider such a career-ending action."
 
-
 A chair is a kind of enterable supporter. A chair weighs 10000gm.
 Every chair allows seated and standing. 
 The posture of a chair is usually seated.
@@ -430,11 +433,14 @@ Part 5 - Cubicle
 
 Before going to Your Cubicle:
 	if the boss is on the office chair:
-		place an image "img/your-cubicle-boss-e.jpg" with the description "Your cubicle with boss", aligned left;
-	otherwise:
-		place an image "img/your-cubicle.jpg" with the description "Your cubicle.", aligned left.
+		execute JavaScript command "updateImage('img/your-cubicle-boss-e.jpg');";
+	otherwise if the office chair is in Your Cubicle:
+		execute JavaScript command "updateImage('img/your-cubicle.jpg');";
+	otherwise:		
+		execute JavaScript command "updateImage('img/cubicle-sans-chair-1.jpg');";
+
+Your Cubicle is a room. "A simple Formica-topped desk sits in a dull gray cubicle. [if the player can see the boss][paragraph break]Your boss is sitting impatiently in your office chair.[otherwise][end if] There's a hallway to the east and a cube farm to the southeast."
 	
-Your Cubicle is a room. "A simple Formica-topped desk and rolling chair sit in a dull gray cubicle. [if the player can see the boss][paragraph break]Your boss is sitting impatiently in your office chair.[otherwise][end if] There's a hallway to the east and a cube farm to the southeast."
 Your Cubicle is scored.
 
 Your desk is in Your Cubicle.
@@ -524,12 +530,13 @@ Before giving something to the boss:
 	
 Before going from Your Cubicle:
 	if the boss can be seen by the player:
+		clear the screen;
 		say "'Oh, before you run off,' says your boss, holding up a presentation. 'I have feedback for you.'";
 		say "[line break]'Let's discuss the year-end report you prepared.'";
 		say "[line break]She sighs as she flips through the pages and shakes her head, unimpressed.";
 		say "[line break]'It seems thin. We can't present this in its current state. You're going to have to improve it for the executive meeting today,' she says.";
 		say "[line break]'I've written some notes for you on this evaluation sheet.'";
-		say "[line break]She slides the report across the desk to you like she just handled something radioactive.";
+		say "[line break]She slides your report and evaluation sheet across the desk to you like she just handled something radioactive.";
 		now the player has the year-end report;
 		say "[line break]'Bring your finished report to me in the executive conference room by noon.'";
 		say "[line break]'Remember, the chairman is 'old school' and requires his presentations printed. The thicker the better.'";
@@ -539,7 +546,7 @@ Before going from Your Cubicle:
 		now the boss is in the Conference room;
 		now bossExamined is false;
 		increase the score by Easy_Score_Bonus;
-		stop the action;
+		pause the game;
 	otherwise:
 		continue the action.
 				
@@ -626,7 +633,7 @@ Part 6 - Hallway
 The player is in the Hallway.
 
 Before going to The Hallway:
-	place an image "img/hallway-2.jpg" with the description "Long Hallway", aligned left.
+	execute JavaScript command "updateImage('img/hallway-2.jpg');";
 	
 The Hallway is east of your cubicle. "You're in a long corridor. To the east is a helpdesk. Your cubicle is to the west. To the south, you can smell the Break Room."
 
@@ -635,9 +642,9 @@ Part 7 - Break Room
 
 Before going to The Break Room:
 	if Rich is in the Break Room:
-		place an image "img/breakroom-5.jpg" with the description "Rich in the Break Room", aligned left;
+		execute JavaScript command "updateImage('img/breakroom-5.jpg');";
 	otherwise:
-		place an image "img/breakroom.jpg" with the description "Empty Break Room", aligned left;
+		execute JavaScript command "updateImage('img/breakroom.jpg');";
 	
 The Break Room is a room. "The stale odor of coffee grounds permeates the air. Hallways lead north and east. You can see long rows of cubicles to the south."
 The Break Room is south of the Hallway. 
@@ -700,6 +707,7 @@ Before giving the baseball cap to Rich:
 	now Rich wears the baseball cap;
 	now Rich is nowhere;
 	increase the score by Medium_Score_Bonus;
+	execute JavaScript command "updateImage('img/breakroom.jpg');";
 	stop the action.
 
 Every turn when the player can see Rich for more than two turns and the player has the baseball cap:
@@ -709,9 +717,12 @@ Every turn when the player can see Rich for more than two turns and the player h
 	[try giving the baseball cap to Rich;]
 	continue the action.
 	
+The plural of donut is donuts.
+The donuts are in the pastry box.
+	
 The pastry box is a closed container. 
 Understand "donut box" as the pastry box.
-Understand "donuts" as the pastry box.
+[Understand "donuts" as the pastry box.]
 Understand "box" as the pastry box.
 The pastry box is in the Break Room.
 The pastry box is fixed in place and openable.
@@ -721,7 +732,7 @@ The description of the pastry box is "Ahh, assorted donuts. These soft and stick
 [Inside the pastry box is the donut. ]
 The donut is in the Break Room. The donut is undescribed.
 The description of the donut is "You can't see the donut, but you somehow know it's nestled in the pastry box. For now, you can only sense its greasy goodness.";
-
+	
 Instead of taking the donut:
 	if the pastry box is not open:
 		say "It's hidden in the pastry box and cannot be taken.";
@@ -731,7 +742,7 @@ Instead of taking the donut:
 		now the player has the donut;
 		stop the action.
 		
-The donut is edible. The donut weighs 2gm.
+The donut is edible. The donut weighs 10gm.
 
 Instead of eating the pastry box:
 	say "The donuts remain tucked away in the pastry box.";
@@ -888,9 +899,9 @@ Part 8 - Helpdesk
 
 Before going to the Helpdesk:
 	if Ray is in the Helpdesk:
-		place an image "img/helpdesk-f.jpg" with the description "Helpdesk", aligned left;
+		execute JavaScript command "updateImage('img/helpdesk-f.jpg');";
 	otherwise:
-		place an image "img/helpdesk-empty-a.jpg" with the description "Empty Helpdesk", aligned left.
+		execute JavaScript command "updateImage('img/trapdoor-2.jpg');";
 
 The plural of manual is manuals.
 
@@ -936,16 +947,33 @@ The bookcase is below the helpdesk and above the Damp Tunnel.
 The bookcase is a door. 
 The bookcase is closed and not openable.
 
+Before going through the bookcase:
+    silently try opening the bookcase;
+    if the bookcase is closed, stop the action.
+
 [The opening doors before entering rule does nothing when the bookcase is closed.]
 
-Instead of going down when the bookcase is closed:
-	say "You can't go that way."
+[Instead of going down when the bookcase is closed:
+	say "You can't go that way.";]
+
+Instead of going down:
+	if the bookcase is closed:
+		say "You can't go that way.";
+	else:
+		say "You climb down through the trapdoor.";
+		now the player is in the damp tunnel.
+	
+Before going down:
+	if the bookcase is closed:
+		stop the action.
+	
 The description of the bookcase is "A pile of old IBM 360 manuals rests heavily on the shelves, the pages yellowed with age."
 	
 Understand "helpdesk" as desk.
 	
 Instead of opening the bookcase:
-	say "It isn't something you can open."
+	if the bookcase is closed:
+		say "Your action does nothing.";
 	
 Every turn when the player can see Ray and techieExamined is true and playerWaiting is false:
 	say "Ray [one of]stares at you blankly.[or]continues to study an arcane technical manual.[or]meets your gaze and says 'The old IBM System 360 was a hell of a ride.'[or]says, 'USB is the best kind of connector. It changed my life.'[or]rubs his fat gut absentmindedly and returns to his reading.[or]says, 'Minimax was a company to be proud of.'[or]tears up and whispers, 'Most of all I miss rebooting Windows 98.'[or]disappointedly says, 'This place is a den of vipers. I would retire but I've got three ex-wives and a hardware habit to support.'[or]says, 'I could automate your entire function with a one-line Perl script, newbie.'[or]mumbles, 'Are you still here? You're an annoyware virus, newbie.'[or]says, 'You know I'm realizing I'm nothing but a code monkey around here.'[or]says, 'Object-oriented programming is overrated sheepdip.'[then at random]"
@@ -963,7 +991,9 @@ Before giving anything edible to Ray:
 		now everything carried by Ray is in the helpdesk;
 		now Ray is nowhere;	
 		now the donut is nowhere;
+		now the manuals are nowhere;
 		now the bookcase is open;
+		execute JavaScript command "updateImage('img/trapdoor-2.jpg');";
 	otherwise:
 		say "Ray isn't interested in [the noun]";
 	stop the action.			
@@ -999,25 +1029,29 @@ Instead of going nowhere:
 
 [cube farm maze]
 Before going to CF-1:
-	place an image "img/cf-1.jpg" with the description "Cube Farm", aligned left.
+	execute JavaScript command "updateImage('img/cf-1.jpg');";
+	
 CF-1 is a room. "You're in a maze of vacant cubicles. You could get lost in the sameness."
 
 Before going to CF-2:
-	place an image "img/cf-2.jpg" with the description "Cube Farm", aligned left.
+	execute JavaScript command "updateImage('img/cf-2.jpg');";
+	
 CF-2 is a room. "You're in a maze of deserted cubicles. You could get lost in the sameness."
 
 Before going to CF-3:
-	place an image "img/cf-3.jpg" with the description "Cube Farm", aligned left.
+	execute JavaScript command "updateImage('img/cf-3.jpg');";
+	
 CF-3 is a room. "You're in a maze of unused cubicles. You could get lost in the sameness."
 
 [------------ START GUARD ---------]
 Before going to CF-4:
 	if the guard is alert:
-		place an image "img/cf-4b.jpg" with the description "Cube Farm", aligned left;
+		execute JavaScript command "updateImage('img/cf-4b.jpg');";
 	otherwise:
-		place an image "img/cf-4c.jpg" with the description "Sleeping Guard", aligned left.
+		execute JavaScript command "updateImage('img/cf-4c.jpg');";
 		
 CF-4 is a room. "You're in a maze of abandoned cubicles. You could get lost in the sameness."
+
 A person is either alert or asleep. 
 A person is usually alert.
 The security guard is a man in CF-4. 
@@ -1132,12 +1166,14 @@ After giving something to the guard:
 		say "[line break]He continues to block your exit to the south.";
 		now the noun is nowhere;
 	otherwise if the guard is alert and the noun is the newspaper or the noun is the year-end report or the noun is the evaluation sheet:
+		clear the screen;
 		say "The guard studies [the noun], succumbs to boredom, and falls asleep.";
 		say "[line break]His flashlight falls from his grip onto the floor.";
 		now the flashlight is in CF-4;
 		increase the score by Easy_Score_Bonus;
 		now the player has the noun;
 		now the guard is asleep;
+		execute JavaScript command "updateImage('img/cf-4c.jpg');";
 	otherwise:
 		say "The guard [one of]doesn't seem interested in [or]ignores [at random][the noun].";
 		now the noun is in CF-4;
@@ -1148,7 +1184,6 @@ Every turn when the player can see the security guard for more than one turn and
 		say "The guard [one of]says, 'Minimax is a great place to work in spite of punks like you who break the rules.'[or]locks eyes with you and says, 'You think you can outrun me, punk?'[or]sighs loudly as he checks his watch.[or]says, 'You look guilty of something, kid.'[or]says, 'Dirty Harry is my favorite hero.'[or]says, 'Seriously, you've got no business down here in my cube farm.'[or]points a finger at you and says, 'What mischief were you planning, kid?'[or]says, 'Just go back the way you came and I'll forget I saw you.'[or]says, 'Just old-fashioned trespassing. That's what this is. You're in big trouble, punk.'[or]says, 'Nothing to see down here. Run along.'[then at random]";
 	otherwise:
 		say "The guard [one of]snores contentedly dreaming he's Mannix[or]snores loudly[or]rolls over contentedly[or]stirs briefly and goes back to sleep[or]dozes quietly[or]is enjoying a siesta[or]is catching up on his beauty sleep[or]is catching forty winks[then at random]."	
-	
 After asking the security guard about something:
 	if the security guard is alert:
 		if the topic understood matches the regular expression "(?i)\bMinimax|(?i)\bcompany":	
@@ -1176,25 +1211,29 @@ After asking the security guard about something:
 [----------END GUARD---------------------------]
 
 Before going to CF-5:
-	place an image "img/cf-5.jpg" with the description "Cube Farm", aligned left.
+	execute JavaScript command "updateImage('img/cf-5.jpg');";
+	
 CF-5 is a room. "You're in a maze of empty cubicles. You could get lost in the sameness."
 
 Before going to CF-6:
 	if the security guard is asleep:
-		place an image "img/cf-6.jpg" with the description "Cube Farm", aligned left.
+		execute JavaScript command "updateImage('img/cf-6.jpg');";
 		
 CF-6 is a room. "You're in a maze of vacant cubicles. You could get lost in the sameness. The buzz and flicker of fluorescent lights surround you."
 
 Before going to CF-7:
-	place an image "img/cf-7.jpg" with the description "Cube Farm", aligned left.
+	execute JavaScript command "updateImage('img/cf-7.jpg');";
+	
 CF-7 is a room. "You're in a maze of deserted cubicles. You could get lost in the sameness."
 
 Before going to CF-8:
-	place an image "img/cf-8.jpg" with the description "Cube Farm", aligned left.
+	execute JavaScript command "updateImage('img/cf-8.jpg');";
+	
 CF-8 is a room. "You're in a maze of abandoned cubicles. You could get lost in the sameness."
 
 Before going to CF-9:
-	place an image "img/cf-9.jpg" with the description "Cube Farm", aligned left.
+	execute JavaScript command "updateImage('img/cf-9.jpg');";
+	
 CF-9 is a room. "You're in a maze of empty cubicles. You could get lost in the sameness. The buzz and flicker of fluorescent lights surround you."
 
 [1]
@@ -1315,7 +1354,7 @@ Part 10 - Storage
 
 Before going to The Storage Room:
 	if the Storage Door is open:
-		place an image "img/storage-room.jpg" with the description "Storage Room", aligned left.
+		execute JavaScript command "updateImage('img/storage-room.jpg');";
 	
 The you-can-also-see rule does nothing when the player is in the Storage Room.
 
@@ -1414,7 +1453,7 @@ The maintenance compartment is undescribed.
 The maintenance compartment is in the Storage Room.
 The maintenance compartment is fixed in place and openable.
 Inside the maintenance compartment is the neuropack.
-The description of the neuropack is "The neuropack is the brain of the complexifier, capable of understanding human language patterns and even predicting behavior. Max Prophet spent years researching and experimenting to perfect the algorithms that allow the complexifier to produce output far exceeding what a human is capable of."
+The description of the neuropack is "The neuropack is the brain of the complexifier, capable of understanding human language patterns and predicting behavior. Max Prophet spent years researching biocompatible polymers and experimenting with algorithms to enable the complexifier to produce output far exceeding human capabilities."
 
 The wires are in the storage room. The wires are fixed in place. The wires are undescribed.
 Understand "tangle" as wires.
@@ -1530,7 +1569,7 @@ Instead of inserting something into the complexifier:
 		stop the action.
 		
 The plaque is in the Storage Room. The plaque is fixed in place.
-The description of the plaque is "You read a tarnished plaque mounted on the wall:[line break][line break]In 1974, Minimax Inc. released the CX74, their first intelligent copy machine. This machine was the culmination of more than five years of experimentation and sparked a revolution in business communications. It went beyond merely reproducing clear images of documents, as standard photocopiers did, by applying intricate grammar rules to transform simple documents into something dazzlingly complex. The CX74 proved enormously appealing to marketing departments and was nicknamed 'The Complexifier.' When these massive half-ton machines were rolled out to corporate customers, the era of complexity began."
+The description of the plaque is "You read a tarnished plaque mounted on the wall:[line break][line break]In 1974, Minimax Inc. released the CX74, their first intelligent copy machine. This machine was the culmination of more than five years of experimentation and sparked a revolution in business communications. By applying intricate grammar rules to transform simple documents into something dazzlingly complex, it went beyond merely reproducing clear images of documents as standard photocopiers did. The CX74 proved enormously appealing to marketing departments and was nicknamed 'The Complexifier.' When these massive half-ton machines were rolled out to corporate customers, the era of complexity began."
 
 The description of the complexifier is "An old photocopier with a standard paper feeder and exit tray above and a maintenance compartment below.[paragraph break][if the complexifier is switched on]The machine hums away oblivious to its obsolescence.[otherwise]The machine lays dormant." 
 
@@ -1549,7 +1588,7 @@ Part 11 - Marketing Storage
 
 Before going to Marketing Storage:
 	if the Marketing door is open:
-		place an image "img/marketing-storage-6.jpg" with the description "Marketing Storage", aligned left.
+		execute JavaScript command "updateImage('img/marketing-storage-6.jpg');";
 	
 The Marketing Door is a door. 
 
@@ -1764,7 +1803,7 @@ After getting off the complex report:
 Part 12 - Gallery
 
 Before going to The Gallery:
-	place an image "img/gallery.jpg" with the description "Gallery", aligned left.
+	execute JavaScript command "updateImage('img/gallery.jpg');";
 
 The Gallery is east of the Break Room. "Your steps echo across the polished marble floor as you make your way down a wide hallway. On your left, a full-length portrait of the company's founder covers the wall from floor to ceiling. Far to the west, you can see the Break Room. Heading east leads to the executive conference room. To the northeast is the Office of the Chairman."
 The Gallery is scored.
@@ -1812,11 +1851,11 @@ Part 13 - Conference Room
 Before going to the Conference Room:
 	if the boss is carrying the complex report:
 		if the boss is in the conference room:
-			place an image "img/closed-conference-room.jpg" with the description "Closed Conference Room", aligned left;
+			execute JavaScript command "updateImage('img/closed-conference-room.jpg');";
 			say "The entrance to the conference room is closed for the executive meeting until 12:30 PM.";
 			stop the action;
 	otherwise:
-		place an image "img/conference-room-4.jpg" with the description "Conference Room", aligned left.
+		execute JavaScript command "updateImage('img/conference-room-4.jpg');";
 	
 The Conference Room is east of the Gallery. "The executive conference room is a highly functional meeting room that offers undisturbed privacy in a formal business setting. To the west is the gallery."
 
@@ -1826,8 +1865,6 @@ After going to the Conference Room:
 	if the player can see the boss: 
 		try looking;
 		say "Meeting you at the entrance, your boss smiles and says, [one of]'I'm glad you made it in time. Show me your revised report.'[or]'Let's see that presentation.'[or]'I'm pleased you came through in time. Show me your improved report.'[then at random]";
-		[otherwise:
-			say "Your boss says, [one of]'You'd better get going on that report, kid.'[or]'I'm relying on you to get that report done.'[or]'Get started on those revisions, kid. We don't have much time left.'[then at random]";]
 	otherwise:
 		[You don't see your boss here. Maybe that's a good thing.]
 		try looking.
@@ -1856,14 +1893,15 @@ After giving the year-end report to the boss for the first time:
 After giving the complex report to the boss for the first time:
 	now the laser pointer is in the Conference Room;
 	if the player is in the Conference Room:
+		clear the screen;
 		say "You hand the complex report over to your boss.";
 		say "[line break]She smiles as she flips through the pages and nods her head in approval.";
 		say "[line break]'It's so thick! The chairman will love it,' she beams. 'I can't wait to present it to the executives.'";
 		say "[line break]'You did good work. Maybe I'll even write you a glowing recommendation letter after we layoff all you worker bees.'";
+		pause the game;
 		increase the score by Easy_Score_Bonus;
 		say "[line break]Your boss hustles you to the exit and hands you a memo.[paragraph break]";
-		pause the game;
-		place an image "img/gallery.jpg" with the description "Gallery", aligned left;
+		execute JavaScript command "updateImage('img/gallery.jpg');";
 		now the player is in The Gallery;
 		now the player is carrying the layoff memo;
 		say "You review the memo from the Chairman.";
@@ -1886,7 +1924,7 @@ Every turn:
 
 [no one will be blocking the door after the meeting is done and you can get the laser pointer if needed]
 At 12:29 PM:
-	say "[line break]You realize it's nearly 12:30 and the executive meeting will be over soon.";
+	say "[line break]You realize it's nearly 12:30 PM and the executive meeting will be over soon.";
 	now the boss is nowhere;
 	now Junior is in the Chairman's Office;
 	now the complex report is in the Conference Room.
@@ -1894,7 +1932,7 @@ At 12:29 PM:
 Part 14 - Chairman's Office
 
 Before going to The Chairman's office:
-	place an image "img/chairmans-office.jpg" with the description "Chairman's Office", aligned left.
+	execute JavaScript command "updateImage('img/chairmans-office.jpg');";
 	
 The Chairman's office is a room. "The office is regal and refined yet inviting and comfortable. An expansive walnut desk piled high with sales reports rests at the
 center of a large well-lit space. You notice an informal seating area to the right of the doorway with three oversized chairs arranged in a semi-circle. Ample bookshelves and document storage cabinets line the walls, and natural light streams through the picture windows overlooking an idyllic duck pond and a manicured golf course. In a recessed niche, a photograph of the company's founder is displayed alongside a display case filled with company memorabilia. To the southwest is the Gallery."
@@ -1908,7 +1946,6 @@ After going to the Chairman's Office:
 	otherwise:
 		now Junior is in the Chairman's Office;
 	try looking.
-
 
 Junior is a man in the Chairman's office. "Junior [one of]seems distracted and doesn't notice you[or]nods in your general direction[at random]." 
 The description of Junior is "Max Prophet Jr. is the son of the founder and the somewhat reluctant chairman of Minimax Inc. Overworked and pale, he's dressed impeccably, but is a bit out of his depth, lacking his father's business acumen and technical aptitude.[paragraph break]You can ask Junior about Minimax, his father, presentations, business, death, success, or the newspaper."  
@@ -1939,6 +1976,7 @@ Understand "Wall Street Journal" or "wallstreet journal" or "Journal" or "newpap
 
 Before taking the newspaper when the newspaper is not handled:
 	if the player can see Junior:
+		clear the screen;
 		say "Junior says, 'Before you run off with that newspaper, let me tell you a story.'";
 		say "[line break]'Through dumb luck, I was born into a rich family business. And, while this opened the door to the best schools and a fast track to an executive position, I didn't appreciate it. Unlike my father, I had an easy life with very few obstacles to overcome.'";
 		say "[line break]'You see kid, my father had to be persistent and driven to build this business. But all I had to do was show up, and now I'm chairman. It doesn't feel like I earned it, and sometimes I feel like an imposter when I sit in this office.'";
@@ -1994,7 +2032,7 @@ After asking Junior about something:
 	otherwise if the topic understood matches the regular expression "(?i)\bfather|\bfounder|\bphoto|memorabilia":
 		say "After [one of]a long stare out the window[or]an audible sigh[at random], he says, 'It's been tough growing up in the shadow of my father, the great inventor. I never really had his talent for engineering, but here I am, king at last. If only we could regain his spirit of innovation around here. Maybe you can help, kid.'[paragraph break]'Most days I don't feel like my father. I lack his courage, endurance, and patience.'[paragraph break]'After his accident in 2010, I was ambivalent about inheriting the business. I was eager to prove myself, but at the same time, I was filled with self-doubt. And now with Minimax struggling, I wish we had someone on staff like him. Maybe you're the innovator we need, kid.'";
 	otherwise if the topic understood matches the regular expression "(?i)\bpresentation|\breport":
-		if the boss has the complex report:
+		if the complex report is in the conference room:
 			say "He says, 'I was impressed by the complexity of your year-end presentation in the executive meeting. You're going places, kid!";
 		otherwise:
 			say "He says, 'Your boss showed me your draft presentation, and I must say I was underwhelmed. It was weak tea, kid.'";
@@ -2018,7 +2056,9 @@ Part 15 - Damp Tunnel
 
 Before going to The Damp Tunnel:
 	if the Damp Tunnel is lit:
-		place an image "img/damp-tunnel.jpg" with the description "Damp Tunnel", aligned left.
+		execute JavaScript command "updateImage('img/damp-tunnel.jpg');";
+	else:
+		execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 	
 The Damp Tunnel is a dark room. "You find yourself in a confined nook filled with a disquieting stillness. Musty odors fill your nostrils. As you explore the narrow space you notice a rusted Minimax adding machine standing next to a black panel." 
 The Damp Tunnel is scored.
@@ -2027,35 +2067,42 @@ Before going nowhere from the Damp Tunnel:
 	if the black panel is open:
 		continue the action;
 	otherwise if the laser pointer is switched off and the player has the laser pointer:
+		execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 		say "You can't make progress in the dark.";
 		stop the action;
 	otherwise if the flashlight is switched off:
+		execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 		say "You can't make progress in the dark.";
 		stop the action.
 
 Before going south from the Damp Tunnel:
 	if the black panel is open:
-		[now the player is in the Research Lab; <-- probable bug when using go to Research Lab]
 		continue the action;
 	otherwise if the laser pointer is switched off and the player has the laser pointer:
+		execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 		say "You can't make progress in the dark. A dim light above you reveals an exit.";
 		stop the action;
 	otherwise if the flashlight is switched off and the player has the flashlight:
+		execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 		say "You can't make progress in the dark. A dim light from above reveals an exit.";
 		stop the action;
 	otherwise:
 		continue the action.
 
 Carry out switching on the laser pointer:
+	execute JavaScript command "updateImage('img/damp-tunnel.jpg');";
 	now the Damp Tunnel is lit.
 		
 Carry out switching off the laser pointer:
 	if flashlightDead is true:
+		execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 		now the Damp Tunnel is dark;
 	otherwise if the player has the long-handled flashlight:
 		if the long-handled flashlight is switched on:
+			execute JavaScript command "updateImage('img/damp-tunnel.jpg');";
 			now the Damp Tunnel is lit;
 		otherwise:
+			execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 			now the Damp Tunnel is dark.
 	
 After switching off the laser pointer:
@@ -2066,6 +2113,7 @@ After switching on the laser pointer:
 
 Carry out switching on the long-handled flashlight:
 	if flashlightDead is false:
+		execute JavaScript command "updateImage('img/damp-tunnel.jpg');";
 		now the Damp Tunnel is lit;
 	otherwise:
 		do nothing;
@@ -2074,10 +2122,13 @@ Carry out switching on the long-handled flashlight:
 Report switching on the long-handled flashlight:
 	if flashlightDead is true:
 		say "The flashlight blinks briefly and goes dark again.";
+		execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 	otherwise:
-		say "You switch on the flashlight. It emits a weak flicker of light."
+		say "You switch on the flashlight. It emits a weak flicker of light.";
+		execute JavaScript command "updateImage('img/damp-tunnel.jpg');";
 
 Report switching off the long-handled flashlight:
+	execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 	say "The flashlight goes dark.";
 				
 Every turn while the player is in the Damp Tunnel:
@@ -2085,10 +2136,13 @@ Every turn while the player is in the Damp Tunnel:
 	if the player has the laser pointer and the laser pointer is switched on:
 		now the Damp Tunnel is lit;
 	otherwise if flashlightDead is true:
+		execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 		now the Damp Tunnel is dark;
 	otherwise if player has the flashlight and the flashlight is switched on:
+		execute JavaScript command "updateImage('img/damp-tunnel.jpg');";
 		now the Damp Tunnel is lit;
 	otherwise:
+		execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 		now the Damp Tunnel is dark.
 	
 Every turn while the player is in the Damp Tunnel:
@@ -2097,16 +2151,20 @@ Every turn while the player is in the Damp Tunnel:
 		say "Suddenly, the flashlight dims considerably and goes out.";
 		now flashlightDead is true;
 		now the long-handled flashlight is switched off;
+		execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 		if the player has the laser pointer:
 			if the laser pointer is switched off:
 				say "You switch on the laser pointer.";
 				now the laser pointer is switched on;
 				now the Damp Tunnel is lit;
+				execute JavaScript command "updateImage('img/damp-tunnel.jpg');";
 			otherwise:
 				say "The laser pointer guides your way.";
+				execute JavaScript command "updateImage('img/damp-tunnel.jpg');";
 				now the Damp Tunnel is lit;
 		otherwise:
 			say "Looks like you're going to need another light source.";
+			execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 			now the Damp Tunnel is dark;
 	otherwise:
 		do nothing.
@@ -2168,12 +2226,12 @@ Carry out typing it on:
 		say "Typing '[T]' on [the second noun] does nothing.";
 	otherwise:	
 		if the combo of the second noun is "161-180" and the black panel is closed:
+			clear the screen;
+			execute JavaScript command "updateImage('img/research-lab.jpg');";
 			say "You hear a loud squeaking of rusty metal on metal as the black panel swings open revealing Max Prophet's legendary secret lab to the south.";
 			increase the score by Hard_Score_Bonus;
 			now the black panel is open;
 			now the Damp Tunnel is lit;
-			pause the game;
-			place an image "img/research-lab.jpg" with the description "Research Lab", aligned left;
 			now the player is in the Research Lab;
 		otherwise:
 			say "You type '[T]' on the keypad, but nothing happens.";
@@ -2200,6 +2258,7 @@ Every turn when the player can see the black panel and the player is in the Damp
 		now the Damp Tunnel is dark;
 		now the laser pointer is switched off;
 		now the flashlight is switched off;
+		execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
 		clear the screen;
 		say "With one final weak pulse, the light flickers off leaving you to stagger around blind and alone.";
 		say "[paragraph break]The Damp Tunnel brightens considerably as you trip over the frayed high-voltage cable. Sparks fly, and alas, this mistake is fatal. To the delight of the rats, your death comes swiftly with the aroma of cooked flesh.";
@@ -2222,7 +2281,7 @@ Part 16 - Research Lab
 
 Before going to The Research Lab:
 	if the black panel is open:
-		place an image "img/research-lab.jpg" with the description "Research Lab", aligned left.
+		execute JavaScript command "updateImage('img/research-lab.jpg');";
 	
 The Research Lab is a room. "A collection of outdated electronic parts and gadgets lay forgotten. There is a long dusty workbench here. To the north is a tunnel. To the south you see a dimly lit room."
 The Research Lab is scored.
@@ -2247,11 +2306,16 @@ Before taking the worn leather shoes:
  
 The Tic-Tac-Toe machine is a device on the workbench.
 The Tic-Tac-Toe machine is fixed in place.
-The description of the Tic-Tac-Toe machine is "It's the old Tic-Tac-Toe machine featured in the magazine clipping. It appears to have been highly modified since the 1950s. On the front of the unit is a barely-legible label that says 'Predict-Tac-Toe.' The machine makes a delightful hum and warms up the room. On the back of the unit, you notice an expansion port."
+The description of the Tic-Tac-Toe machine is "This is the vintage Tic-Tac-Toe machine showcased in the magazine clipping. It seems to have undergone significant modifications since the 1950s. The front of the unit bears a faint label reading 'Predict-Tac-Toe.' The machine emits a pleasant hum and generates warmth. There is a input jack located on the front panel and an expansion port on the back."
 The Tic-Tac-Toe machine is switched on.
 The expansion port is a container on the workbench. 
 The expansion port is undescribed.
 The description of the expansion port is "An opening on the back of the Tic-Tac-Toe machine for connecting additional modules."
+
+The input jack is on the workbench.
+The input jack is fixed in place.
+The input jack is undescribed.
+The description of the input jack is "On the front panel of the old Tic-Tac-Toe machine is a green connector slot used to route signals into the device." 
 
 Instead of switching off the Tic-Tac-Toe machine:
 	say "There doesn't seem to be an off switch for this machine. It must have been running continuously for years.";
@@ -2299,18 +2363,18 @@ The description of the projection report is "[line break]Congratulations! You ha
 Disconnecting it is an action applying to two things.
 Understand "disconnect [something] from [something]" as disconnecting it.
 Understand "unfasten [something] from [something]" as disconnecting it.
-
+	
 Carry out disconnecting:
-	if the noun is the fax machine:
-		if the second noun is the Tic-Tac-Toe machine:
+	if the noun is the fax machine or the noun is the green connector:
+		if the second noun is the Tic-Tac-Toe machine or the second noun is the input jack:
 			if faxIsConnectedToTicTacToe is true:
 				say "You disconnect [the noun] from [the second noun].";
 				now faxIsConnectedToTicTacToe is false;
 				decrease the score by Easy_Score_Bonus;
 			otherwise:
 				say "The two devices are not connected.";
-	otherwise if the noun is the Tic-Tac-Toe machine:
-		if the second noun is the fax machine:
+	otherwise if the noun is the Tic-Tac-Toe machine or the noun is the input jack:
+		if the second noun is the fax machine or the second noun is green connector:
 			if faxIsConnectedToTicTacToe is true:
 				say "You disconnect [the noun] from [the second noun].";
 				now faxIsConnectedToTicTacToe is false;
@@ -2329,6 +2393,12 @@ Carry out disconnecting:
 Instead of tying the neuropack to the expansion port:
 	try inserting the neuropack into the expansion port.
 	
+Instead of tying the expansion port to the neuropack:
+	try inserting the neuropack into the expansion port.
+	
+Instead of tying the green connector to the input jack:
+	try tying the fax machine to the Tic-Tac-Toe machine.
+		
 Instead of inserting something into the paper slot:
 	if the fax machine is switched off:
 		say "You need to turn on the fax machine first.";
@@ -2364,7 +2434,7 @@ Before examining the projection report:
 After examining the projection report:
 	increase the score by Hard_Score_Bonus;
 	now everything carried by the player is nowhere;
-	pause the game;
+	clear the screen;
 	now playerWon is true.
 
 Instead of tying the green connector to the Tic-Tac-Toe machine:
@@ -2389,15 +2459,16 @@ Part 17 - Video Station
 
 Before going to the Video Station:
 	if maxOnScreen is true:
-		place an image "img/tv-max-on-screen.jpg" with the description "TV Room", aligned left;
+		execute JavaScript command "updateImage('img/tv-max-on-screen.jpg');";
 	otherwise:
-		place an image "img/tv-max-empty-screen.jpg" with the description "TV Room", aligned left;
+		execute JavaScript command "updateImage('img/tv-max-empty-screen.jpg');";
 		
 Before going to the Video Station:
 	if the Video Station is not visited:
+		clear the screen;
+		execute JavaScript command "updateImage('img/tv-max-on-screen.jpg');";
 		say "You approach a dimly lit corner of the lab. The sterile hum of the fluorescent lights fades slightly. A single bare bulb strains against the shadows, casting an anemic glow that reveals an unexpected sight: a vintage 1970s television set. Perched precariously on a wobbly pedestal, its black form stands stark against the dust-laden shelves.[paragraph break]An angry whisper of static emanates from the speaker, the only sound to pierce the heavy silence. Curiosity tugs at you. Through a film of grime on the screen, a ghostly image flickers—the indistinct outline of an old man's face, his lips moving in silent conversation.[paragraph break]A tremor of unease runs down your spine, yet your feet seem to propel you closer, drawn by the enigmatic figure behind the dusty glass.[paragraph break]Through a crackle of static, you hear a faint voice, and then... a face fully materializes on the screen. It's Max Prophet, the company founder, a man you've only seen in faded photographs. The same flat-top haircut and bushy white eyebrows, the same stern expression, but somehow... fainter. Translucent. He is a spectral Max, a Max filtered through a cobwebbed screen.[paragraph break]Max blinks, his ghostly eyes adjusting to the harsh light, and says in a raspy voice, 'Took you long enough. I've been sleeping down here for a long while and no one bothered to check the lab?'[paragraph break]'Wait a minute. Now I remember the power surge. That was a doozy. Well, given my love of electronics, I guess it's fitting that I end up here, just a latent signal in a set of old vacuum tubes.'[paragraph break]He continues, 'Thanks for the wake-up call, though. I was starting to think I'd become permanent décor. Let's just say, my essence got tangled in the circuits.'";
 		pause the game;
-		place an image "img/tv-max-on-screen.jpg" with the description "TV Room", aligned left;
 	otherwise:
 		do nothing;
 
@@ -2445,7 +2516,7 @@ ghost is in the Video Station.
 ghost is a man in the Video Station. 
 ghost is undescribed.
 The printed name of ghost is "Max".
-The description of ghost is "Max Prophet. The founder is translucent but still recognizable. His face now floats lined and weathered on a 12-inch screen. He sports the same flat-top haircut the color of aged steel that was his trademark. He seems disoriented, his eyes darting around the screen as if taking in the lab for the first time. A frown creases the spectral face.[paragraph break]'Blast it all,' the image rasps, his voice cracking with a faint electrical hum. 'Seems I[apostrophe]ve[one of] blown a fuse again.'[or] pushed the limits too far again.'[at random]";
+The description of ghost is "Max Prophet. The founder is translucent but still recognizable. His face now floats lined and weathered on a 12-inch screen. He sports the same haircut the color of aged steel that was his trademark. He seems disoriented, his eyes darting around the screen as if taking in the lab for the first time. A frown creases the spectral face.[paragraph break]'Blast it all,' the image rasps, his voice cracking with a faint electrical hum. 'Seems I[apostrophe]ve[one of] blown a fuse again.'[or] pushed the limits too far again.'[at random]";
 
 Every turn:
 	if the player can see ghost and firstHelp is true:
@@ -2482,6 +2553,8 @@ instead of taking help:
 	say "Just ask Max for help.";
 	stop the action.
 
+Understand "checklist" as the check list.
+
 Instead of asking ghost for help:
 	if player is not in Video Station:
 		say "[one of]Max can't hear you.[or]Max is long dead.[or]Max isn't here.[then at random]";
@@ -2511,8 +2584,8 @@ Instead of asking ghost for help:
 		say "'You[apostrophe]ve got all the components in place. Good work, kid. Maybe you[apostrophe]ll be a great inventor one day.'";
 		say "'I[apostrophe]ll print out the final check list for you.'";
 		say "[paragraph break]Max's essence begins to fade.";
-		say "[paragraph break]His voice becoming a whisper, he says, 'And as for me... I feel a lightness I haven't known in decades. My work is nearly done. Remember, kid', he said, his voice growing faint, 'innovation is the heart of progress. Never stop creating, never stop dreaming.'";
-		say "[paragraph break]'We made a good team. You have given me peace...finished my life's work.'";
+		say "[line break]His voice becoming a whisper, he says, 'And as for me... I feel a lightness I haven't known in decades. My work is nearly done. Remember, kid', he said, his voice growing faint, 'innovation is the heart of progress. Never stop creating, never stop dreaming.'";
+		say "[line break]'We made a good team. You have given me peace...finished my life's work.'";
 		say "[paragraph break]With those final words, Max's presence dissolves, leaving you to carry the torch of invention forward.";
 		now ghost is nowhere;
 		now maxOnScreen is false;
@@ -2557,4 +2630,3 @@ The Final Resting Place is a room. "Although you were likely to lose your job at
 Part 21 - Victory
 
 The Corner office is a room. "Congratulations on your remarkable achievement! Your ingenuity and resourcefulness have not only saved Minimax Inc. from the brink of bankruptcy but have also restored its profitability to new heights. This is no small feat—very few could have accomplished what you did. Your exceptional efforts have not only secured your position but have also earned you the prestigious title of 'Chief of Innovation.'[paragraph break]Gone are the days of sitting in a dull gray cubicle. Now, you lead your team from a luxurious corner office on Mahogany Row, a testament to your extraordinary success. In the C-suite, you can sink into your executive chair and take in the serene views of the nearby scenic greenscape. To make your triumph even sweeter, your former boss now brings you gourmet coffee each morning in a mug that proudly reads 'Innovator of the Year.'[paragraph break]Your impressive journey and outstanding achievements have set a new standard for excellence at Minimax Inc. Congratulations once again on this well-deserved recognition!"
-
