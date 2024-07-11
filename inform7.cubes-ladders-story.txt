@@ -722,7 +722,7 @@ The donuts are in the pastry box.
 	
 The pastry box is a closed container. 
 Understand "donut box" as the pastry box.
-[Understand "donuts" as the pastry box.]
+Understand "donuts" as the pastry box.
 Understand "box" as the pastry box.
 The pastry box is in the Break Room.
 The pastry box is fixed in place and openable.
@@ -2188,12 +2188,13 @@ The Minimax calculator is scenery.
 Understand "MM19" as the Minimax.
 Understand "adding machine" as the Minimax.
 Understand "calculator" as the Minimax.
+Understand "machine" as the Minimax.
 Understand "keypad" as the Minimax.
 Understand "keyboard" as the Minimax.
 Understand "buttons" or "button" as the Minimax.
 Understand "adding machine" as the Minimax.
 		
-The description of the Minimax calculator is "Ahh, the original MM19, just like the one featured in the founder's portrait. This one is a well-preserved example of a full-function calculator that was a marvel for its heyday in the 1960s. It has the standard buttons 1-9 as well as add and subtract."
+The description of the Minimax calculator is "Ahh, the original MM19, just like the one featured in the founder's portrait. This one is a well-preserved example of a full-function calculator that was a marvel for its heyday in the 1960s. It has the standard buttons 0-9 as well as add and subtract."
 There is a black cable in the Damp Tunnel.
 The black cable is fixed in place.
 The description of the black cable is "A high-voltage cable frayed from years of neglect and damp conditions connects the Minimax adding machine to the black panel."
