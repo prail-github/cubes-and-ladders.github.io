@@ -4,8 +4,8 @@
 
 ===============================================================================
 
-Updated: Feb 21, 2023
-Version: 1.2
+Updated: Jul 24, 2024
+Version: 1.3
 Contact: prail@yahoo.com
 
 CONTENTS
@@ -21,6 +21,7 @@ VERSION HISTORY
 1.0: Jan 24, 2023 (First Version)
 1.1: Feb 6, 2023 
 1.2: Feb 21, 2023 
+1.3: Jul 24, 2024 
 
 ===============================================================================
 
@@ -28,7 +29,7 @@ VERSION HISTORY
 
 ===============================================================================
 
-Cubes and Ladders was written in 2022 using Inform 7 with Vorple. 
+Cubes and Ladders was started in 2022 using Inform 7 with Vorple. 
 The game begins in a long hallway at Minimax Inc., a failing electronics 
 company. You guide the protaganist, Jordan Michael, through an 
 office adventure where he explores the office, talks to coworkers, 
@@ -214,10 +215,10 @@ screwdriver or the laser pointer.
 
 2. There are two ways to die. You can stand on the office chair in the marketing 
 storage room or you can try touching the frayed cable in the damp tunnel. 
-This may have been how Max Prophet Sr.  ended his earthly career.
+This may have been how Max Prophet Sr. ended his earthly career.
 
-3. The artwork helps the storytelling. I added AI-generated digital art 
-from https://dream.ai/create based on descriptions from the game text.
+3. The artwork helps the storytelling. I added AI-assisted digital art 
+from https://dream.ai/create based on my sketches and descriptions from the game text.
 
 4. Max Prophet Sr. was based on a real person--a finalist in the Westinghouse 
 Science Talent search of 1950 who built a tic-tac-toe machine as described in 
