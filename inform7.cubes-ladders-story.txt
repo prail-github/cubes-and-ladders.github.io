@@ -280,7 +280,7 @@ complexifierDead is a truth state that varies. complexifierDead is false.
 yearEndReportRuined is a truth state that varies. yearEndReportRuined is false.
 ceoExamined is a truth state that varies. ceoExamined is false.
 faxIsConnectedToTicTacToe is a truth state that varies. faxIsConnectedToTicTacToe is false.
-cardboardBoxFlat is a truth state that varies. cardboardBoxFlat is false.
+cardboardCartonFlat is a truth state that varies. cardboardCartonFlat is false.
 playerWaiting is a truth state that varies. playerWaiting is false.
 flashlightDead is a truth state that varies. flashlightDead is false.
 
@@ -742,8 +742,8 @@ Every turn when the player can see Rich for more than two turns and the player h
 	[try giving the baseball cap to Rich;]
 	continue the action.
 	
-The plural of donut is donuts.
-The donuts are in the pastry box.
+[The plural of donut is donuts.]
+[The donuts are in the pastry box.]
 	
 The pastry box is a closed container. 
 Understand "donut box" as the pastry box.
@@ -756,8 +756,12 @@ The description of the pastry box is "Ahh, assorted donuts. These soft and stick
 [the obvious way of storing the donut in the box turned out to suck]
 [Inside the pastry box is the donut. ]
 The donut is in the Break Room. The donut is undescribed.
-The description of the donut is "You can't see the donut, but you somehow know it's nestled in the pastry box. For now, you can only sense its greasy goodness.";
-	
+The description of the donut is "You can't see the donut, but you somehow know it's nestled in the pastry box. For now, you can only imagine its greasy goodness.";
+
+After examining the pastry box:
+	if something is in the pastry box:
+		say "Inside you see [a list of things in the pastry box].";
+		
 Instead of taking the donut:
 	if the pastry box is not open:
 		say "It's hidden in the pastry box and cannot be taken.";
@@ -792,7 +796,8 @@ Before opening the pastry box:
 		say "Rich [one of]blocks your way, [or]guards the donuts, [at random][one of]'Donuts are for closers only, kid.'[or]'Me and donuts are a thing.'[or]'I can tell you've been working out. Don't ruin it.'[or]'I hear pay cuts are coming our way. Good thing we've got donuts and I'm on commission.'[or]'We need to play racketball to work off my gut, and soon.'[or]'You got any company merch for me?'[or]'You gotta earn it.'[or]'You don't need all that sugar and fat or soon you'll look like me around the middle.'[or]'You gotta earn it, kid.'[or]'Donuts are rocket fuel for the soul. Don't you agree?'[or]'Donuts and coffee are my primary food groups.'[or]'Life is not about the weight you lose but about the donuts you gain.'[or]'My doctor says I need to consume several of these per hour or I'll die.'[then at random]";
 		stop the action;
 	otherwise:
-		say "At last, you open the pastry box.";
+		say "At last, you open the pastry box revealing a single donut.";
+		Now the donut is in the pastry box;
 		continue the action.
 		
 After opening the pastry box:
@@ -1048,9 +1053,6 @@ Before going through the bookcase:
     if the bookcase is closed, stop the action.
 
 [The opening doors before entering rule does nothing when the bookcase is closed.]
-
-[Instead of going down when the bookcase is closed:
-	say "You can't go that way.";]
 
 Instead of going down:
 	if the bookcase is closed:
@@ -1718,44 +1720,47 @@ After opening the Marketing Door:
 		
 Understand "ad" as advertisement.
 
-Marketing Storage is a room. "You're in a cramped storage room, uncomfortably hemmed in by lack of space on either side. A scattering of branded company merchandise amid empty boxes sits lonely on a shelf. An advertisement near the entrance says 'For every complex question there is an answer that is clear, simple, and wrong.' To the west, you see a vast sea of cubicles."
+Marketing Storage is a room. "You're in a cramped storage room, uncomfortably hemmed in by lack of space on either side. A scattering of branded company merchandise amid empty cardboard cartons sits lonely on a shelf. An advertisement near the entrance says 'For every complex question there is an answer that is clear, simple, and wrong.' To the west, you see a vast sea of cubicles."
 
 There is an advertisement in Marketing Storage.
 The description of the advertisement is "It's an old promotional piece for Minimax copiers."
 
-There are cardboard boxes in Marketing Storage. 
-The cardboard boxes are an enterable portable supporter.
-The cardboard boxes are undescribed.
-The description of the cardboard boxes is "Old and somewhat flimsy, these empty boxes have seen better days."
+There are cardboard cartons in Marketing Storage. 
+The cardboard cartons are an enterable portable supporter.
+The cardboard cartons are undescribed.
+The description of the cardboard cartons is "Old and somewhat flimsy, these empty cartons have seen better days."
 
 Instead of jumping in Marketing Storage:
 	try jumping up.
 	
-There is a cardboard box in Marketing Storage. 
-The cardboard box is an enterable portable supporter.
-The cardboard box is undescribed.
+There is a cardboard carton in Marketing Storage. 
+The cardboard carton is an enterable portable supporter.
+The cardboard carton is undescribed.
 
-Instead of climbing the cardboard boxes:
-	try standing up on the cardboard boxes.
+Instead of climbing the cardboard cartons:
+	try standing up on the cardboard cartons.
 	
-Instead of opening the cardboard box:
-	try opening the cardboard boxes.
+Instead of opening the cardboard carton:
+	try opening the cardboard cartons.
 	
-Instead of standing up on the cardboard box:
-	try standing up on the cardboard boxes;
+Instead of standing up on the cardboard carton:
+	try standing up on the cardboard cartons;
 	
-Instead of standing up on the cardboard boxes:
-	if cardboardBoxFlat is false:
-		say "You stack the boxes neatly and stand taller for a moment.";
-		say "But the flimsy boxes collapse under your weight.";
-		now the description of the cardboard boxes is "Old boxes, flattened and useless.";
-		now cardboardBoxFlat is true;
+Instead of taking the cardboard cartons:
+	try taking the cardboard carton;
+	
+Instead of standing up on the cardboard cartons:
+	if cardboardCartonFlat is false:
+		say "You stack the cartons neatly and stand taller for a moment.";
+		say "But the flimsy cartons collapse under your weight.";
+		now the description of the cardboard cartons is "Old cartons, flattened and useless.";
+		now cardboardCartonFlat is true;
 	otherwise:
-		say "Standing on flat boxes is a waste of your time.";
+		say "Standing on flat cartons is a waste of your time.";
 	stop the action.
 	 
 After taking the advertisement:
-	now the description of Marketing Storage is "A scattering of branded company merchandise amid empty boxes sits lonely on a shelf. To the west are a sea of cubicles.";
+	now the description of Marketing Storage is "A scattering of branded company merchandise amid empty cartons sits lonely on a shelf. To the west are a sea of cubicles.";
 	continue the action.
 	
 Instead of taking company merchandise:
@@ -1778,8 +1783,8 @@ Instead of dropping the water bottles:
 Instead of dropping the stickers:
 	try dropping the sticker.
 	
-Instead of opening the boxes:
-	say "The old and flimsy boxes are empty.";
+Instead of opening the cartons:
+	say "The old and flimsy cartons are empty.";
 	
 Instead of taking the water bottles:
 	say "You take one of the KICK water bottles.";
@@ -2191,7 +2196,10 @@ Before going to The Damp Tunnel:
 		execute JavaScript command "updateImage('img/damp-tunnel.jpg');";
 	else:
 		execute JavaScript command "updateImage('img/dark-tunnel.jpg');";
-	
+		
+Rule for writing a paragraph about the bookcase when the player is in the Damp Tunnel:
+    say "You can see stairs leading up to a trapdoor."
+
 The Damp Tunnel is a dark room. "You find yourself in a confined nook filled with a disquieting stillness. Musty odors fill your nostrils. As you explore the narrow space you notice a rusted Minimax adding machine standing next to a black panel." 
 The Damp Tunnel is scored.
 
@@ -2300,10 +2308,11 @@ Every turn while the player is in the Damp Tunnel:
 			now the Damp Tunnel is dark;
 	otherwise:
 		do nothing.
-				
+
+Understand "stairs" as the bookcase.				
 Instead of examining the bookcase:
 	if the player is in the Damp Tunnel:
-		say "You look up through the trap door and see a bookcase full of old manuals.";
+		say "You look up through the trapdoor and see a bookcase full of old manuals.";
 		stop the action;
 	otherwise:
 		continue the action.
