@@ -111,6 +111,7 @@ Carry out getting help about:
 		say "[line break]throw ___ at ___";
 		say "[line break]type ___ on ___";
 		say "[line break]unlock";
+		say "[line break]walk to ___";
 	otherwise:
 		say "No hint available for [the topic understood]."
 
@@ -166,7 +167,7 @@ The complex report is a presentation.
 The complex report is complicated. 
 The complex report weighs 3000gm.
 The complex report is nowhere. 
-The description of the complex report is "The report is overflowing with buzzwords,  colorful graphs, and projections. It's a voluminous presentation explaining the year-end performance of Minimax Inc. It's substantially thicker than the original. Perfect for impressing upper management or adding inches to your height."
+The description of the complex report is "It's a voluminous presentation explaining the year-end performance of Minimax Inc. The report is overflowing with buzzwords, colorful graphs, and projections. It's nearly as thick as a metropolitan phonebook! Perfect for impressing upper management or adding inches to your height."
 Understand "revised report" as the complex report.
 Understand "improved report" as the complex report.
 
@@ -237,10 +238,16 @@ Carry out poking it with:
 		say "Poking [the noun] with [the second noun] has no effect."
 
 Carry out poking it:
-	if the player can see the clothing hook and the baseball cap is on the hook and the player carries the flashlight:
-		try poking the hook with the flashlight;
+	if the player can see the clothing hook and the baseball cap is on the hook:
+		if the player is standing on the complex report:
+			if the player is carrying the flashlight:
+				try poking the hook with the flashlight;
+			otherwise:
+				try taking the baseball cap;
+		otherwise:
+			say "You cannot reach [the noun].";
 	otherwise:
-		say "Your action has no effect. Be more specific.";
+		say "You can't reach.";
 		
 Asking someone about something is speech.
 Telling someone about something is speech.
@@ -1837,10 +1844,10 @@ Instead of hitting the clothing hook with the flashlight:
 	
 Instead of poking the clothing hook with the flashlight:
 	if the baseball cap is on the clothing hook:
-		say "You stretch as high as you can, poke the hook with the flashlight, and dislodge the cap. It falls at your feet and you pick it up.";
-		now the player has the baseball cap;
-		increase the score by Easy_Score_Bonus;
-		stop the action;
+		if the player is standing on the complex report:
+			try taking the baseball cap;
+		otherwise:
+			say "You stretch as high as you can, poke the hook with the flashlight, and nearly dislodge the cap. If only you had something as thick as a phonebook to stand on...";
 	otherwise:
 		say "You feel silly for poking the empty hook.";
 	
@@ -2095,7 +2102,8 @@ Before giving something to Junior:
 		stop the action;
 	otherwise if the noun is the projection report:
 		increase the score by Hard_Score_Bonus;
-		clear the screen;
+		say "[description of the projection report]";
+		pause the game;
 		say "Junior furrows his brow as he takes in the report. After a few moments of silence pass, filled only by the rustle of pages, a slow smile spreads across his face. Now it's more than just a smile; it's a look of genuine surprise and growing excitement. 'Hold on a minute,' he finally says, a hint of disbelief in his voice. 'This... this is brilliant! You've cracked it! Minimax is saved, and thanks to you, kid!'";
 		now playerWon is true;
 		stop the action;
@@ -2578,8 +2586,8 @@ Instead of inserting something into the paper slot:
 		stop the action.
 	
 Before examining the projection report:
-	if the projection report is on the workbench:
-		continue the action.
+	say "[description of the projection report]";
+	pause the game;
 		
 After examining the projection report:
 	increase the score by Hard_Score_Bonus;
@@ -2775,5 +2783,4 @@ The Final Resting Place is a room. "Although you were likely to lose your job at
 	
 Part 21 - Victory
 
-The Corner office is a room. "Congratulations on your remarkable achievement! Your ingenuity and resourcefulness have not only saved Minimax Inc. from the brink of bankruptcy but have also restored its profitability to new heights. This is no small feat—very few could have accomplished what you did. Your exceptional efforts have not only secured your position but have also earned you the prestigious title of 'Chief of Innovation.'[paragraph break]Gone are the days of sitting in a dull gray cubicle. Now, you lead your team from a luxurious corner office on Mahogany Row, a testament to your extraordinary success. In the C-suite, you can sink into your executive chair and take in the serene views of the nearby scenic greenscape. To make your triumph even sweeter, your former boss now brings you gourmet coffee each morning in a mug that proudly reads 'Innovator of the Year.'[paragraph break]Your impressive journey and outstanding achievements have set a new standard for excellence at Minimax Inc. Congratulations once again on this well-deserved recognition!"
-
+The Corner office is a room. "Well, well, well, look who’s mastered the corporate jungle. Congratulations, future office overlord![paragraph break]You showed a remarkable talent for navigating a maze of pointless tasks, and this has somehow convinced management you're fit to lead. Your ingenuity and resourcefulness saved Minimax Inc. from the brink of bankruptcy.[paragraph break]You have ascended to the illustrious Mahogany Row, where the air is thick with the scent of self-importance, stale coffee, and overpriced cologne mixed with boozy lunches. Yes, you, the person who once struggled to run a copy machine, are now the shining beacon of innovation at Minimax.[paragraph break]Gone are the days of languishing in the soul-sucking void of a dull gray cubicle. Now, you command your team from a luxurious corner office, complete with a somewhat overrated view of a nearby greenscape.[paragraph break]To make this surreal victory even sweeter, your former boss, now your groveling assistant, serves you artisanal gourmet coffee every morning in a mug that proudly proclaims 'Innovator of the Year.'[paragraph break]Enjoy the scenic view, your humbled lackey coffee-fetcher, and your regal, expansive, gold-inlaid walnut desk. But remember: At Minimax, even the top floor is an endless hamster wheel.[paragraph break]Congratulations once again on your wholly unexpected triumph!"

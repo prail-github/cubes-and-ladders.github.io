@@ -71,7 +71,8 @@ CF-4
 ----
 Examine the guard and ask him about intuders and cubes. 
 To get past the security guard and head south you must show him your year-end
-report. This bores him to sleep and you can then pass. Take the flashlight. 
+report. This bores him to sleep and you can then pass. You can also ask him
+questions for a few turns before he falls asleep. Take the flashlight. 
 Go north to CF-2.
 
 CF-2
@@ -173,16 +174,16 @@ Research Lab
 ------------
 You are in Max Prophet's legendary research lab. In the lab you must complete
 an important invention to save your job and the company. Examine the workbench.
-There you will find a notebook, a screwdriver, and a tic-tac-toe machine. 
-Examine the magazine clipping to learn about the tic-tac-toe machine. Take
+There you will find a notebook, a screwdriver, and a Tic-Tac-Toe machine. 
+Examine the magazine clipping to learn about the Tic-Tac-Toe machine. Take
 the screwdriver. Examine the notebook to reveal what invention you are 
-to complete from the parts before you. You need a part from the Complexifier
-so return by typing "walk to storage room"
+to complete from the parts before you. You need to salvage a part from the 
+Complexifier so return there by typing "walk to storage room"
 
 Storage Room (again)
 --------------------
 The complexifier has a maintenance compartment that contains a part we need.
-if you try to open the compartment, you will be reminded it is shut tight
+If you try to open the compartment, you will be reminded it is shut tight
 with rusty screws. To unlock the compartment we use the screwdriver. Type
 "loosen screws" then examine the compartment's contents and take the
 neuropack, which is the brain of the complexifier. We need this brain to 
@@ -190,14 +191,14 @@ complete the invention in the research lab. Next, type "walk to research lab"
 
 Research Lab (again)
 -------------------
-Connect the fax machine to the tic-tac-toe machine. Turn on fax.
-Examine the tic-tac-toe machine and notice it has an expansion port.
+Connect the fax machine to the Tic-Tac-Toe machine. Turn on fax.
+Examine the Tic-Tac-Toe machine and notice it has an expansion port.
 This is where you place the neuropack to complete the invention. Because
 the Predict-Tac-Toe machine needs input you next put the newspaper in the
 fax machine which will send information to the invention. A projection report
 appears that predicts future business news, including stock prices. This 
 breakthrough will save the company. To complete the game, examine the 
-projection report. You find your self in the Corner Office.
+projection report or show it to Junior. You find your self in the Corner Office.
 
 Corner Office
 -------------
@@ -221,9 +222,8 @@ This may have been how Max Prophet Sr. ended his earthly career.
 from https://dream.ai/create based on my sketches and descriptions from the game text.
 
 4. Max Prophet Sr. was based on a real person--a finalist in the Westinghouse 
-Science Talent search of 1950 who built a tic-tac-toe machine as described in 
+Science Talent search of 1950 who built a Tic-Tac-Toe machine as described in 
 the magazine clipping.  Here a museum curator talks 
 about him https://youtu.be/4sDYK4hDwAM?t=601
 
 ** End of Walkthrough **
-
