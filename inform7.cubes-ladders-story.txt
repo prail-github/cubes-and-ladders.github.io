@@ -134,7 +134,7 @@ The right hand Vorple status line is "[time of day]".
 When play begins:
 	construct the Vorple status line with 2 columns;
 	execute JavaScript command "updateImage('img/corp-headquarters-2.jpg');";
-	display a notification reading "** Welcome to Cubes and Ladders **";
+	display a notification reading "* Welcome to Cubes and Ladders *";
 	say "[Bold type]This is the headquarters of Minimax Inc., a Fortune 1000 Company[paragraph break][roman type]";
 	say "For the past three months, you've been diligently working as a tech support agent, assisting clients with resolving issues related to Minimax products.[paragraph break]However, today will be different. Beginning at 9:00 AM, you'll search the office for clues, interact with coworkers, and solve a series of puzzles to secure your job and save the business from impending bankruptcy.";
 	pause the game;
@@ -146,7 +146,7 @@ Every turn:
 		now the time of day is 1 minute before the time of day.
 
 A room has a text called image file name. The image file name is usually "hallway-2.jpg".
-After examining the room:
+After looking:
 	let currentImage be the image file name of the location;
 	execute JavaScript command "updateImage('img/' + currentImage);";
 
