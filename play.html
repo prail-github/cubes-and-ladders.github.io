@@ -83,7 +83,7 @@ function updateImage(src) {
 var sideWindow = document.getElementById('side_window');
 sideWindow.innerHTML = '<img src="' + src + ' "style="max-width:500px;">';
 }
-
+var currentImage;
 vorple.addEventListener('init', function() {
 var containerDiv = document.createElement('div');
 containerDiv.id = 'my_container';
