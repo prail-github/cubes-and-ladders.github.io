@@ -121,24 +121,36 @@ Part 2 - Begin
 
 [saving or restoring]
 [small penalty for saving the game, you weakling]
-	
+
 Check saving the game:
-	decrement the score.
-	
+	say "Saving the game...";
+	continue the action.
+
+Report saving the game:
+	say "Now you are in [the player's surroundings] at [time of day].";
+	continue the action.
+
 Check restoring the game:
-	say "Type 'look' to see your restored location.";
+	continue the action.
+
+Report restoring the game:
+	say "Now you are in [the player's surroundings] at [time of day].";
+	continue the action.
 	
+	[say "Now you are in [the player's surroundings] at [time of day].";]	
 The left hand Vorple status line is "[the player's surroundings] / Score: [score]".
 The right hand Vorple status line is "[time of day]".
 	
 When play begins:
 	construct the Vorple status line with 2 columns;
 	execute JavaScript command "updateImage('img/corp-headquarters-2.jpg');";
-	display a notification reading "* Welcome to Cubes and Ladders *";
+	display a notification reading "Welcome to Cubes and Ladders!";
 	say "[Bold type]This is the headquarters of Minimax Inc., a Fortune 1000 Company[paragraph break][roman type]";
 	say "For the past three months, you've been diligently working as a tech support agent, assisting clients with resolving issues related to Minimax products.[paragraph break]However, today will be different. Beginning at 9:00 AM, you'll search the office for clues, interact with coworkers, and solve a series of puzzles to secure your job and save the business from impending bankruptcy.";
 	pause the game;
-	say "[Bold type]Your Aim is To Save Your Job and To Save Minimax Inc.[paragraph break][roman type]Minimax is losing money and struggling to retain customers. Once regarded as innovative, the company now faces a shrinking customer base and falling profits, putting jobs at risk, including yours.[paragraph break]Some may argue that an entry-level position like yours has little effect on the company's fate, but today is your chance to shape the future of Minimax Inc. If you succeed, it will be the most significant day in your career so far.[paragraph break]Can you restore the company's reputation for innovation and return it to profitability?[paragraph break]If you fail, it may be time to look for opportunities elsewhere. Good luck.[paragraph break]On the next page, you'll begin the challenge.";
+	say "[Bold type]Your Aim is To Save Your Job and To Save Minimax Inc.[paragraph break][roman type]Minimax is losing money and struggling to retain customers. Once regarded as innovative, the company now faces a shrinking customer base and falling profits, putting jobs at risk, including yours.[paragraph break]Some may argue that an entry-level position like yours has little effect on the company's fate, but today is your chance to shape the future of Minimax Inc. If you succeed, it will be the most significant day in your career so far.[paragraph break]Can you restore the company's reputation for innovation and return it to profitability?[paragraph break]If you fail, it may be time to look for opportunities elsewhere.";
+	pause the game;	
+	say "[bold type]Caution: [roman type]Death is permanent in this game.[paragraph break]To avoid losing progress, remember to save frequently by typing SAVE.[paragraph break]You can restore a saved game at any time by typing RESTORE.[paragraph break]On the next page, you'll begin the challenge. Good luck.";
 	pause the game;
 	execute JavaScript command "updateImage('img/hallway-2.jpg');";
 Every turn:
@@ -148,7 +160,8 @@ Every turn:
 A room has a text called image file name. The image file name is usually "hallway-2.jpg".
 After looking:
 	let currentImage be the image file name of the location;
-	execute JavaScript command "updateImage('img/' + currentImage);";
+	now currentImage is "updateImage('img/[currentImage]');";
+	execute JavaScript command "[currentImage]";
 
 A weight is a kind of value. 
 10gm specifies a weight. 
@@ -2875,4 +2888,3 @@ Part 21 - Victory
 
 The Corner Office is a room. The image file name of the Corner Office is "corner-office-8.jpg".
 The description of the Corner Office is "Well, well, well, look who’s mastered the corporate jungle. Congratulations, future office overlord![paragraph break]You showed a remarkable talent for navigating a maze of pointless tasks, and this has somehow convinced management you're fit to lead. Your ingenuity and resourcefulness saved Minimax Inc. from the brink of bankruptcy.[paragraph break]You have ascended to the illustrious Mahogany Row, where the air is thick with the scent of self-importance, stale coffee, and overpriced cologne mixed with boozy lunches. Yes, you, the person who once struggled to run a copy machine, are now the shining beacon of innovation at Minimax.[paragraph break]Gone are the days of languishing in the soul-sucking void of a dull gray cubicle. Now, you command your team from a luxurious corner office, complete with a somewhat overrated view of a nearby greenscape.[paragraph break]To make this surreal victory even sweeter, your former boss, now your groveling assistant, serves you artisanal gourmet coffee every morning in a mug that proudly proclaims 'Innovator of the Year.'[paragraph break]Enjoy the scenic view, your humbled lackey coffee-fetcher, and your regal, expansive, gold-inlaid walnut desk. But remember: At Minimax, even the top floor is an endless hamster wheel.[paragraph break]Congratulations once again on your wholly unexpected triumph!"
-
