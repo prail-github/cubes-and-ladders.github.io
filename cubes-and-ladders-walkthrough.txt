@@ -23,6 +23,7 @@ VERSION HISTORY
 1.2: Feb 21, 2023 
 1.3: Jul 24, 2024 
 1.4: Aug 14, 2024 
+1.5: Jan 25, 2026 
 
 ===============================================================================
 
@@ -30,9 +31,9 @@ VERSION HISTORY
 
 ===============================================================================
 
-Cubes and Ladders was started in 2022 using Inform 7 with Vorple. 
-The game begins in a long hallway at Minimax Inc., a failing electronics 
-company. You guide the protaganist, Jordan Michael, through an 
+Cubes and Ladders was started in 2022 (and revised in 2026) using Inform 7 
+with Vorple. The game begins in a long hallway at Minimax Inc., a failing 
+electronics company. You guide the protaganist, Jordan Michael, through an 
 office adventure where he explores the office, talks to coworkers, 
 and solves puzzles. Ultimately, you must keep your job by keeping 
 Minimax Inc. from bankruptcy.
@@ -66,7 +67,7 @@ Cube Farm 5 (CF-5)
 The cube farm consists of nine cube zones, CF-1 through CF-9 with nearly
 identical descriptions meant to confuse. Some of the cubicles contain 
 important objects you must collect. From CF-5 you go northeast to 
-CF-4 where you meet the security guard who blocks you path to the south.
+CF-4 where you meet the security guard who blocks your path to the south.
 
 CF-4
 ----
@@ -130,12 +131,11 @@ In the breakroom you meet Rich, the salesman who is interested in merch
 and donuts. You can ask Rich about different topics like the company, 
 marketing, and rumors. You cannot get a donut unless you distract Rich, 
 so give Rich the cap. Once he leaves, open the pastry box and take 
-the donut for later.
-Go east to the Gallery.
+the donut for later. Go east to the Gallery.
 
 Gallery
 -------
-The gallery contains a portrait that contains clues to help solve puzzles.
+The gallery features a portrait that contains clues to help solve puzzles.
 Examine the portrait, the founder, the calculator and the bust of 
 Marcus Aurelius. Write down the description of the bust for later. 
 Go northeast to the Chairman's office.
@@ -143,14 +143,14 @@ Go northeast to the Chairman's office.
 Chairman's Office
 -----------------
 In the Chairman's office you meet Max Jr. the somewhat reluctant leader
-of Minimax Inc. Examine Max. You can ask him questions about Minimax and his
+of Minimax Inc. Examine Junior. You can ask him questions about Minimax and his
 father. Take the newspaper and head southwest back to the Gallery and 
 then east to the conference room where your boss awaits you.
 
 Conference Room
 ---------------
 Give the complex report to the boss. This appeases her, and she quickly
-dismisses you and you end up in the Gallery holding a layoff memo.
+dismisses you, and you end up in the Gallery holding a layoff memo.
 When you read the memo you learn the layoff rumors were true. 
 Go west to the breakroom, north to the hallway, and then east to the Helpdesk.
 
@@ -168,8 +168,6 @@ it can be opened by typing something on the calculator keypad. Type the
 combination you learned from the bust in the form 999-999 into the keypad
 (type 999-999 on keypad) to open the panel and reveal the secret research lab.
 Note that if your flashlight runs out of power it will be useless. 
-You can retrieve a more reliable light source from the conference room
-after the executive meeting is over at 12:30pm. 
 
 Research Lab
 ------------
@@ -179,7 +177,8 @@ There you will find a notebook, a screwdriver, and a Tic-Tac-Toe machine.
 Examine the magazine clipping to learn about the Tic-Tac-Toe machine. Take
 the screwdriver. Examine the notebook to reveal what invention you are 
 to complete from the parts before you. You need to salvage a part from the 
-Complexifier so return there by typing "walk to storage room"
+Complexifier so return there by typing "walk to storage room" While in the lab
+you can "Ask Max for help" if you get stuck.
 
 Storage Room (again)
 --------------------
@@ -212,14 +211,12 @@ corner office overlooking a scenic golf course.
 
 ===============================================================================
 
-1. You can open the maintenance compartment on the Complexifier with the impact 
-screwdriver or the laser pointer.
-
-2. There are two ways to die. You can stand on the office chair in the marketing 
-storage room or you can try touching the frayed cable in the damp tunnel. 
+1. There are several ways to die: stand on the office chair in the marketing 
+storage room, extract neuropack from the complexifier while switched on, or
+touch the frayed cable in the damp tunnel. 
 This may have been how Max Prophet Sr. ended his earthly career.
 
-3. Max Prophet Sr. was based on a real person--a finalist in the Westinghouse 
+2. Max Prophet Sr. was based on a real person--a finalist in the Westinghouse 
 Science Talent search of 1950 who built a Tic-Tac-Toe machine as described in 
 the magazine clipping.  Here a museum curator talks 
 about him https://youtu.be/4sDYK4hDwAM?t=601
